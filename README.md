@@ -22,7 +22,7 @@ pod "RAGTextField"
 
 ## Author
 
-raginmari, Twelker@adesso-mobile.de
+raginmari, reimar.twelker@web.de
 
 ## License
 
