@@ -1,0 +1,6 @@
+framework module RAGTextField {
+  umbrella header "RAGTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}
