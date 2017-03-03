@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RAGTextField_Example' do
+  pod 'RAGTextField', :path => '../'
+
+  target 'RAGTextField_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
