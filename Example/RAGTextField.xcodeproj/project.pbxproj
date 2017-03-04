@@ -15,6 +15,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		BFA09EC61E6B70A2001A994B /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA09EC51E6B70A2001A994B /* PillView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		B3D34898E71706E17E1A9690 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B82FD5A4EA5D2C97A0EE3C58 /* Pods-RAGTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDAFF24CEB744F384BD1CA35 /* Pods_RAGTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAGTextField_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFA09EC51E6B70A2001A994B /* PillView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		C40CD81EE62A049C59BA2C8B /* Pods-RAGTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FB0BEFBFFFA6FDCAE8495263 /* Pods-RAGTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,11 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				BFA09EC51E6B70A2001A994B /* PillView.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
 			);
 			name = "Example for RAGTextField";
 			path = RAGTextField;
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BFA09EC61E6B70A2001A994B /* PillView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
