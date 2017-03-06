@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## RAGTextField
 
-Copyright (c) 2017 raginmari <Twelker@adesso-mobile.de>
+Copyright (c) 2017 raginmari <reimar.twelker@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
