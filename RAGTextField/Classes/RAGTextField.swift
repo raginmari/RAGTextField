@@ -324,7 +324,7 @@ public enum RAGTextFieldPlaceholderMode {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
