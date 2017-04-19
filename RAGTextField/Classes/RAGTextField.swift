@@ -546,6 +546,9 @@ public enum RAGTextFieldPlaceholderMode {
     }
     
     private func updatePlaceholderTransform(animated: Bool = false) {
+        // Make sure the layout is up to date
+        layoutIfNeeded()
+        
         guard animatesPlaceholder else {
             let transform = expectedPlaceholderTransform()
             placeholderLabel.layer.transform = transform
