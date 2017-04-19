@@ -82,6 +82,16 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let value = textField.text ?? ""
+        
+        if value.isEmpty {
+            (textField as! RAGTextField).hint = "Empty"
+        } else if value.characters.count < 3 {
+            (textField as! RAGTextField).hint = "Too short"
+        } else {
+            (textField as! RAGTextField).hint = nil
+        }
+        
         textField.resignFirstResponder()
         
         return true
