@@ -67,7 +67,7 @@ open class RAGTextField: UITextField {
     open override var font: UIFont? {
         didSet {
             if hintFont == nil {
-                hintLabel.font = hintFont ?? font
+                hintLabel.font = font
             }
             
             if placeholderFont == nil {
