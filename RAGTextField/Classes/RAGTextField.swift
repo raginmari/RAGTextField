@@ -291,7 +291,7 @@ open class RAGTextField: UITextField {
             view.frame = textBackgroundViewFrame
             
             addSubview(view)
-            sendSubview(toBack: view)
+            sendSubviewToBack(view)
         }
     }
     
@@ -343,7 +343,7 @@ open class RAGTextField: UITextField {
         
         // Listen for text changes on self
         let action = #selector(didChangeText)
-        NotificationCenter.default.addObserver(self, selector: action, name: NSNotification.Name.UITextFieldTextDidChange, object: self)
+        NotificationCenter.default.addObserver(self, selector: action, name: UITextField.textDidChangeNotification, object: self)
     }
     
     @objc private func didChangeText() {
@@ -484,7 +484,7 @@ open class RAGTextField: UITextField {
         let topInset = scaledPlaceholderHeight() + placeholderOffset + verticalTextPadding
         let bottomInset = hintHeight + verticalTextPadding
         let insets = UIEdgeInsets(top: topInset, left: horizontalTextPadding, bottom: bottomInset, right: horizontalTextPadding)
-        let result = UIEdgeInsetsInsetRect(rect, insets)
+        let result = rect.inset(by: insets)
         
         return result
     }
@@ -535,7 +535,7 @@ open class RAGTextField: UITextField {
         let animation = CABasicAnimation(keyPath: "transform")
         let duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
         animation.duration = duration
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         let fromValue = placeholderLabel.layer.presentation()?.transform ?? placeholderLabel.layer.transform
         animation.fromValue = fromValue
         animation.toValue = transform
@@ -662,7 +662,7 @@ open class RAGTextField: UITextField {
         updateHintConstraint(.trailing, to: trailingConstant)
     }
     
-    private func updateHintConstraint(_ attribute: NSLayoutAttribute, to constant: CGFloat) {
+    private func updateHintConstraint(_ attribute: NSLayoutConstraint.Attribute, to constant: CGFloat) {
         updateConstraint(attribute, in: hintConstraints, to: constant)
     }
     
@@ -680,11 +680,11 @@ open class RAGTextField: UITextField {
         updatePlaceholderConstraint(.trailing, to: trailingConstant)
     }
     
-    private func updatePlaceholderConstraint(_ attribute: NSLayoutAttribute, to constant: CGFloat) {
+    private func updatePlaceholderConstraint(_ attribute: NSLayoutConstraint.Attribute, to constant: CGFloat) {
         updateConstraint(attribute, in: placeholderConstraints, to: constant)
     }
     
-    private func updateConstraint(_ attribute: NSLayoutAttribute, in constraints: [NSLayoutConstraint], to constant: CGFloat) {
+    private func updateConstraint(_ attribute: NSLayoutConstraint.Attribute, in constraints: [NSLayoutConstraint], to constant: CGFloat) {
         for constraint in constraints where constraint.firstAttribute == attribute {
             constraint.constant = constant
             break
@@ -731,8 +731,19 @@ private extension String {
     func size(using font: UIFont) -> CGSize {
         let infinite = CGFloat.greatestFiniteMagnitude
         let infiniteSize = CGSize(width: infinite, height: infinite)
-        let boundingRect = self.boundingRect(with: infiniteSize, options: [], attributes: [NSFontAttributeName: font], context: nil)
+        let boundingRect = self.boundingRect(with: infiniteSize, options: [], attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): font]), context: nil)
         
         return boundingRect.size
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
