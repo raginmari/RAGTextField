@@ -600,13 +600,19 @@ public enum RAGTextFieldPlaceholderMode {
         // 2) Translate the layer horizontally
         //
         // Option 1 affects auto layout, so option 2 has been implemented.
-        switch textAlignment {
+        switch placeholderLabel.textAlignment {
         case .left:
-            tx = 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width * -1.0
+            tx = leftAlignedPlaceholderTranslation()
         case .right:
-            tx = 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width
-        default:
+            tx = rightAlignedPlaceholderTranslation()
+        case .center:
             tx = 0
+        case .justified, .natural:
+            if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+                tx = leftAlignedPlaceholderTranslation()
+            } else {
+                tx = rightAlignedPlaceholderTranslation()
+            }
         }
         
         // -(1.0 - 0.5 * (1.0 - placeholderScaleWhenEditing)) * height ...
@@ -619,6 +625,16 @@ public enum RAGTextFieldPlaceholderMode {
         let transform = CATransform3DConcat(scaling, translation)
         
         return transform
+    }
+    
+    private func leftAlignedPlaceholderTranslation() -> CGFloat {
+        
+        return 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width * -1.0
+    }
+    
+    private func rightAlignedPlaceholderTranslation() -> CGFloat {
+        
+        return 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width
     }
     
     /// Returns the transform to apply to the placeholder label in the default
