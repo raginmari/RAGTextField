@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-Written in Swift 3. Requires iOS 9 (deployment target).
+Written in Swift 4. Requires iOS 9 (deployment target). Support of Swift 3 ended with version 0.2.1.
 
 ## Installation
 
