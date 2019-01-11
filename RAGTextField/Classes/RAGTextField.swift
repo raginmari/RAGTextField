@@ -56,7 +56,7 @@ public enum RAGTextFieldPlaceholderMode {
     }
 }
 
-@IBDesignable open class RAGTextField: UITextField {
+open class RAGTextField: UITextField {
     
     /// The font of the text field.
     ///
