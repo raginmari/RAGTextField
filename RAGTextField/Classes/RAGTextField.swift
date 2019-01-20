@@ -738,25 +738,3 @@ open class RAGTextField: UITextField {
         return size
     }
 }
-
-private extension String {
-    
-    func size(using font: UIFont) -> CGSize {
-        let infinite = CGFloat.greatestFiniteMagnitude
-        let infiniteSize = CGSize(width: infinite, height: infinite)
-        let boundingRect = self.boundingRect(with: infiniteSize, options: [], attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): font]), context: nil)
-        
-        return boundingRect.size
-    }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
-}
