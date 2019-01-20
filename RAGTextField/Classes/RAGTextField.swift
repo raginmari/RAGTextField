@@ -389,10 +389,10 @@ open class RAGTextField: UITextField {
     
     /// Sets initial properties and constraints of the hint label.
     private func setupHintLabel() {
+        
         hint = nil
         hintLabel.font = font
         hintLabel.textAlignment = textAlignment
-        hintLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func hintFrame(forBounds bounds: CGRect) -> CGRect {
