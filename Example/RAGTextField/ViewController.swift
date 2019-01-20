@@ -26,8 +26,36 @@ class ViewController: UIViewController {
             textField.verticalTextPadding = Constants.verticalPadding
             textField.placeholderMode = .scalesWhenNotEmpty
             
-            textField.hintFont = UIFont.systemFont(ofSize: 13.0)
+            textField.hintFont = UIFont.systemFont(ofSize: 12.0)
         }
+    }
+    
+    @IBAction private func onTextAlignmentChanged(_ control: UISegmentedControl) {
+        
+        textField.endEditing(true)
+        
+        let alignments: [NSTextAlignment] = [ .left, .center, .right, .justified, .natural ]
+        textField.textAlignment = alignments[control.selectedSegmentIndex]
+    }
+    
+    @IBAction private func onPlaceholderModeChanged(_ control: UISegmentedControl) {
+        
+        textField.endEditing(true)
+        
+        let modes: [RAGTextFieldPlaceholderMode] = [ .simple, .scalesWhenEditing, .scalesWhenNotEmpty ]
+        textField.placeholderMode = modes[control.selectedSegmentIndex]
+    }
+    
+    @IBAction private func onBackgroundContainsClearButtonChanged(_ control: UISwitch) {
+        
+        textField.endEditing(true)
+        textField.textBackgroundViewContainsClearButton = control.isOn
+    }
+    
+    @IBAction private func onHintChanged(_ control: UISwitch) {
+        
+        textField.endEditing(true)
+        textField.hint = control.isOn ? "Hint or error message" : nil
     }
 }
 

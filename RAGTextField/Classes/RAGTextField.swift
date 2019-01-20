@@ -78,34 +78,33 @@ open class RAGTextField: UITextField {
         }
     }
     
-    /// The text alignment of the text field. The given value is applied to
-    /// the hint and the placeholder as well.
+    /// The text alignment of the text field.
+    ///
+    /// The given value is applied to the hint and the placeholder as well.
     open override var textAlignment: NSTextAlignment {
         didSet {
             hintLabel.textAlignment = textAlignment
             placeholderLabel.textAlignment = textAlignment
-            updatePlaceholderTransform()
+            
+            needsUpdateOfPlaceholderTransformAfterLayout = true
+            setNeedsLayout()
         }
     }
     
-    /// The text value of the text field. Updates the position of the
-    /// placeholder.
+    /// The text value of the text field. Updates the position of the placeholder.
     open override var text: String? {
         didSet {
             updatePlaceholderTransform()
         }
     }
     
-    /// A copy of the most recently computed editing rect. Used to avoid
-    /// infinite loops in `clearButtonRect(forBounds:)`.
-    private var cachedTextRect = CGRect.zero
-    
     // MARK: Hint
     
     private let hintLabel = UILabel()
     
-    /// The text value of the hint. If `nil`, the hint label is removed
-    /// from the layout. Otherwise, the hint label is considered in the layout.
+    /// The text value of the hint.
+    ///
+    /// If `nil`, the hint label is removed from the layout.
     @IBInspectable open var hint: String? {
         set {
             if newValue == nil {
@@ -124,45 +123,39 @@ open class RAGTextField: UITextField {
         }
     }
     
-    /// The font used for the hint. If `nil`, the font of the text field is used
-    /// instead.
+    /// The font used for the hint.
+    ///
+    /// If `nil`, the font of the text field is used instead.
     open var hintFont: UIFont? {
         set {
-            if newValue == nil {
-                hintLabel.font = font
-            } else {
-                hintLabel.font = newValue
-            }
+            hintLabel.font = newValue ?? font
         }
         get {
             return hintLabel.font
         }
     }
     
-    /// The text color of the hint. If `nil`, the text color of the text field
-    /// is used instead.
+    /// The text color of the hint.
+    ///
+    /// If `nil`, the text color of the text field is used instead.
     @IBInspectable open var hintColor: UIColor? {
         set {
-            if newValue == nil {
-                hintLabel.textColor = textColor
-            } else {
-                hintLabel.textColor = newValue
-            }
+            hintLabel.textColor = newValue ?? textColor
         }
         get {
             return hintLabel.textColor
         }
     }
     
+    /// The computed height of the hint in points.
     private var hintHeight: CGFloat {
-        if hintLabel.isHidden {
+        
+        guard !hintLabel.isHidden else {
             return 0
         }
         
-        return measureHeight(of: Constants.textSizeMeasurementString, using: hintLabel.font)
+        return measureTextHeight(using: hintLabel.font)
     }
-    
-    private var hintConstraints = [NSLayoutConstraint]()
     
     // MARK: Placeholder
     
@@ -178,30 +171,24 @@ open class RAGTextField: UITextField {
         }
     }
     
-    /// The font used for the placeholder. If `nil`, the font of the text field
-    /// is used instead.
+    /// The font used for the placeholder.
+    ///
+    /// If `nil`, the font of the text field is used instead.
     open var placeholderFont: UIFont? {
         set {
-            if newValue == nil {
-                placeholderLabel.font = font
-            } else {
-                placeholderLabel.font = newValue
-            }
+            placeholderLabel.font = newValue ?? font
         }
         get {
             return placeholderLabel.font
         }
     }
     
-    /// The text color of the placeholder. If `nil`, the text color of the text
-    /// field is used instead.
+    /// The text color of the placeholder.
+    ///
+    /// If `nil`, the text color of the text field is used instead.
     @IBInspectable open var placeholderColor: UIColor? {
         set {
-            if newValue == nil {
-                placeholderLabel.textColor = textColor
-            } else {
-                placeholderLabel.textColor = newValue
-            }
+            placeholderLabel.textColor = newValue ?? textColor
         }
         get {
             return placeholderLabel.textColor
@@ -209,17 +196,13 @@ open class RAGTextField: UITextField {
     }
     
     /// The scale applied to the placeholder when it is moved to the scaled
-    /// position. Must be in `[0,1]`.
+    /// position.
+    ///
+    /// Negative values are clamped to `0`. The default value is `1`.
     @IBInspectable open var placeholderScaleWhenEditing: CGFloat = 1.0 {
         didSet {
-            // Clamp value to [0,1]
-            switch placeholderScaleWhenEditing {
-            case let val where val < 0.0:
+            if placeholderScaleWhenEditing < 0.0 {
                 placeholderScaleWhenEditing = 0.0
-            case let val where val > 1.0:
-                placeholderScaleWhenEditing = 1.0
-            default:
-                break
             }
             
             needsUpdateOfPlaceholderTransformAfterLayout = true
@@ -227,9 +210,9 @@ open class RAGTextField: UITextField {
         }
     }
     
-    /// The offset of the scaled placeholder from the top of the (possibly
-    /// expanded) text rectangle. Can be used to put a little distance between
-    /// the placeholder and the text.
+    /// The vertical offset of the scaled placeholder from the top of the text.
+    ///
+    /// Can be used to put a little distance between the placeholder and the text.
     @IBInspectable open var scaledPlaceholderOffset: CGFloat = 0.0 {
         didSet {
             needsUpdateOfPlaceholderTransformAfterLayout = true
@@ -239,7 +222,9 @@ open class RAGTextField: UITextField {
     
     /// Controls how the placeholder is being displayed, whether it is scaled
     /// and whether the scaled placeholder is taken into consideration when the
-    /// view is layed out. The default is `.scalesWhenNotEmpty`.
+    /// view is layed out.
+    ///
+    /// The default value is `.scalesWhenNotEmpty`.
     open var placeholderMode: RAGTextFieldPlaceholderMode = .scalesWhenNotEmpty {
         didSet {
             needsUpdateOfPlaceholderTransformAfterLayout = true
@@ -247,8 +232,10 @@ open class RAGTextField: UITextField {
         }
     }
     
+    /// The computed height of the untransformed placeholder in points.
     private var placeholderHeight: CGFloat {
-        return measureHeight(of: Constants.textSizeMeasurementString, using: placeholderLabel.font)
+        
+        return measureTextHeight(using: placeholderLabel.font)
     }
     
     private var placeholderConstraints = [NSLayoutConstraint]()
@@ -258,6 +245,9 @@ open class RAGTextField: UITextField {
     /// disable the animation.
     open var placeholderAnimationDuration: CFTimeInterval? = nil
     
+    /// Whether the view is configured to animate the placeholder.
+    ///
+    /// The value is `false` only if the `placeholderAnimationDuration` is explicitly set to `0`.
     private var animatesPlaceholder: Bool {
         let duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
         let result = duration > CFTimeInterval(0)
@@ -266,11 +256,15 @@ open class RAGTextField: UITextField {
     }
     
     /// Whether the placeholder transform should be set after the next
-    /// `layoutSubviews`. Does not trigger `layoutSubviews`.
+    /// `layoutSubviews`.
+    ///
+    /// Does not trigger `layoutSubviews`.
     private var needsUpdateOfPlaceholderTransformAfterLayout = true
     
     /// Keeps track of whether the placeholder is currently in the scaled
-    /// position. Used to prevent unnecessary animations or updates of the
+    /// position.
+    ///
+    /// Used to prevent unnecessary animations or updates of the
     /// transform.
     private var isPlaceholderTransformedToScaledPosition = false
     
@@ -288,22 +282,62 @@ open class RAGTextField: UITextField {
             
             view.isUserInteractionEnabled = false
             view.translatesAutoresizingMaskIntoConstraints = true
-            view.frame = textBackgroundViewFrame
             
             addSubview(view)
             sendSubviewToBack(view)
+            
+            setNeedsLayout()
         }
     }
     
-    /// The frame of the text background view. Equals the value of
-    /// `textRect(forBounds:)` expanded by the horizontal and vertical text
-    /// padding.
-    private var textBackgroundViewFrame: CGRect {
+    /// Whether the text background view contains the clear button or not.
+    ///
+    /// Depending on the kind of text background view, the clear button should be
+    /// displayed inside of or outside of the text background. The default value is `true`.
+    ///
+    /// - Note
+    /// If the `textBackgroundView` is `nil`, this property has no effect.
+    open var textBackgroundViewContainsClearButton = true {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    /// Represents a horizontal position. Either left or right.
+    private enum HorizontalPosition {
+        case left, right
+    }
+    
+    /// Whether the clear button is displayed to the left or to the right of the text.
+    private var clearButtonPosition: HorizontalPosition {
+        
+        if textAlignment == .natural && UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+            return .left
+        } else {
+            return .right
+        }
+    }
+    
+    /// Computes the frame of the text background view.
+    ///
+    /// If `textBackgroundViewContainsClearButton` is `true`, the clear button will be included in the frame.
+    ///
+    /// - Returns: The frame
+    private func computeTextBackgroundViewFrame() -> CGRect {
+        
         let insetX = -horizontalTextPadding
         let insetY = -verticalTextPadding
-        let result = textRect(forBounds: bounds).insetBy(dx: insetX, dy: insetY)
+        let textRect = textAndEditingRect(forBounds: bounds)
+        let frame: CGRect
         
-        return result
+        if textBackgroundViewContainsClearButton {
+            let clearButtonRect = self.clearButtonRect(forBounds: bounds)
+            frame = textRect.union(clearButtonRect).insetBy(dx: insetX, dy: insetY)
+        } else {
+            frame = textRect.insetBy(dx: insetX, dy: insetY)
+        }
+        
+        return frame
     }
     
     /// The padding applied to the left and right of the text rectangle. Can be
@@ -363,10 +397,12 @@ open class RAGTextField: UITextField {
     /// Measures the height of the given text using the given font.
     ///
     /// - Parameters:
-    ///   - text: the text whose height is measured
-    ///   - font: the font to use
-    /// - Returns: the height of the given string
-    private func measureHeight(of text: String, using font: UIFont) -> CGFloat {
+    ///   - font: The font to use
+    ///   - text: The text whose height is measured
+    /// - Returns: The height of the given string
+    private func measureTextHeight(text: String = Constants.textSizeMeasurementString, using font: UIFont? = nil) -> CGFloat {
+        
+        let font = font ?? self.font!
         let boundingSize = text.size(using: font)
         let result = ceil(boundingSize.height)
         
@@ -381,15 +417,17 @@ open class RAGTextField: UITextField {
         hintLabel.font = font
         hintLabel.textAlignment = textAlignment
         hintLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func hintFrame(forBounds bounds: CGRect) -> CGRect {
         
-        addConstraint(hintLabel.bottomAnchor.constraint(equalTo: bottomAnchor))
+        let w = bounds.width - 2 * horizontalTextPadding
+        let h = measureTextHeight(using: hintLabel.font)
+        let x = horizontalTextPadding
+        let y = bounds.height - h
+        let frame = CGRect(x: x, y: y, width: w, height: h)
         
-        hintConstraints = [
-            hintLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            hintLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ]
-        
-        addConstraints(hintConstraints)
+        return frame
     }
     
     // MARK: - Placeholder
@@ -403,7 +441,6 @@ open class RAGTextField: UITextField {
         
         placeholderConstraints = [
             placeholderLabel.topAnchor.constraint(equalTo: topAnchor),
-            placeholderLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             placeholderLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             placeholderLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
@@ -455,48 +492,77 @@ open class RAGTextField: UITextField {
     
     // MARK: - UITextField
     
-    /// Computes the rectangle of the displayed text. Fetches the super value
-    /// and applies the text padding and the hint height.
-    ///
-    /// - Parameter bounds: the bounds based on which the text rect should be computed
-    /// - Returns: the text rect
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let result = insettingRect(super.textRect(forBounds: bounds))
         
-        return result
+        return textAndEditingRect(forBounds: bounds)
     }
     
-    /// Computes the rectangle of the edited text. Fetches the super value and
-    /// applies the text padding and the hint height.
-    ///
-    /// - Parameter bounds: the bounds based on which the text rect should be computed
-    /// - Returns: the text rect
     open override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let result = insettingRect(super.editingRect(forBounds: bounds))
         
-        cachedTextRect = result
-        
-        return result
+        return textAndEditingRect(forBounds: bounds)
     }
     
-    private func insettingRect(_ rect: CGRect) -> CGRect {
-        let placeholderOffset = placeholderMode.scalesPlaceholder ? scaledPlaceholderOffset : 0.0
-        let topInset = scaledPlaceholderHeight() + placeholderOffset + verticalTextPadding
-        let bottomInset = hintHeight + verticalTextPadding
-        let insets = UIEdgeInsets(top: topInset, left: horizontalTextPadding, bottom: bottomInset, right: horizontalTextPadding)
-        let result = rect.inset(by: insets)
+    private func textAndEditingRect(forBounds bounds: CGRect) -> CGRect {
         
-        return result
+        let topInset = computeTopInsetToText()
+        let leftInset = computeLeftInsetToText()
+        let bottomInset = computeBottomInsetToText()
+        let rightInset = computeRightInsetToText()
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        let rect = bounds.inset(by: insets)
+        
+        return rect
+    }
+    
+    private func computeTopInsetToText() -> CGFloat {
+        
+        let placeholderOffset = placeholderMode.scalesPlaceholder ? scaledPlaceholderOffset : 0.0
+        let inset = ceil(scaledPlaceholderHeight() + placeholderOffset + verticalTextPadding)
+        
+        return inset
+    }
+    
+    private func computeLeftInsetToText() -> CGFloat {
+        
+        if clearButtonPosition == .left {
+            return horizontalTextPadding + clearButtonRect(forBounds: bounds).maxX
+        } else {
+            return horizontalTextPadding
+        }
+    }
+    
+    private func computeBottomInsetToText() -> CGFloat {
+        
+        let inset = ceil(hintHeight + verticalTextPadding)
+        
+        return inset
+    }
+    
+    private func computeRightInsetToText() -> CGFloat {
+        
+        if clearButtonPosition == .left {
+            return horizontalTextPadding
+        } else {
+            return horizontalTextPadding + bounds.width - clearButtonRect(forBounds: bounds).minX
+        }
     }
     
     open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
-        var superRect = super.clearButtonRect(forBounds: bounds)
         
-        // Center the clear button vertically with respect to the text
-        let offsetY = cachedTextRect.midY - superRect.midY
-        superRect.origin.y += offsetY
+        let superValue = super.clearButtonRect(forBounds: bounds)
+        let size = superValue.size
+        let y = computeTopInsetToText() + 0.5 * (measureTextHeight() - size.height)
         
-        return superRect
+        let x: CGFloat
+        if clearButtonPosition == .left {
+            x = horizontalTextPadding
+        } else {
+            x = bounds.width - size.width - horizontalTextPadding
+        }
+        
+        let clearButtonRect = CGRect(x: x, y: y, width: size.width, height: size.height)
+        
+        return clearButtonRect
     }
     
     // MARK: - UIResponder
@@ -615,9 +681,8 @@ open class RAGTextField: UITextField {
             }
         }
         
-        // -(1.0 - 0.5 * (1.0 - placeholderScaleWhenEditing)) * height ...
-        let ty = -(0.5 + 0.5 * placeholderScaleWhenEditing) * textRect(forBounds: bounds).height - verticalTextPadding - scaledPlaceholderOffset
-        let translation = CATransform3DMakeTranslation(tx, ty, 0)
+        let ty = -(0.5 + 0.5 * placeholderScaleWhenEditing) * measureTextHeight() - verticalTextPadding - scaledPlaceholderOffset
+        let translation = CATransform3DMakeTranslation(ceil(tx), ceil(ty), 0)
         
         let scale = placeholderScaleWhenEditing
         let scaling = CATransform3DMakeScale(scale, scale, 1)
@@ -637,10 +702,6 @@ open class RAGTextField: UITextField {
         return 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width
     }
     
-    /// Returns the transform to apply to the placeholder label in the default
-    /// position.
-    ///
-    /// - Returns: the transform
     private func placeholderTransformForBasePosition() -> CATransform3D {
         return CATransform3DIdentity
     }
@@ -648,30 +709,15 @@ open class RAGTextField: UITextField {
     // MARK: - UIView
     
     open override func updateConstraints() {
-        super.updateConstraints()
         
-        updateHintConstraints()
         updatePlaceholderConstraints()
-    }
-    
-    private func updateHintConstraints() {
-        let leadingConstant = horizontalTextPadding
-        updateHintConstraint(.leading, to: leadingConstant)
         
-        let trailingConstant = -leadingConstant
-        updateHintConstraint(.trailing, to: trailingConstant)
-    }
-    
-    private func updateHintConstraint(_ attribute: NSLayoutConstraint.Attribute, to constant: CGFloat) {
-        updateConstraint(attribute, in: hintConstraints, to: constant)
+        super.updateConstraints()
     }
     
     private func updatePlaceholderConstraints() {
-        let topConstant = topInsetToText()
+        let topConstant = computeTopInsetToText()
         updatePlaceholderConstraint(.top, to: topConstant)
-        
-        let bottomConstant = -bottomInsetToText()
-        updatePlaceholderConstraint(.bottom, to: bottomConstant)
         
         let leadingConstant = horizontalTextPadding
         updatePlaceholderConstraint(.leading, to: leadingConstant)
@@ -700,29 +746,20 @@ open class RAGTextField: UITextField {
         }
         
         // Update the frame of the optional text background view
-        textBackgroundView?.frame = textBackgroundViewFrame
+        textBackgroundView?.frame = computeTextBackgroundViewFrame()
+        
+        // Update the frame of the hint
+        if !hintLabel.isHidden {
+            hintLabel.frame = hintFrame(forBounds: bounds)
+        }
     }
     
-    // MARK: - Text insets
-    
-    /// Computes the distance from the top of the view to the top of the text
-    /// rectangle.
-    ///
-    /// - Returns: the computed inset
-    private func topInsetToText() -> CGFloat {
-        let result = textRect(forBounds: bounds).minY
+    open override var intrinsicContentSize: CGSize {
         
-        return result
-    }
-    
-    /// Computes the distance from the bottom of the view to the bottom of the
-    /// text rectangle.
-    ///
-    /// - Returns: the computed inset
-    private func bottomInsetToText() -> CGFloat {
-        let result = bounds.height - textRect(forBounds: bounds).maxY
+        let intrinsicHeight = computeTopInsetToText() + measureTextHeight() + computeBottomInsetToText()
+        let size = CGSize(width: UIView.noIntrinsicMetric, height: ceil(intrinsicHeight))
         
-        return result
+        return size
     }
 }
 
