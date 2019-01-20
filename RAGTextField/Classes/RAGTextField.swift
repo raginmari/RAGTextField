@@ -32,31 +32,12 @@ private enum Constants {
     static let defaultPlaceholderAnimationDuration = CFTimeInterval(0.2)
 }
 
-/// The different modes of the placeholder
-public enum RAGTextFieldPlaceholderMode {
-    
-    /// The default behavior of `UITextField`
-    case simple
-    
-    /// The placeholder scales when it is not empty and when the text field is being edited
-    case scalesWhenEditing
-    
-    /// The placeholder scales when it is not empty
-    case scalesWhenNotEmpty
-    
-    var scalesPlaceholder: Bool {
-        switch self {
-        case .scalesWhenEditing:
-            return true
-        case .scalesWhenNotEmpty:
-            return true
-        case .simple:
-            return false
-        }
-    }
-}
-
 open class RAGTextField: UITextField {
+    
+    /// Represents a horizontal position. Either left or right.
+    private enum HorizontalPosition {
+        case left, right
+    }
     
     /// The font of the text field.
     ///
@@ -301,11 +282,6 @@ open class RAGTextField: UITextField {
         didSet {
             setNeedsLayout()
         }
-    }
-    
-    /// Represents a horizontal position. Either left or right.
-    private enum HorizontalPosition {
-        case left, right
     }
     
     /// Whether the clear button is displayed to the left or to the right of the text.
