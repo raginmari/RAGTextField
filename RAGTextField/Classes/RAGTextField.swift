@@ -760,14 +760,20 @@ open class RAGTextField: UITextField {
     
     private func leftAlignedPlaceholderTranslation() -> CGFloat {
         
-        let inset = -computeLeftInsetToText() + horizontalTextPadding
-        return 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width * -1.0 + inset
+        let x0 = computeLeftInsetToText() + 0.5 * placeholderLabel.bounds.width
+        let x1 = horizontalTextPadding + 0.5 * placeholderScaleWhenEditing * placeholderLabel.bounds.width
+        let delta = x1 - x0
+        
+        return delta
     }
     
     private func rightAlignedPlaceholderTranslation() -> CGFloat {
         
-        let inset = computeRightInsetToText() - horizontalTextPadding
-        return 0.5 * (1.0 - placeholderScaleWhenEditing) * placeholderLabel.bounds.width + inset
+        let x0 = bounds.width - computeRightInsetToText() - 0.5 * placeholderLabel.bounds.width
+        let x1 = bounds.width - horizontalTextPadding - 0.5 * placeholderScaleWhenEditing * placeholderLabel.bounds.width
+        let delta = x1 - x0
+        
+        return delta
     }
     
     private func placeholderTransformForBasePosition() -> CATransform3D {
