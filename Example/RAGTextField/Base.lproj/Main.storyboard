@@ -28,7 +28,7 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="horizontalTextPadding">
-                                        <real key="value" value="12"/>
+                                        <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="verticalTextPadding">
                                         <real key="value" value="4"/>
@@ -84,56 +84,51 @@
                                     <action selector="onPlaceholderModeChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="bE1-Ud-9dV"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background contains clear button" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMk-GA-PIE">
-                                <rect key="frame" x="32" y="442" width="231" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukb-Z2-BPi">
-                                <rect key="frame" x="294" y="435.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="onBackgroundContainsClearButtonChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="uz6-ia-fWc"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UI-Xp-pu7">
-                                <rect key="frame" x="32" y="489" width="28.5" height="18"/>
+                                <rect key="frame" x="32" y="442" width="28.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Wx-2i-z9P">
-                                <rect key="frame" x="294" y="482.5" width="51" height="31"/>
+                                <rect key="frame" x="294" y="435.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="onHintChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="UoT-QT-yk7"/>
                                 </connections>
                             </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Regular UITextField" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JzY-Jd-uv5">
+                                <rect key="frame" x="32" y="124" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="wZ7-dB-tGD"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="013-5Y-t33" firstAttribute="top" secondItem="JzY-Jd-uv5" secondAttribute="bottom" constant="40.5" id="09k-QN-Gnf"/>
+                            <constraint firstItem="9Wx-2i-z9P" firstAttribute="top" secondItem="IN8-4l-lKh" secondAttribute="bottom" constant="24" id="17k-jx-mxB"/>
                             <constraint firstItem="9Wx-2i-z9P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3UI-Xp-pu7" secondAttribute="trailing" constant="4" id="1vX-Bc-c0h"/>
                             <constraint firstItem="IN8-4l-lKh" firstAttribute="leading" secondItem="013-5Y-t33" secondAttribute="leading" id="1yH-Kd-QJi"/>
-                            <constraint firstItem="9Wx-2i-z9P" firstAttribute="top" secondItem="ukb-Z2-BPi" secondAttribute="bottom" constant="16" id="3FX-AV-gT9"/>
                             <constraint firstItem="xqJ-mY-31R" firstAttribute="trailing" secondItem="013-5Y-t33" secondAttribute="trailing" constant="32" id="8sm-6M-afi"/>
-                            <constraint firstItem="ukb-Z2-BPi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hMk-GA-PIE" secondAttribute="trailing" constant="4" id="Bo3-8c-bZA"/>
                             <constraint firstItem="IN8-4l-lKh" firstAttribute="top" secondItem="oSU-E4-Vvk" secondAttribute="bottom" constant="8" id="CXv-sc-6mj"/>
-                            <constraint firstItem="hMk-GA-PIE" firstAttribute="centerY" secondItem="ukb-Z2-BPi" secondAttribute="centerY" id="Det-7C-SFp"/>
                             <constraint firstItem="ed3-7t-bGK" firstAttribute="leading" secondItem="013-5Y-t33" secondAttribute="leading" id="Ei3-1i-ZqR"/>
                             <constraint firstItem="oSU-E4-Vvk" firstAttribute="leading" secondItem="P2U-yA-upS" secondAttribute="leading" id="HgK-sc-APZ"/>
                             <constraint firstItem="P2U-yA-upS" firstAttribute="trailing" secondItem="013-5Y-t33" secondAttribute="trailing" id="IZt-Rr-AaV"/>
                             <constraint firstItem="IN8-4l-lKh" firstAttribute="trailing" secondItem="013-5Y-t33" secondAttribute="trailing" id="Irh-jm-NfE"/>
                             <constraint firstItem="oSU-E4-Vvk" firstAttribute="top" secondItem="P2U-yA-upS" secondAttribute="bottom" constant="24" id="KBQ-vl-UWw"/>
-                            <constraint firstItem="9Wx-2i-z9P" firstAttribute="trailing" secondItem="ukb-Z2-BPi" secondAttribute="trailing" id="OKN-Hn-3TM"/>
-                            <constraint firstItem="3UI-Xp-pu7" firstAttribute="leading" secondItem="hMk-GA-PIE" secondAttribute="leading" id="Pr0-Ar-LGk"/>
                             <constraint firstItem="013-5Y-t33" firstAttribute="bottom" secondItem="xqJ-mY-31R" secondAttribute="centerY" constant="-128" id="R7G-2x-L2e"/>
+                            <constraint firstItem="JzY-Jd-uv5" firstAttribute="leading" secondItem="013-5Y-t33" secondAttribute="leading" id="ROp-n0-10H"/>
                             <constraint firstItem="xqJ-mY-31R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ed3-7t-bGK" secondAttribute="trailing" constant="24" id="S9G-pt-FQn"/>
-                            <constraint firstItem="hMk-GA-PIE" firstAttribute="leading" secondItem="IN8-4l-lKh" secondAttribute="leading" id="czM-EM-9xZ"/>
+                            <constraint firstItem="JzY-Jd-uv5" firstAttribute="trailing" secondItem="013-5Y-t33" secondAttribute="trailing" id="Z4O-S6-6de"/>
                             <constraint firstItem="P2U-yA-upS" firstAttribute="top" secondItem="ed3-7t-bGK" secondAttribute="bottom" constant="8" id="d3M-jJ-1tT"/>
                             <constraint firstItem="013-5Y-t33" firstAttribute="leading" secondItem="xqJ-mY-31R" secondAttribute="leading" constant="32" id="dnt-tJ-4Uh"/>
-                            <constraint firstItem="ukb-Z2-BPi" firstAttribute="trailing" secondItem="IN8-4l-lKh" secondAttribute="trailing" id="h6c-DG-dKc"/>
+                            <constraint firstItem="3UI-Xp-pu7" firstAttribute="leading" secondItem="IN8-4l-lKh" secondAttribute="leading" id="ehr-bV-MBr"/>
+                            <constraint firstItem="9Wx-2i-z9P" firstAttribute="trailing" secondItem="IN8-4l-lKh" secondAttribute="trailing" id="nxj-GM-3j7"/>
                             <constraint firstItem="3UI-Xp-pu7" firstAttribute="centerY" secondItem="9Wx-2i-z9P" secondAttribute="centerY" id="vRN-Bc-xJP"/>
                             <constraint firstItem="xqJ-mY-31R" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oSU-E4-Vvk" secondAttribute="trailing" constant="24" id="vpi-fM-ZFJ"/>
-                            <constraint firstItem="ukb-Z2-BPi" firstAttribute="top" secondItem="IN8-4l-lKh" secondAttribute="bottom" constant="24" id="yku-fb-9ri"/>
                             <constraint firstItem="ed3-7t-bGK" firstAttribute="top" secondItem="013-5Y-t33" secondAttribute="bottom" constant="64" id="zAL-qw-PBQ"/>
                             <constraint firstItem="P2U-yA-upS" firstAttribute="leading" secondItem="013-5Y-t33" secondAttribute="leading" id="zhS-z6-myO"/>
                         </constraints>
@@ -141,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="013-5Y-t33" id="QoS-fe-ZkS"/>
+                        <outlet property="uitextField" destination="JzY-Jd-uv5" id="3Rf-pG-N4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
