@@ -222,8 +222,6 @@ open class RAGTextField: UITextField {
         return measureTextHeight(using: placeholderLabel.font)
     }
     
-    private var placeholderConstraints = [NSLayoutConstraint]()
-    
     /// The duration of the animation transforming the placeholder to and from
     /// the scaled position. If `nil`, a default duration is used. Set to 0 to
     /// disable the animation.
@@ -445,18 +443,10 @@ open class RAGTextField: UITextField {
     
     /// Sets initial properties and constraints of the placeholder label.
     private func setupPlaceholderLabel() {
+        
         placeholderLabel.text = ""
         placeholderLabel.font = font
         placeholderLabel.textAlignment = textAlignment
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        placeholderConstraints = [
-            placeholderLabel.topAnchor.constraint(equalTo: topAnchor),
-            placeholderLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            placeholderLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ]
-        
-        addConstraints(placeholderConstraints)
     }
     
     /// Returns whether the placeholder should be displayed in the scaled
@@ -652,18 +642,87 @@ open class RAGTextField: UITextField {
     
     // MARK: - Animations
     
+    private func basePlaceholderFrame() -> CGRect {
+        
+        let x = computeLeftInsetToText()
+        let placeholderHeight = measureTextHeight(using: placeholderLabel.font)
+        let y = computeTopInsetToText() + 0.5 * (measureTextHeight() - placeholderHeight)
+        let w = bounds.width - computeRightInsetToText() - x
+        let h = placeholderHeight
+        let frame = CGRect(x: x, y: y, width: w, height: h)
+        
+        return frame
+    }
+    
+    private func scaledPlaceholderFrame() -> CGRect {
+        
+        let placeholderHeight = scaledPlaceholderHeight()
+        let y = computeTopInsetToText() - verticalTextPadding - scaledPlaceholderOffset - placeholderHeight
+        let w = placeholderScaleWhenEditing * (bounds.width - computeRightInsetToText() - computeLeftInsetToText())
+        let h = placeholderHeight
+        let x: CGFloat
+        
+        switch placeholderLabel.textAlignment {
+        case .left:
+            x = horizontalTextPadding
+        case .right:
+            x = bounds.width - horizontalTextPadding - w
+        case .center:
+            x = 0.5 * (bounds.width - w)
+        case .justified, .natural:
+            if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+                x = horizontalTextPadding
+            } else {
+                x = bounds.width - horizontalTextPadding - w
+            }
+        }
+        
+        let frame = CGRect(x: x, y: y, width: w, height: h)
+
+        return frame
+    }
+    
+    private func expectedPlaceholderFrame() -> CGRect {
+        
+        if shouldDisplayScaledPlaceholder() {
+            return scaledPlaceholderFrame()
+        } else {
+            return basePlaceholderFrame()
+        }
+    }
+    
     private func animatePlaceholderToScaledPosition() {
-        let transform = placeholderTransformForScaledPosition()
-        animatePlaceholderTransform(to: transform)
+        
+        placeholderLabel.layer.removeAllAnimations()
+        
+        let scale = placeholderScaleWhenEditing
+        let transform = CATransform3DMakeScale(scale, scale, 1.0)
+        let transformAnimation = makeTransformAnimation(transform: transform)
+        placeholderLabel.layer.add(transformAnimation, forKey: "transform")
+        placeholderLabel.layer.transform = transform
+        
+        let position = scaledPlaceholderFrame().center
+        let positionAnimation = makePositionAnimation(position: position)
+        placeholderLabel.layer.add(positionAnimation, forKey: "position")
+        placeholderLabel.layer.position = position
     }
     
     private func animatePlaceholderToBasePosition() {
-        let transform = placeholderTransformForBasePosition()
-        animatePlaceholderTransform(to: transform)
+        
+        placeholderLabel.layer.removeAllAnimations()
+        
+        let transform = CATransform3DIdentity
+        let transformAnimation = makeTransformAnimation(transform: transform)
+        placeholderLabel.layer.add(transformAnimation, forKey: "transform")
+        placeholderLabel.layer.transform = transform
+
+        let position = basePlaceholderFrame().center
+        let positionAnimation = makePositionAnimation(position: position)
+        placeholderLabel.layer.add(positionAnimation, forKey: "position")
+        placeholderLabel.layer.position = position
     }
     
-    private func animatePlaceholderTransform(to transform: CATransform3D) {
-        placeholderLabel.layer.removeAllAnimations()
+    private func makeTransformAnimation(transform: CATransform3D) -> CAAnimation {
         
         let animation = CABasicAnimation(keyPath: "transform")
         animation.duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
@@ -671,19 +730,30 @@ open class RAGTextField: UITextField {
         let fromValue = placeholderLabel.layer.presentation()?.transform ?? placeholderLabel.layer.transform
         animation.fromValue = fromValue
         animation.toValue = transform
-        placeholderLabel.layer.add(animation, forKey: "scale")
         
-        // Update the transform of the model layer
-        placeholderLabel.layer.transform = transform
+        return animation
+    }
+    
+    private func makePositionAnimation(position: CGPoint) -> CAAnimation {
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        let fromValue = placeholderLabel.layer.presentation()?.position ?? placeholderLabel.layer.position
+        animation.fromValue = fromValue
+        animation.toValue = position
+        
+        return animation
     }
     
     private func updatePlaceholderTransform(animated: Bool = false) {
+        
         // Make sure the layout is up to date
         layoutIfNeeded()
         
         guard animatesPlaceholder else {
-            let transform = expectedPlaceholderTransform()
-            placeholderLabel.layer.transform = transform
+            placeholderLabel.layer.transform = expectedPlaceholderTransform()
+            placeholderLabel.frame = expectedPlaceholderFrame()
             
             return
         }
@@ -696,10 +766,10 @@ open class RAGTextField: UITextField {
             animatePlaceholderToBasePosition()
             isPlaceholderTransformedToScaledPosition = false
         default:
-            let transform = expectedPlaceholderTransform()
-            placeholderLabel.layer.transform = transform
+            placeholderLabel.layer.transform = expectedPlaceholderTransform()
+            placeholderLabel.frame = expectedPlaceholderFrame()
         }
-        
+
         // Update the general visibility of the placeholder
         placeholderLabel.isHidden = !shouldDisplayPlaceholder()
     }
@@ -708,108 +778,16 @@ open class RAGTextField: UITextField {
     ///
     /// - Returns: the transform
     private func expectedPlaceholderTransform() -> CATransform3D {
-        let transform: CATransform3D
         
         if shouldDisplayScaledPlaceholder() {
-            transform = placeholderTransformForScaledPosition()
-        } else {
-            transform = placeholderTransformForBasePosition()
+            let scale = placeholderScaleWhenEditing
+            return CATransform3DMakeScale(scale, scale, 1.0)
         }
         
-        return transform
-    }
-    
-    /// Returns the transform to apply to the placeholder label in the scaled
-    /// position.
-    ///
-    /// - Returns: the transform
-    private func placeholderTransformForScaledPosition() -> CATransform3D {
-        let tx: CGFloat
-        
-        // Two options to account for text alignment:
-        //
-        // 1) Change the anchor point of the layer
-        // 2) Translate the layer horizontally
-        //
-        // Option 1 affects auto layout, so option 2 has been implemented.
-        switch placeholderLabel.textAlignment {
-        case .left:
-            tx = leftAlignedPlaceholderTranslation()
-        case .right:
-            tx = rightAlignedPlaceholderTranslation()
-        case .center:
-            tx = 0
-        case .justified, .natural:
-            if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
-                tx = leftAlignedPlaceholderTranslation()
-            } else {
-                tx = rightAlignedPlaceholderTranslation()
-            }
-        }
-        
-        let ty = -(0.5 + 0.5 * placeholderScaleWhenEditing) * measureTextHeight() - verticalTextPadding - scaledPlaceholderOffset
-        let translation = CATransform3DMakeTranslation(ceil(tx), ceil(ty), 0)
-        
-        let scale = placeholderScaleWhenEditing
-        let scaling = CATransform3DMakeScale(scale, scale, 1)
-        
-        let transform = CATransform3DConcat(scaling, translation)
-        
-        return transform
-    }
-    
-    private func leftAlignedPlaceholderTranslation() -> CGFloat {
-        
-        let x0 = computeLeftInsetToText() + 0.5 * placeholderLabel.bounds.width
-        let x1 = horizontalTextPadding + 0.5 * placeholderScaleWhenEditing * placeholderLabel.bounds.width
-        let delta = x1 - x0
-        
-        return delta
-    }
-    
-    private func rightAlignedPlaceholderTranslation() -> CGFloat {
-        
-        let x0 = bounds.width - computeRightInsetToText() - 0.5 * placeholderLabel.bounds.width
-        let x1 = bounds.width - horizontalTextPadding - 0.5 * placeholderScaleWhenEditing * placeholderLabel.bounds.width
-        let delta = x1 - x0
-        
-        return delta
-    }
-    
-    private func placeholderTransformForBasePosition() -> CATransform3D {
         return CATransform3DIdentity
     }
     
     // MARK: - UIView
-    
-    open override func updateConstraints() {
-        
-        updatePlaceholderConstraints()
-        
-        super.updateConstraints()
-    }
-    
-    private func updatePlaceholderConstraints() {
-        let topConstant = computeTopInsetToText()
-        updatePlaceholderConstraint(.top, to: topConstant)
-        
-        let leadingConstant = computeLeadingInsetToText()
-        updatePlaceholderConstraint(.leading, to: leadingConstant)
-        
-        let trailingConstant = -computeTrailingInsetToText()
-        updatePlaceholderConstraint(.trailing, to: trailingConstant)
-    }
-    
-    private func updatePlaceholderConstraint(_ attribute: NSLayoutConstraint.Attribute, to constant: CGFloat) {
-        updateConstraint(attribute, in: placeholderConstraints, to: constant)
-    }
-    
-    private func updateConstraint(_ attribute: NSLayoutConstraint.Attribute, in constraints: [NSLayoutConstraint], to constant: CGFloat) {
-        for constraint in constraints where constraint.firstAttribute == attribute {
-            constraint.constant = constant
-            break
-        }
-    }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
