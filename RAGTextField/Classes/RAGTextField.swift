@@ -362,6 +362,9 @@ open class RAGTextField: UITextField {
     
     private func isClearButtonVisible() -> Bool {
         
+        let isTextEmpty = (text ?? "").isEmpty
+        guard !isTextEmpty else { return false }
+        
         return isOverlayVisible(with: clearButtonMode)
     }
     
