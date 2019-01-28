@@ -16,6 +16,7 @@
 		BCACDDA056E1121ADC9BBA5985D43669 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		BF1B405A21F4A0FD004AF20A /* RAGTextFieldPlaceholderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1B405821F4A0F5004AF20A /* RAGTextFieldPlaceholderMode.swift */; };
 		BF1B405D21F50B61004AF20A /* String+RAGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1B405B21F50B32004AF20A /* String+RAGTextField.swift */; };
+		BF49313921FF99D600F8CEAA /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49313821FF99D500F8CEAA /* PlaceholderView.swift */; };
 		D0DCEE01360C8A2B2D1D4320F52026CB /* Pods-RAGTextField_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3631C805A5847EBBB7997A37DBDC43F7 /* Pods-RAGTextField_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA4F1BF5B8620EC55A782BAEF0D4BE98 /* Pods-RAGTextField_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97938F0E665C8F551DFB0C3CB3E0B20F /* Pods-RAGTextField_Tests-dummy.m */; };
 		F1C8BC705D4AD2427274352BA3DA5411 /* RAGTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 572919006CE86EA28EDFB23712D11FFB /* RAGTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,6 +60,7 @@
 		B80EB10441536DDDEC7DA126C7AD205B /* Pods-RAGTextField_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RAGTextField_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BF1B405821F4A0F5004AF20A /* RAGTextFieldPlaceholderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAGTextFieldPlaceholderMode.swift; sourceTree = "<group>"; };
 		BF1B405B21F50B32004AF20A /* String+RAGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RAGTextField.swift"; sourceTree = "<group>"; };
+		BF49313821FF99D500F8CEAA /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		C5C253C4AC0E3D3F00FC7DD60D1429EA /* Pods-RAGTextField_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RAGTextField_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C7021EE0239D4B7289C45FC66C2DE43F /* Pods_RAGTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAGTextField_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE90C01FE7D9A17EBC3ECD8A1A4689B /* Pods-RAGTextField_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RAGTextField_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4AEC1621FD2423000A8C91 /* Extensions */,
+				BF49313821FF99D500F8CEAA /* PlaceholderView.swift */,
 				71FBBC7F6307EC3E684F0BAC3B8FAF6D /* RAGTextField.swift */,
 				BF1B405821F4A0F5004AF20A /* RAGTextFieldPlaceholderMode.swift */,
 			);
@@ -370,6 +373,7 @@
 				6C3A2D03675AD20A8095FE89E249AC2F /* RAGTextField-dummy.m in Sources */,
 				BF1B405D21F50B61004AF20A /* String+RAGTextField.swift in Sources */,
 				042CA789654DCCC51252B81E04A7A05B /* RAGTextField.swift in Sources */,
+				BF49313921FF99D600F8CEAA /* PlaceholderView.swift in Sources */,
 				BF1B405A21F4A0FD004AF20A /* RAGTextFieldPlaceholderMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
