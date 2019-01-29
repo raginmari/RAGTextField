@@ -23,12 +23,36 @@
 import UIKit
 
 /// Used to animate and transform a placeholder label using Core Animation in a view hierarchy that otherwise uses Auto Layout.
-final class LabelContainerView: UIView {
+final class PlaceholderView: UIView {
+    
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        
+        isUserInteractionEnabled = false
+    }
     
     /// The embedded label.
     ///
     /// Its layout does not use Auto Layout so that Core Animation can be used to transform the label.
-    private(set) var label = UILabel()
+    private(set) lazy var label: UILabel = {
+        
+        let label = UILabel()
+        label.contentMode = .scaleToFill
+        addSubview(label)
+        
+        return label
+    }()
     
     /// Updates the text alignment property of the label.
     ///
@@ -87,15 +111,6 @@ final class LabelContainerView: UIView {
     override var intrinsicContentSize: CGSize {
         
         return label.intrinsicContentSize
-    }
-    
-    override func awakeFromNib() {
-        
-        super.awakeFromNib()
-        
-        addSubview(label)
-        label.frame = bounds
-        label.contentMode = .scaleToFill
     }
     
     override func layoutSubviews() {

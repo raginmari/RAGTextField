@@ -170,7 +170,12 @@ open class RAGTextField: UITextField {
     
     // MARK: Placeholder
     
-    private let placeholderLabel = UILabel()
+    private let placeholderView = PlaceholderView()
+    
+    private var placeholderLabel: UILabel {
+        return placeholderView.label
+    }
+    
     private let placeholderConstraints = PlaceholderConstraints()
     
     /// The text value of the placeholder.
@@ -413,8 +418,8 @@ open class RAGTextField: UITextField {
         addSubview(hintLabel)
         setupHintLabel()
         
-        addSubview(placeholderLabel)
-        setupPlaceholderLabel()
+        addSubview(placeholderView)
+        setupPlaceholderView()
         
         // Listen for text changes on self
         let action = #selector(didChangeText)
@@ -473,13 +478,13 @@ open class RAGTextField: UITextField {
     
     // MARK: - Placeholder
     
-    /// Sets initial properties and constraints of the placeholder label.
-    private func setupPlaceholderLabel() {
+    private func setupPlaceholderView() {
         
         placeholderLabel.text = ""
         placeholderLabel.font = font
-        placeholderLabel.textAlignment = textAlignment
-        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        placeholderView.translatesAutoresizingMaskIntoConstraints = false
+        placeholderView.textAlignment = .natural
     }
     
     /// Returns whether the placeholder should be displayed in the scaled
@@ -691,9 +696,7 @@ open class RAGTextField: UITextField {
 //            animatePlaceholderScale(to: 1.0)
             needsAnimating = animated
         default:
-            isPlaceholderTransformedToScaledPosition = false
-            updatePlaceholderConstraints(scaled: false)
-            // No animation
+            break
         }
         
         if animated && needsAnimating {
@@ -704,7 +707,7 @@ open class RAGTextField: UITextField {
         }
         
         // Update the general visibility of the placeholder
-        placeholderLabel.isHidden = !shouldDisplayPlaceholder()
+        placeholderView.isHidden = !shouldDisplayPlaceholder()
     }
     
     private func updatePlaceholderConstraints(scaled: Bool) {
@@ -779,7 +782,7 @@ open class RAGTextField: UITextField {
     
     private func makeNormalHorizontalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let constraint = placeholderView.leadingAnchor.constraint(equalTo: leadingAnchor)
         constraint.constant = normalHorizontalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
@@ -787,7 +790,7 @@ open class RAGTextField: UITextField {
     
     private func makeNormalVerticalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderLabel.centerYAnchor.constraint(equalTo: topAnchor)
+        let constraint = placeholderView.centerYAnchor.constraint(equalTo: topAnchor)
         constraint.constant = normalVerticalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
@@ -805,7 +808,7 @@ open class RAGTextField: UITextField {
     
     private func makeScaledHorizontalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let constraint = placeholderView.leadingAnchor.constraint(equalTo: leadingAnchor)
         constraint.constant = scaledHorizontalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
@@ -813,7 +816,7 @@ open class RAGTextField: UITextField {
     
     private func makeScaledVerticalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderLabel.centerYAnchor.constraint(equalTo: topAnchor)
+        let constraint = placeholderView.centerYAnchor.constraint(equalTo: topAnchor)
         constraint.constant = scaledVerticalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
