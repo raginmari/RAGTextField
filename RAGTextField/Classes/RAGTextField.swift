@@ -27,8 +27,7 @@ private enum Constants {
     /// The string used to measure the height of an arbitrary string.
     static let textSizeMeasurementString = "X"
     
-    /// The duration of the placeholder animation if no duration is set by the
-    /// user.
+    /// The duration of the placeholder animation if no duration is set by the user.
     static let defaultPlaceholderAnimationDuration = CFTimeInterval(0.2)
     
     /// The space between the left and right overlay views and the text.
@@ -96,7 +95,7 @@ open class RAGTextField: UITextField {
     open override var textAlignment: NSTextAlignment {
         didSet {
             hintLabel.textAlignment = textAlignment
-            placeholderLabel.textAlignment = textAlignment
+            placeholderView.textAlignment = textAlignment
             
             placeholderConstraints.clearHorizontalConstraints()
             setNeedsUpdateConstraints()
@@ -170,12 +169,24 @@ open class RAGTextField: UITextField {
     
     // MARK: Placeholder
     
+    /// Contains the placeholder view.
+    ///
+    /// Required so that when the placeholder view constraints are animated, the cursor of the text field is not animated as well.
+    private let placeholderContainerView = UIView()
+    
+    /// Contains the placeholder label.
+    ///
+    /// Required so that the placeholder label can be transformed using Core Animation as part of a layout that otherwise uses Auto Layout.
     private let placeholderView = PlaceholderView()
     
+    /// Computed variable that returns the placeholder label embedded in the placeholder view.
     private var placeholderLabel: UILabel {
         return placeholderView.label
     }
     
+    /// The current set of positional placeholder constraints.
+    ///
+    /// Contains a pair of constraints for the normal position and a pair for the scaled position, only one of which is active at all times.
     private let placeholderConstraints = PlaceholderConstraints()
     
     /// The text value of the placeholder.
@@ -271,12 +282,6 @@ open class RAGTextField: UITextField {
         return result
     }
     
-    /// Whether the placeholder transform should be set after the next
-    /// `layoutSubviews`.
-    ///
-    /// Does not trigger `layoutSubviews`.
-    private var needsUpdateOfPlaceholderTransformAfterLayout = true
-    
     /// Keeps track of whether the placeholder is currently in the scaled
     /// position.
     ///
@@ -322,7 +327,9 @@ open class RAGTextField: UITextField {
     /// used to reserve more space for the `textBackgroundView`.
     @IBInspectable open var horizontalTextPadding: CGFloat = 0.0 {
         didSet {
-            setNeedsLayout()
+            invalidateIntrinsicContentSize()
+            placeholderConstraints.clearVerticalConstraints()
+            setNeedsUpdateConstraints()
         }
     }
     
@@ -330,7 +337,9 @@ open class RAGTextField: UITextField {
     /// used to reserve more space for the `textBackgroundView`.
     @IBInspectable open var verticalTextPadding: CGFloat = 0.0 {
         didSet {
-            setNeedsLayout()
+            invalidateIntrinsicContentSize()
+            placeholderConstraints.clearVerticalConstraints()
+            setNeedsUpdateConstraints()
         }
     }
     
@@ -418,7 +427,10 @@ open class RAGTextField: UITextField {
         addSubview(hintLabel)
         setupHintLabel()
         
-        addSubview(placeholderView)
+        addSubview(placeholderContainerView)
+        setupPlaceholderContainerView()
+        
+        placeholderContainerView.addSubview(placeholderView)
         setupPlaceholderView()
         
         // Listen for text changes on self
@@ -485,6 +497,18 @@ open class RAGTextField: UITextField {
         
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
         placeholderView.textAlignment = .natural
+    }
+    
+    private func setupPlaceholderContainerView() {
+        
+        placeholderContainerView.backgroundColor = .clear
+        placeholderContainerView.isUserInteractionEnabled = false
+        placeholderContainerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let views = ["v": placeholderContainerView]
+        let x = NSLayoutConstraint.constraints(withVisualFormat: "H:|[v]|", options: [], metrics: nil, views: views)
+        let y = NSLayoutConstraint.constraints(withVisualFormat: "V:|[v]|", options: [], metrics: nil, views: views)
+        addConstraints(x + y)
     }
     
     /// Returns whether the placeholder should be displayed in the scaled
@@ -681,33 +705,35 @@ open class RAGTextField: UITextField {
     // MARK: - Animations
     
     private func updatePlaceholderTransform(animated: Bool = false) {
-     
+        
         var needsAnimating = false
+        let duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
         
         switch (animated, shouldDisplayScaledPlaceholder(), isPlaceholderTransformedToScaledPosition) {
         case (_, true, false):
-            isPlaceholderTransformedToScaledPosition = true
             updatePlaceholderConstraints(scaled: true)
-//            animatePlaceholderScale(to: placeholderScaleWhenEditing)
+            placeholderView.scaleLabel(to: placeholderScaleWhenEditing, animated: animated, duration: duration)
+            isPlaceholderTransformedToScaledPosition = true
             needsAnimating = animated
         case (_, false, true):
-            isPlaceholderTransformedToScaledPosition = false
             updatePlaceholderConstraints(scaled: false)
-//            animatePlaceholderScale(to: 1.0)
+            placeholderView.scaleLabel(to: 1.0, animated: animated, duration: duration)
+            isPlaceholderTransformedToScaledPosition = false
             needsAnimating = animated
         default:
             break
         }
         
         if animated && needsAnimating {
-            let duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
             UIView.animate(withDuration: duration) { [unowned self] in
-                self.layoutIfNeeded()
+                self.placeholderContainerView.layoutIfNeeded()
             }
         }
         
         // Update the general visibility of the placeholder
-        placeholderView.isHidden = !shouldDisplayPlaceholder()
+        if shouldDisplayPlaceholder() != !placeholderView.isHidden {
+            placeholderView.isHidden.toggle()
+        }
     }
     
     private func updatePlaceholderConstraints(scaled: Bool) {
@@ -736,7 +762,7 @@ open class RAGTextField: UITextField {
         }
         
         if placeholderConstraints.normalY == nil {
-            placeholderConstraints.normalY = makeNormalVerticalPlaceholderConstraint(textAlignment: textAlignment)
+            placeholderConstraints.normalY = makeNormalVerticalPlaceholderConstraint()
             placeholderConstraints.normalY?.isActive = !isPlaceholderTransformedToScaledPosition
         }
         
@@ -746,7 +772,7 @@ open class RAGTextField: UITextField {
         }
         
         if placeholderConstraints.scaledY == nil {
-            placeholderConstraints.scaledY = makeScaledVerticalPlaceholderConstraint(textAlignment: textAlignment)
+            placeholderConstraints.scaledY = makeScaledVerticalPlaceholderConstraint()
             placeholderConstraints.scaledY?.isActive = isPlaceholderTransformedToScaledPosition
         }
         
@@ -754,12 +780,8 @@ open class RAGTextField: UITextField {
     }
     
     open override func layoutSubviews() {
-        super.layoutSubviews()
         
-        if needsUpdateOfPlaceholderTransformAfterLayout {
-            updatePlaceholderTransform()
-            needsUpdateOfPlaceholderTransformAfterLayout = false
-        }
+        super.layoutSubviews()
         
         // Update the frame of the optional text background view
         textBackgroundView?.frame = computeTextBackgroundViewFrame()
@@ -782,52 +804,83 @@ open class RAGTextField: UITextField {
     
     private func makeNormalHorizontalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let constraint: NSLayoutConstraint
+        
+        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
+            constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
+            constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
+        case (.center, _):
+            constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)
+        }
+        
         constraint.constant = normalHorizontalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
     }
     
-    private func makeNormalVerticalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
+    private func makeNormalVerticalPlaceholderConstraint() -> NSLayoutConstraint {
         
-        let constraint = placeholderView.centerYAnchor.constraint(equalTo: topAnchor)
-        constraint.constant = normalVerticalPlaceholderConstraintConstant(for: textAlignment)
+        let constraint = placeholderView.centerYAnchor.constraint(equalTo: placeholderContainerView.topAnchor)
+        constraint.constant = normalVerticalPlaceholderConstraintConstant()
         
         return constraint
     }
     
     private func normalHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
-        return computeLeftInsetToText()
+        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
+            return computeLeftInsetToText()
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
+            return computeRightInsetToText()
+        case (.center, _):
+            return 0.0
+        }
     }
     
-    private func normalVerticalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
+    private func normalVerticalPlaceholderConstraintConstant() -> CGFloat {
         
         return computeTopInsetToText() + 0.5 * measureTextHeight()
     }
     
     private func makeScaledHorizontalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
         
-        let constraint = placeholderView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let constraint: NSLayoutConstraint
+        
+        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
+            constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
+            constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
+        case (.center, _):
+            constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)
+        }
+        
         constraint.constant = scaledHorizontalPlaceholderConstraintConstant(for: textAlignment)
         
         return constraint
     }
     
-    private func makeScaledVerticalPlaceholderConstraint(textAlignment: NSTextAlignment) -> NSLayoutConstraint {
+    private func makeScaledVerticalPlaceholderConstraint() -> NSLayoutConstraint {
         
-        let constraint = placeholderView.centerYAnchor.constraint(equalTo: topAnchor)
-        constraint.constant = scaledVerticalPlaceholderConstraintConstant(for: textAlignment)
+        let constraint = placeholderView.centerYAnchor.constraint(equalTo: placeholderContainerView.topAnchor)
+        constraint.constant = scaledVerticalPlaceholderConstraintConstant()
         
         return constraint
     }
     
     private func scaledHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
+        if textAlignment == .center {
+            return 0.0
+        }
+        
         return horizontalTextPadding
     }
     
-    private func scaledVerticalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
+    private func scaledVerticalPlaceholderConstraintConstant() -> CGFloat {
         
         let scaledHeight = placeholderScaleWhenEditing * measureTextHeight(using: placeholderLabel.font)
         return computeTopInsetToText() - verticalTextPadding - scaledPlaceholderOffset - 0.5 * scaledHeight
