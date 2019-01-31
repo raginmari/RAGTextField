@@ -22,6 +22,11 @@
 
 import UIKit
 
+private enum Constants {
+    
+    static let scaleAnimationKey = "scale"
+}
+
 /// Used to animate and transform a placeholder label using Core Animation in a view hierarchy that otherwise uses Auto Layout.
 final class PlaceholderView: UIView {
     
@@ -102,7 +107,7 @@ final class PlaceholderView: UIView {
             animation.toValue = transform
             animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             animation.duration = duration
-            label.layer.add(animation, forKey: "scale")
+            label.layer.add(animation, forKey: Constants.scaleAnimationKey)
         }
         
         label.layer.transform = transform
@@ -117,6 +122,13 @@ final class PlaceholderView: UIView {
         
         super.layoutSubviews()
         
-        label.frame = bounds
+        if !isAnimating() {
+            label.frame = bounds
+        }
+    }
+    
+    private func isAnimating() -> Bool {
+        
+        return label.layer.animation(forKey: Constants.scaleAnimationKey) != nil
     }
 }
