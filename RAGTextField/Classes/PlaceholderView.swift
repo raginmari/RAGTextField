@@ -75,19 +75,13 @@ final class PlaceholderView: UIView {
     
     private func updateAnchorPoint(of view: UIView, textAlignment: NSTextAlignment) {
         
-        switch textAlignment {
-        case .left:
+        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
             view.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-        case .center, .justified:
-            view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        case .right:
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
             view.layer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
-        case .natural:
-            if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
-                view.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-            } else {
-                view.layer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
-            }
+        case (.center, _):
+            view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         }
         
         view.frame = bounds
