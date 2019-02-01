@@ -105,7 +105,7 @@ open class RAGTextField: UITextField {
     /// The text value of the text field. Updates the position of the placeholder.
     open override var text: String? {
         didSet {
-            updatePlaceholderTransform()
+            updatePlaceholderTransform(animated: true)
         }
     }
     
@@ -405,10 +405,16 @@ open class RAGTextField: UITextField {
     
     private func isClearButtonVisible() -> Bool {
         
-        let isTextEmpty = (text ?? "").isEmpty
-        guard !isTextEmpty else { return false }
-        
-        return isOverlayVisible(with: clearButtonMode)
+        switch clearButtonMode {
+        case .always:
+            return true
+        case .whileEditing:
+            return isEditing && hasText
+        case .unlessEditing:
+            return !isEditing && hasText
+        case .never:
+            return false
+        }
     }
     
     // MARK: - Init
@@ -439,6 +445,7 @@ open class RAGTextField: UITextField {
     }
     
     @objc private func didChangeText() {
+        
         updatePlaceholderTransform(animated: true)
     }
     
