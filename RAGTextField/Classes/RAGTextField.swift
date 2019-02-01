@@ -657,7 +657,7 @@ open class RAGTextField: UITextField {
     
     private func computeLeadingInsetToText() -> CGFloat {
         
-        if textAlignment == .natural && UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
             return computeRightInsetToText()
         } else {
             return computeLeftInsetToText()
@@ -666,7 +666,7 @@ open class RAGTextField: UITextField {
     
     private func computeTrailingInsetToText() -> CGFloat {
         
-        if textAlignment == .natural && UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
             return computeLeftInsetToText()
         } else {
             return computeRightInsetToText()
