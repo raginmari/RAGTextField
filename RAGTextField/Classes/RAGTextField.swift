@@ -575,7 +575,7 @@ open class RAGTextField: UITextField {
     
     open override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         
-        let superValue = super.leftViewRect(forBounds: bounds)
+        let superValue = super.rightViewRect(forBounds: bounds)
         let size = superValue.size
         let x = bounds.width - horizontalTextPadding - size.width
         let y = computeTopInsetToText() + 0.5 * (measureTextHeight() - size.height)
