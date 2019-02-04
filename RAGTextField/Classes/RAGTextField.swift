@@ -105,6 +105,9 @@ open class RAGTextField: UITextField {
     /// The text value of the text field. Updates the position of the placeholder.
     open override var text: String? {
         didSet {
+            placeholderConstraints.clearHorizontalConstraints()
+            setNeedsUpdateConstraints()
+            
             updatePlaceholderTransform(animated: true)
         }
     }
