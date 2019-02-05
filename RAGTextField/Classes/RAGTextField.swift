@@ -263,6 +263,7 @@ open class RAGTextField: UITextField {
         didSet {
             invalidateIntrinsicContentSize()
             setNeedsUpdateVerticalPlaceholderConstraints()
+            updatePlaceholderTransform()
         }
     }
     
