@@ -833,9 +833,9 @@ open class RAGTextField: UITextField {
         let constraint: NSLayoutConstraint
         
         switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
-        case (.left, .leftToRight), (.right, .rightToLeft), (.justified, .leftToRight), (.natural, _):
+        case (.left, .leftToRight), (.right, .rightToLeft), (.justified, _), (.natural, _):
             constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
-        case (.left, .rightToLeft), (.right, .leftToRight), (.justified, .rightToLeft):
+        case (.left, .rightToLeft), (.right, .leftToRight):
             constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         case (.center, _):
             constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)
@@ -857,9 +857,9 @@ open class RAGTextField: UITextField {
     private func normalHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
         switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
-        case (.natural, .leftToRight), (.justified, _), (.left, _):
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
             return computeLeftInsetToText()
-        case (.natural, .rightToLeft), (.right, _):
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
             return computeRightInsetToText()
         case (.center, _):
             return 0.0
@@ -876,9 +876,9 @@ open class RAGTextField: UITextField {
         let constraint: NSLayoutConstraint
         
         switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
-        case (.left, .leftToRight), (.right, .rightToLeft), (.justified, .leftToRight), (.natural, _):
+        case (.left, .leftToRight), (.right, .rightToLeft), (.justified, _), (.natural, _):
             constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
-        case (.left, .rightToLeft), (.right, .leftToRight), (.justified, .rightToLeft):
+        case (.left, .rightToLeft), (.right, .leftToRight):
             constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         case (.center, _):
             constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)

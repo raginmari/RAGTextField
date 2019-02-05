@@ -68,11 +68,7 @@ final class PlaceholderView: UIView {
             return label.textAlignment
         }
         set {
-            if newValue == .justified {
-                label.textAlignment = .left
-            } else {
-                label.textAlignment = newValue
-            }
+            label.textAlignment = newValue
             updateAnchorPoint(of: label, textAlignment: newValue)
         }
     }
@@ -80,9 +76,9 @@ final class PlaceholderView: UIView {
     private func updateAnchorPoint(of view: UIView, textAlignment: NSTextAlignment) {
         
         switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
-        case (.natural, .leftToRight), (.justified, _), (.left, _):
+        case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
             view.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-        case (.natural, .rightToLeft), (.right, _):
+        case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
             view.layer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
         case (.center, _):
             view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
