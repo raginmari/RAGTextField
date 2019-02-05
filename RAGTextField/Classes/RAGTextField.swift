@@ -659,24 +659,6 @@ open class RAGTextField: UITextField {
         return inset
     }
     
-    private func computeLeadingInsetToText() -> CGFloat {
-        
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
-            return computeRightInsetToText()
-        } else {
-            return computeLeftInsetToText()
-        }
-    }
-    
-    private func computeTrailingInsetToText() -> CGFloat {
-        
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
-            return computeLeftInsetToText()
-        } else {
-            return computeRightInsetToText()
-        }
-    }
-    
     open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
         
         let superValue = super.clearButtonRect(forBounds: bounds)
