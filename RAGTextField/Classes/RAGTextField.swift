@@ -399,7 +399,7 @@ open class RAGTextField: UITextField {
     /// Whether the clear button is displayed to the left or to the right of the text.
     private var clearButtonPosition: HorizontalPosition {
         
-        if textAlignment == .natural && UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
             return .left
         } else {
             return .right
