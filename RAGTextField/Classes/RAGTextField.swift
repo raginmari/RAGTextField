@@ -52,19 +52,27 @@ open class RAGTextField: UITextField {
             
             normalX?.isActive = false
             normalX = nil
-            
             scaledX?.isActive = false
             scaledX = nil
         }
+    }
+    
+    /// If `true`, the next invocation of `updateConstraints` updates the existing horizontal placeholder constraints.
+    private var needsUpdateOfHorizontalPlaceholderConstraints = false
+    
+    private func setNeedsUpdateHorizontalPlaceholderConstraints() {
         
-        func clearVerticalConstraints() {
-            
-            normalY?.isActive = false
-            normalY = nil
-            
-            scaledY?.isActive = false
-            scaledY = nil
-        }
+        needsUpdateOfHorizontalPlaceholderConstraints = true
+        setNeedsUpdateConstraints()
+    }
+    
+    /// If `true`, the next invocation of `updateConstraints` updates the existing vertical placeholder constraints.
+    private var needsUpdateOfVerticalPlaceholderConstraints = false
+    
+    private func setNeedsUpdateVerticalPlaceholderConstraints() {
+        
+        needsUpdateOfVerticalPlaceholderConstraints = true
+        setNeedsUpdateConstraints()
     }
     
     /// The font of the text field.
@@ -84,8 +92,7 @@ open class RAGTextField: UITextField {
             }
             
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateVerticalPlaceholderConstraints()
         }
     }
     
@@ -105,9 +112,7 @@ open class RAGTextField: UITextField {
     /// The text value of the text field. Updates the position of the placeholder.
     open override var text: String? {
         didSet {
-            placeholderConstraints.clearHorizontalConstraints()
-            setNeedsUpdateConstraints()
-            
+            setNeedsUpdateHorizontalPlaceholderConstraints()
             updatePlaceholderTransform(animated: true)
         }
     }
@@ -235,8 +240,7 @@ open class RAGTextField: UITextField {
             placeholderScaleWhenEditing = max(0.0, placeholderScaleWhenEditing)
             
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateVerticalPlaceholderConstraints()
         }
     }
     
@@ -246,8 +250,7 @@ open class RAGTextField: UITextField {
     @IBInspectable open var scaledPlaceholderOffset: CGFloat = 0.0 {
         didSet {
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateVerticalPlaceholderConstraints()
         }
     }
     
@@ -259,8 +262,7 @@ open class RAGTextField: UITextField {
     open var placeholderMode: RAGTextFieldPlaceholderMode = .scalesWhenNotEmpty {
         didSet {
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateVerticalPlaceholderConstraints()
         }
     }
     
@@ -331,8 +333,7 @@ open class RAGTextField: UITextField {
     @IBInspectable open var horizontalTextPadding: CGFloat = 0.0 {
         didSet {
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateHorizontalPlaceholderConstraints()
         }
     }
     
@@ -341,8 +342,7 @@ open class RAGTextField: UITextField {
     @IBInspectable open var verticalTextPadding: CGFloat = 0.0 {
         didSet {
             invalidateIntrinsicContentSize()
-            placeholderConstraints.clearVerticalConstraints()
-            setNeedsUpdateConstraints()
+            setNeedsUpdateVerticalPlaceholderConstraints()
         }
     }
     
@@ -769,22 +769,37 @@ open class RAGTextField: UITextField {
         if placeholderConstraints.normalX == nil {
             placeholderConstraints.normalX = makeNormalHorizontalPlaceholderConstraint(textAlignment: textAlignment)
             placeholderConstraints.normalX?.isActive = !isPlaceholderTransformedToScaledPosition
+        } else if needsUpdateOfHorizontalPlaceholderConstraints {
+            placeholderConstraints.normalX?.constant = normalHorizontalPlaceholderConstraintConstant(for: textAlignment)
+            placeholderConstraints.normalX?.isActive = !isPlaceholderTransformedToScaledPosition
         }
         
         if placeholderConstraints.normalY == nil {
             placeholderConstraints.normalY = makeNormalVerticalPlaceholderConstraint()
+            placeholderConstraints.normalY?.isActive = !isPlaceholderTransformedToScaledPosition
+        } else if needsUpdateOfVerticalPlaceholderConstraints {
+            placeholderConstraints.normalY?.constant = normalVerticalPlaceholderConstraintConstant()
             placeholderConstraints.normalY?.isActive = !isPlaceholderTransformedToScaledPosition
         }
         
         if placeholderConstraints.scaledX == nil {
             placeholderConstraints.scaledX = makeScaledHorizontalPlaceholderConstraint(textAlignment: textAlignment)
             placeholderConstraints.scaledX?.isActive = isPlaceholderTransformedToScaledPosition
+        } else if needsUpdateOfHorizontalPlaceholderConstraints {
+            placeholderConstraints.scaledX?.constant = scaledHorizontalPlaceholderConstraintConstant(for: textAlignment)
+            placeholderConstraints.scaledX?.isActive = isPlaceholderTransformedToScaledPosition
         }
         
         if placeholderConstraints.scaledY == nil {
             placeholderConstraints.scaledY = makeScaledVerticalPlaceholderConstraint()
             placeholderConstraints.scaledY?.isActive = isPlaceholderTransformedToScaledPosition
+        } else if needsUpdateOfVerticalPlaceholderConstraints {
+            placeholderConstraints.scaledY?.constant = scaledVerticalPlaceholderConstraintConstant()
+            placeholderConstraints.scaledY?.isActive = isPlaceholderTransformedToScaledPosition
         }
+        
+        needsUpdateOfHorizontalPlaceholderConstraints = false
+        needsUpdateOfVerticalPlaceholderConstraints = false
         
         super.updateConstraints()
     }
@@ -883,11 +898,7 @@ open class RAGTextField: UITextField {
     
     private func scaledHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
-        if textAlignment == .center {
-            return 0.0
-        }
-        
-        return horizontalTextPadding
+        return (textAlignment == .center) ? 0.0 : horizontalTextPadding
     }
     
     private func scaledVerticalPlaceholderConstraintConstant() -> CGFloat {
