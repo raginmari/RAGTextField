@@ -15,8 +15,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textField: RAGTextField! {
         didSet {
-            let bgView = PillView()
-            bgView.backgroundColor = UIColor.black.withAlphaComponent(0.075)
+            let bgView = UnderlineView(frame: CGRect.zero)
+            bgView.expandMode = .expandsFromRight
+            bgView.normalLineColor = .lightGray
+            bgView.expandedLineColor = .red
+            bgView.lineWidth = 1.0
             textField.textBackgroundView = bgView
             
             textField.placeholderMode = .scalesWhenNotEmpty
@@ -54,5 +57,19 @@ extension ViewController: UITextFieldDelegate {
         
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField === self.textField {
+            (self.textField.textBackgroundView as? UnderlineView)?.setExpanded(true, animated: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField === self.textField {
+            (self.textField.textBackgroundView as? UnderlineView)?.setExpanded(false, animated: true)
+        }
     }
 }
