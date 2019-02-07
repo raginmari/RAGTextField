@@ -148,7 +148,7 @@ final class UnderlineView: UIView {
     override func updateConstraints() {
         
         switch expandMode {
-        case .expandsFromCenter:
+        case .expandsFromCenter, .notAnimated:
             leadingConstraint?.isActive = false
             trailingConstraint?.isActive = false
         case .expandsFromRight where UIApplication.shared.userInterfaceLayoutDirection == .leftToRight:
@@ -166,9 +166,6 @@ final class UnderlineView: UIView {
         case .expandsInUserInterfaceDirection:
             leadingConstraint?.isActive = true
             trailingConstraint?.isActive = false
-        case .notAnimated:
-            leadingConstraint?.isActive = true
-            trailingConstraint?.isActive = true
         }
         
         super.updateConstraints()
@@ -182,7 +179,7 @@ final class UnderlineView: UIView {
         
         widthConstraint?.isActive = expanded
         
-        if animated {
+        if animated && expandMode != .notAnimated {
             UIView.animate(withDuration: expandDuration) { [unowned self] in
                 self.layoutIfNeeded()
             }

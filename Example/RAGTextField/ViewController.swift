@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: RAGTextField! {
         didSet {
             let bgView = UnderlineView(frame: CGRect.zero)
-            bgView.expandMode = .expandsFromRight
+            bgView.expandMode = .expandsInUserInterfaceDirection
             bgView.normalLineColor = .lightGray
             bgView.expandedLineColor = .red
             bgView.lineWidth = 1.0
