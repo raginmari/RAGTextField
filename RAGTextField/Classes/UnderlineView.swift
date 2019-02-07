@@ -22,69 +22,101 @@
 
 import UIKit
 
-final class UnderlineView: UIView {
-    
-    enum Mode {
+/// Draws two colored lines at the bottom on top of one another that extend from the left to the right edge.
+///
+/// The foreground line is initially not visible. It can be expanded to fully cover the background line.
+/// The expansion can be animated in different ways.
+///
+/// - Note
+/// The view is meant to be used with `RAGTextField`. Set it as the `textBackgroundView` to approximate the look and feel of a
+/// Material text field. The expansion of the line has to be controlled manually, for example from the text field delegate.
+open class UnderlineView: UIView {
+
+    /// The different ways in which the expanding line is animated.
+    public enum Mode {
         
+        /// The line equally expands from the center of the view to its left and right edges.
         case expandsFromCenter
         
+        /// The line expands from the right edge of the view to the left.
         case expandsFromRight
         
+        /// The line expands from the left edge of the view to the right.
         case expandsFromLeft
         
+        /// The line expands from the leading edge of the view to the trailing one.
         case expandsInUserInterfaceDirection
         
+        /// The line is not animated.
         case notAnimated
     }
     
-    @IBInspectable var lineWidth: CGFloat = 1.0 {
+    /// The width of both lines in points.
+    @IBInspectable open var lineWidth: CGFloat = 1.0 {
         didSet {
             heightConstraint?.constant = lineWidth
         }
     }
     
-    @IBInspectable var normalLineColor: UIColor = .clear {
+    /// The color of the background line.
+    @IBInspectable open var backgroundLineColor: UIColor = .clear {
         didSet {
-            underlineBackgroundView.backgroundColor = normalLineColor
+            underlineBackgroundView.backgroundColor = backgroundLineColor
         }
     }
     
-    @IBInspectable var expandedLineColor: UIColor = .black {
+    /// The color of the foreground line.
+    @IBInspectable open var foregroundLineColor: UIColor = .black {
         didSet {
-            underlineView.backgroundColor = expandedLineColor
+            underlineView.backgroundColor = foregroundLineColor
         }
     }
     
-    var expandMode: Mode = .expandsFromCenter {
+    /// The way the foreground line is expanded.
+    open var expandMode: Mode = .expandsFromCenter {
         didSet {
             setNeedsUpdateConstraints()
         }
     }
     
-    var expandDuration: TimeInterval = 0.2
+    /// The duration of the animation of the foreground line.
+    open var expandDuration: TimeInterval = 0.2
     
     private let underlineView = UIView()
     private let underlineBackgroundView = UIView()
     
+    /// Used to pin the foreground line to the leading edge of the view.
+    ///
+    /// Enabled and disabled depending on the `expandMode` value.
     private var leadingConstraint: NSLayoutConstraint?
+    
+    /// Used to pin the foreground line to the trailing edge of the view.
+    ///
+    /// Enabled and disabled depending on the `expandMode` value.
     private var trailingConstraint: NSLayoutConstraint?
+    
+    /// Used to animate the foreground line.
     private var widthConstraint: NSLayoutConstraint?
+    
+    /// Updated when `lineWidth` is changed.
     private var heightConstraint: NSLayoutConstraint?
     
+    /// If `true`, the foreground line is currently expanded.
     private var isExpanded = false
     
-    override var tintColor: UIColor! {
+    /// The tint color of the `UIView` overwrites the current `expandedLineColor`.
+    open override var tintColor: UIColor! {
         didSet {
-            expandedLineColor = tintColor
+            foregroundLineColor = tintColor
         }
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -97,9 +129,10 @@ final class UnderlineView: UIView {
         setUpUnderline()
     }
     
+    /// Sets up the underline background view. Sets properties and configures constraints.
     private func setUpUnderlineBackground() {
         
-        underlineBackgroundView.backgroundColor = normalLineColor
+        underlineBackgroundView.backgroundColor = backgroundLineColor
         underlineBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         
         let views = ["v": underlineBackgroundView]
@@ -112,9 +145,10 @@ final class UnderlineView: UIView {
         underlineBackgroundView.heightAnchor.constraint(equalTo: underlineView.heightAnchor).isActive = true
     }
     
+    /// Sets up the underline view. Sets properties and configures constraints.
     private func setUpUnderline() {
         
-        underlineView.backgroundColor = expandedLineColor
+        underlineView.backgroundColor = foregroundLineColor
         underlineView.translatesAutoresizingMaskIntoConstraints = false
         
         // Cling to the bottom of the view
@@ -145,8 +179,9 @@ final class UnderlineView: UIView {
         setNeedsUpdateConstraints()
     }
     
-    override func updateConstraints() {
+    open override func updateConstraints() {
         
+        // Enable the leading and trailing constraints depending on the `expandMode`.
         switch expandMode {
         case .expandsFromCenter, .notAnimated:
             leadingConstraint?.isActive = false
@@ -171,7 +206,12 @@ final class UnderlineView: UIView {
         super.updateConstraints()
     }
     
-    func setExpanded(_ expanded: Bool, animated: Bool) {
+    /// Sets the foreground line to its expanded or contracted state depending on the given parameter. Optionally, the change is animated.
+    ///
+    /// - Parameters:
+    ///   - expanded: If `true`, the line is expanded.
+    ///   - animated: If `true`, the change is animated.
+    open func setExpanded(_ expanded: Bool, animated: Bool) {
         
         guard expanded != isExpanded else {
             return

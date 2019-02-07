@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         didSet {
             let bgView = UnderlineView(frame: CGRect.zero)
             bgView.expandMode = .expandsInUserInterfaceDirection
-            bgView.normalLineColor = .lightGray
-            bgView.expandedLineColor = .red
+            bgView.backgroundLineColor = .lightGray
+            bgView.foregroundLineColor = .red
             bgView.lineWidth = 1.0
             textField.textBackgroundView = bgView
             
