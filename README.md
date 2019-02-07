@@ -11,12 +11,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-Written in Swift 4. Requires iOS 9 (deployment target). Support of Swift 3 ended with version 0.2.1.
+Written in Swift 4. Requires iOS 9. Support of Swift 3 ended with version 0.2.1.
 
 ## Installation
 
-`RAGTextField` is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+`RAGTextField` is available through [CocoaPods](http://cocoapods.org). To install it, add the following line to your Podfile:
 
 ```ruby
 pod "RAGTextField"
@@ -31,7 +30,7 @@ These are the key differences to `UITextField`:
 - A **hint label** below the actual text which can be used to provide additional hints or report errors.
 - A view in the **background of the text** (excluding the placeholder and the hint label) which can be used to style the appearance of the text entry. The example projects uses this capability.
 
-Many properties of the text field are `IBInspectable`. Unfortunately, fonts and enums cannot (Xcode 8) be inspected in IB, so a bit of setup has to be done in code in some cases.
+Many properties of the text field are `IBInspectable`.
 
 #### The placeholder
 
@@ -41,7 +40,7 @@ These are the different ways you can **customize the appearance** and behavior o
 
 - Use the `placeholderFont` property to assign a **custom font or font size** to the placeholder. By default, the placeholder uses the font of the text field.
 - Use the `placeholderColor` property to **change the color** of the placeholder. By default, the placeholder uses the text color of the text field.
-- Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1. It is not (yet) possible to assign values greater than 1.
+- Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1.
 - Use the `scaledPlaceholderOffset` property to offset the placeholder in its floating position from the text. The default value is 0. Positive values **move the placeholder up**, away from the text.
 - The value of the `placeholderMode` property determines the **behavior of the placeholder**:
   - `scalesWhenEditing`: the placeholder is moved to the floating position as soon as the text field becomes the first responder. Moreover, the placeholder remains in the floating position as long as there is text in the text field.
@@ -60,22 +59,25 @@ These are the different ways you can **customize the appearance** of the hint:
 
 #### The text background view
 
-Add a view to the background of the text by assigning an arbitrary view to the `textBackgroundView` property. Its frame is updated by `RAGTextField` when required. Just add and forget (it's never that simple...). The view is sized so that it matches the size of the text plus padding (see below).
+Add a view to the background of the text by assigning an arbitrary view to the `textBackgroundView` property. Its frame is updated by `RAGTextField` when required. The view is sized so that it matches the size of the text plus padding (see below).
 
 These are the different ways you can **customize the appearance** of the text background view.
 
 - Use the `horizontalTextPadding` property to apply padding to the left and right of the text. The padding expands the text background view horizontally.
 - Use the `verticalTextPadding` property to apply padding to the top (between the text and the placeholder) and bottom (between the text and the hint) of the text. The padding expands the text background view vertically.
 
+#### The underline view
+
+Use the class `UnderlineView` to better approximate the look and feel of the Android/Material text field; it draws an underline below the text. 
+Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation.
+
 ## Known issues
 
 These are known or possible issues with `RAGTextField`:
 
-- The clear button is displayed to the right (i.e. outside) of the text background view which may not be what you want. Moreover (and probably more annoyingly), the text background view resizes every time the clear button is shown or hidden.
 - The `attributedText` property of UITextField *may* not be supported.
 - The `attributedPlaceholder` of UITextField is not supported.
 - The `borderStyle` property should be `.none`. Others *may* not be supported.
-- The `leftView` and `rightView` properties *may* not be supported (at least they will most certainly appear at the wrong position).
 
 These issues will hopefully be addressed in future updates.
 
