@@ -165,14 +165,13 @@ open class RAGTextField: UITextField {
         }
     }
     
-    /// The computed height of the hint in points.
-    private var hintHeight: CGFloat {
-        
-        guard !hintLabel.isHidden else {
-            return 0
+    /// The vertical offset of the hint from the bottom of the text.
+    ///
+    /// Can be used to put a little distance between the hint and the text. The default value is 0.
+    @IBInspectable open var hintOffset: CGFloat = 0.0 {
+        didSet {
+            invalidateIntrinsicContentSize()
         }
-        
-        return measureTextHeight(using: hintLabel.font)
     }
     
     // MARK: Placeholder
@@ -246,7 +245,7 @@ open class RAGTextField: UITextField {
     
     /// The vertical offset of the scaled placeholder from the top of the text.
     ///
-    /// Can be used to put a little distance between the placeholder and the text.
+    /// Can be used to put a little distance between the placeholder and the text. The default value is 0.
     @IBInspectable open var scaledPlaceholderOffset: CGFloat = 0.0 {
         didSet {
             invalidateIntrinsicContentSize()
@@ -638,9 +637,9 @@ open class RAGTextField: UITextField {
     
     private func computeBottomInsetToText() -> CGFloat {
         
-        let inset = ceil(hintHeight + verticalTextPadding)
+        let inset = verticalTextPadding + (hintLabel.isHidden ? 0.0 : measureTextHeight(using: hintLabel.font) + hintOffset)
         
-        return inset
+        return ceil(inset)
     }
     
     private func computeRightInsetToText() -> CGFloat {
