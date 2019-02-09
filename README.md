@@ -69,6 +69,7 @@ These are the different ways you can **customize the appearance** of the hint:
 
 - Use the `hintFont` property to assign a **custom font or font size** to the hint. By default, the hint uses the font of the text field.
 - Use the `hintColor` property to **change the color** of the hint. By default, the hint uses the text color of the text field.
+- Use the `hintOffset` property to offset the hint label from the text. The default value is 0. Positive values **move the hint down**, away from the text.
 
 #### The text background view
 
