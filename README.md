@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
 [![License](https://img.shields.io/cocoapods/l/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
 [![Platform](https://img.shields.io/cocoapods/p/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Example
 
@@ -15,10 +16,22 @@ Written in Swift 4. Requires iOS 9. Support of Swift 3 ended with version 0.2.1.
 
 ## Installation
 
-`RAGTextField` is available through [CocoaPods](http://cocoapods.org). To install it, add the following line to your Podfile:
+`RAGTextField` is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+
+#### Cocoapods
+
+Add the following line to your Podfile:
 
 ```ruby
 pod "RAGTextField"
+```
+
+#### Carthage
+
+Add the following line to your Cartfile:
+
+```ruby
+github "raginmari/RAGTextField"
 ```
 
 ## How to use
