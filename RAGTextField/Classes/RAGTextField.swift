@@ -75,6 +75,13 @@ open class RAGTextField: UITextField {
         setNeedsUpdateConstraints()
     }
     
+    private func setNeedsUpdatePlaceholderConstraints() {
+        
+        needsUpdateOfHorizontalPlaceholderConstraints = true
+        needsUpdateOfVerticalPlaceholderConstraints = true
+        setNeedsUpdateConstraints()
+    }
+    
     /// The font of the text field.
     ///
     /// If the hint font is `nil`, the given font is used for the hint.
@@ -335,7 +342,7 @@ open class RAGTextField: UITextField {
     open var textPadding: UIEdgeInsets = .zero {
         didSet {
             invalidateIntrinsicContentSize()
-            setNeedsUpdateVerticalPlaceholderConstraints()
+            setNeedsUpdatePlaceholderConstraints()
         }
     }
     
