@@ -321,29 +321,59 @@ open class RAGTextField: UITextField {
     /// - Returns: The frame
     private func computeTextBackgroundViewFrame() -> CGRect {
         
-        let y = computeTopInsetToText() - verticalTextPadding
-        let h = verticalTextPadding + measureTextHeight() + verticalTextPadding
+        let y = computeTopInsetToText() - textPadding.top
+        let h = textPadding.top + measureTextHeight() + textPadding.bottom
         let frame = CGRect(x: 0, y: y, width: bounds.width, height: h)
         
         return frame
     }
     
-    /// The padding applied to the left and right of the text rectangle. Can be
-    /// used to reserve more space for the `textBackgroundView`.
-    @IBInspectable open var horizontalTextPadding: CGFloat = 0.0 {
-        didSet {
-            invalidateIntrinsicContentSize()
-            setNeedsUpdateHorizontalPlaceholderConstraints()
-        }
-    }
-    
-    /// The padding applied to the top and bottom of the text rectangle. Can be
-    /// used to reserve more space for the `textBackgroundView`.
-    @IBInspectable open var verticalTextPadding: CGFloat = 0.0 {
+    /// The padding applied to the text rectangle.
+    ///
+    /// The `textBackgroundView` is inflated by this value, so that the property can be used to better fit the text content into the
+    /// text background view. The default value is zero.
+    open var textPadding: UIEdgeInsets = .zero {
         didSet {
             invalidateIntrinsicContentSize()
             setNeedsUpdateVerticalPlaceholderConstraints()
         }
+    }
+    
+    /// Swaps the left and right text padding values if the current user interface direction is right-to-left.
+    private var userInterfaceDirectionAwareTextPadding: UIEdgeInsets {
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+            return textPadding
+        }
+        
+        var padding = textPadding
+        swap(&padding.left, &padding.right)
+        
+        return padding
+    }
+    
+    /// The `top` property of the `textPadding`.
+    @IBInspectable var topTextPadding: CGFloat {
+        set { textPadding.top = newValue }
+        get { return textPadding.top }
+    }
+    
+    /// The `bottom` property of the `textPadding`.
+    @IBInspectable var bottomTextPadding: CGFloat {
+        set { textPadding.bottom = newValue }
+        get { return textPadding.bottom }
+    }
+    
+    /// The `left` property of the `textPadding`.
+    @IBInspectable var leadingTextPadding: CGFloat {
+        set { textPadding.left = newValue }
+        get { return textPadding.left }
+    }
+    
+    /// The `right` property of the `textPadding`.
+    @IBInspectable var trailingTextPadding: CGFloat {
+        set { textPadding.right = newValue }
+        get { return textPadding.right }
     }
     
     // MARK: Overlay views
@@ -489,9 +519,9 @@ open class RAGTextField: UITextField {
     
     private func hintFrame(forBounds bounds: CGRect) -> CGRect {
         
-        let w = bounds.width - 2 * horizontalTextPadding
+        let w = bounds.width - textPadding.left - textPadding.right
         let h = measureTextHeight(using: hintLabel.font)
-        let x = horizontalTextPadding
+        let x = userInterfaceDirectionAwareTextPadding.left
         let y = bounds.height - h
         let frame = CGRect(x: x, y: y, width: w, height: h)
         
@@ -569,7 +599,7 @@ open class RAGTextField: UITextField {
         
         let superValue = super.leftViewRect(forBounds: bounds)
         let size = superValue.size
-        let x = horizontalTextPadding
+        let x = userInterfaceDirectionAwareTextPadding.left
         let y = computeTopInsetToText() + 0.5 * (measureTextHeight() - size.height)
         let rect = CGRect(origin: CGPoint(x: x, y: y), size: size)
         
@@ -580,7 +610,7 @@ open class RAGTextField: UITextField {
         
         let superValue = super.rightViewRect(forBounds: bounds)
         let size = superValue.size
-        let x = bounds.width - horizontalTextPadding - size.width
+        let x = bounds.width - userInterfaceDirectionAwareTextPadding.right - size.width
         let y = computeTopInsetToText() + 0.5 * (measureTextHeight() - size.height)
         let rect = CGRect(origin: CGPoint(x: x, y: y), size: size)
         
@@ -614,7 +644,7 @@ open class RAGTextField: UITextField {
     private func computeTopInsetToText() -> CGFloat {
         
         let placeholderOffset = placeholderMode.scalesPlaceholder ? scaledPlaceholderOffset : 0.0
-        let inset = ceil(scaledPlaceholderHeight() + placeholderOffset + verticalTextPadding)
+        let inset = ceil(scaledPlaceholderHeight() + placeholderOffset + textPadding.top)
         
         return inset
     }
@@ -629,7 +659,7 @@ open class RAGTextField: UITextField {
         } else if isClearButtonVisible() && clearButtonPosition == .left {
             inset = clearButtonRect(forBounds: bounds).maxX + Constants.overlaySpaceToText
         } else {
-            inset = horizontalTextPadding
+            inset = userInterfaceDirectionAwareTextPadding.left
         }
         
         return inset
@@ -637,7 +667,7 @@ open class RAGTextField: UITextField {
     
     private func computeBottomInsetToText() -> CGFloat {
         
-        let inset = verticalTextPadding + (hintLabel.isHidden ? 0.0 : measureTextHeight(using: hintLabel.font) + hintOffset)
+        let inset = textPadding.bottom + (hintLabel.isHidden ? 0.0 : measureTextHeight(using: hintLabel.font) + hintOffset)
         
         return ceil(inset)
     }
@@ -652,7 +682,7 @@ open class RAGTextField: UITextField {
         } else if isClearButtonVisible() && clearButtonPosition == .right {
             inset = bounds.width - clearButtonRect(forBounds: bounds).minX + Constants.overlaySpaceToText
         } else {
-            inset = horizontalTextPadding
+            inset = userInterfaceDirectionAwareTextPadding.right
         }
         
         return inset
@@ -666,9 +696,9 @@ open class RAGTextField: UITextField {
         
         let x: CGFloat
         if clearButtonPosition == .left {
-            x = horizontalTextPadding
+            x = userInterfaceDirectionAwareTextPadding.left
         } else {
-            x = bounds.width - size.width - horizontalTextPadding
+            x = bounds.width - size.width - userInterfaceDirectionAwareTextPadding.right
         }
         
         let clearButtonRect = CGRect(x: x, y: y, width: size.width, height: size.height)
@@ -880,12 +910,12 @@ open class RAGTextField: UITextField {
     
     private func scaledHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
-        return (textAlignment == .center) ? 0.0 : horizontalTextPadding
+        return (textAlignment == .center) ? 0.0 : textPadding.left
     }
     
     private func scaledVerticalPlaceholderConstraintConstant() -> CGFloat {
         
         let scaledHeight = placeholderScaleWhenEditing * measureTextHeight(using: placeholderLabel.font)
-        return computeTopInsetToText() - verticalTextPadding - scaledPlaceholderOffset - 0.5 * scaledHeight
+        return computeTopInsetToText() - textPadding.top - scaledPlaceholderOffset - 0.5 * scaledHeight
     }
 }

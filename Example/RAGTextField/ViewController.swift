@@ -15,15 +15,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textField: RAGTextField! {
         didSet {
+            let tintColor = UIColor(red: 0.0, green: 150.0 / 255.0, blue: 1.0, alpha: 1.0)
+            let inactiveColor = UIColor(white: 192.0 / 255.0, alpha: 1.0)
+            
             let bgView = UnderlineView(frame: CGRect.zero)
             bgView.expandMode = .expandsInUserInterfaceDirection
-            bgView.backgroundLineColor = .lightGray
-            bgView.foregroundLineColor = .red
+            bgView.backgroundLineColor = inactiveColor
+            bgView.foregroundLineColor = tintColor
             bgView.lineWidth = 1.0
             textField.textBackgroundView = bgView
             
+            textField.placeholderColor = inactiveColor
             textField.placeholderMode = .scalesWhenNotEmpty
             textField.hintFont = UIFont.systemFont(ofSize: 12.0)
+            textField.tintColor = tintColor
         }
     }
     
