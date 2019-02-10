@@ -39,9 +39,9 @@ github "raginmari/RAGTextField"
 After installing the lib and importing the module `RAGTextField`, the text field can be used like any other text field (both in the code and in your storyboards and nibs).
 
 These are the key differences to `UITextField`:
-- A **floating placeholder** similar to the one featured by the text field in Google's [Material Design](https://material.io/guidelines/components/text-fields.html#text-fields-labels).
+- A **floating placeholder** inspired by the one described in Google's [Material Design](https://material.io/guidelines/components/text-fields.html#text-fields-labels) guidelines.
 - A **hint label** below the actual text which can be used to provide additional hints or report errors.
-- A view in the **background of the text** (excluding the placeholder and the hint label) which can be used to style the appearance of the text entry. The example projects uses this capability.
+- A view in the **background of the text** (excluding the placeholder and the hint label) which can be used to style the appearance of the text entry. The example project uses this capability.
 
 Many properties of the text field are `IBInspectable`.
 
@@ -82,8 +82,7 @@ These are the different ways you can **customize the appearance** of the text ba
 
 #### The underline view
 
-Use the class `UnderlineView` to better approximate the look and feel of the Android/Material text field; it draws an underline below the text. 
-Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation.
+Use the class `UnderlineView` to draw an underline below the text. The line can be colored and animated. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the unterline view.
 
 ## Known issues
 
