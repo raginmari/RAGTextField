@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+### Changed
+- Replaced `horizontalTextPadding` and `verticalTextPadding` with `textPadding` of type `UIEdgeInsets` (API breaking change). Values can be set in IB.
+
 ## 0.5.0
 
 ### Added
