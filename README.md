@@ -77,12 +77,11 @@ Add a view to the background of the text by assigning an arbitrary view to the `
 
 These are the different ways you can **customize the appearance** of the text background view.
 
-- Use the `horizontalTextPadding` property to apply padding to the left and right of the text. The padding expands the text background view horizontally.
-- Use the `verticalTextPadding` property to apply padding to the top (between the text and the placeholder) and bottom (between the text and the hint) of the text. The padding expands the text background view vertically.
+- Use the `textPadding` property to apply padding to the text. The padding expands the text background view. By default, the padding is `.zero`.
 
 #### The underline view
 
-Use the class `UnderlineView` to draw an underline below the text. The line can be colored and animated. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the unterline view.
+Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the unterline view.
 
 ## Known issues
 
@@ -90,7 +89,7 @@ These are known or possible issues with `RAGTextField`:
 
 - The `attributedText` property of UITextField *may* not be supported.
 - The `attributedPlaceholder` of UITextField is not supported.
-- The `borderStyle` property should be `.none`. Others *may* not be supported.
+- The `borderStyle` property should be `.none`.
 
 These issues will hopefully be addressed in future updates.
 
