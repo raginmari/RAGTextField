@@ -323,13 +323,34 @@ open class RAGTextField: UITextField {
         }
     }
     
+    /// Whether the text padding is applied only to the text or to both the text and the placeholder.
+    ///
+    /// The default value is `false`.
+    ///
+    /// - Note
+    /// In either case, the text padding is applied only once: either around text+placeholder or just around the text, i.e.
+    /// if the property is `true`, there will be no extra padding between the text and the placeholder
+    /// (in addition to the `scaledPlaceholderOffset`).
+    open var textPaddingIncludesPlaceholder = false {
+        didSet {
+            setNeedsUpdatePlaceholderConstraints()
+        }
+    }
+    
     /// Computes the frame of the text background view.
     ///
     /// - Returns: The frame
     private func computeTextBackgroundViewFrame() -> CGRect {
         
-        let y = computeTopInsetToText() - textPadding.top
-        let h = textPadding.top + measureTextHeight() + textPadding.bottom
+        let y, h: CGFloat
+        if textPaddingIncludesPlaceholder {
+            y = 0
+            h = computeTopInsetToText() + measureTextHeight() + textPadding.bottom
+        } else {
+            y = computeTopInsetToText() - textPadding.top
+            h = textPadding.top + measureTextHeight() + textPadding.bottom
+        }
+        
         let frame = CGRect(x: 0, y: y, width: bounds.width, height: h)
         
         return frame
@@ -337,8 +358,7 @@ open class RAGTextField: UITextField {
     
     /// The padding applied to the text rectangle.
     ///
-    /// The `textBackgroundView` is inflated by this value, so that the property can be used to better fit the text content into the
-    /// text background view. The default value is zero.
+    /// The `textBackgroundView` is inflated by this value. The default value is zero.
     open var textPadding: UIEdgeInsets = .zero {
         didSet {
             invalidateIntrinsicContentSize()
@@ -930,7 +950,8 @@ open class RAGTextField: UITextField {
     
     private func scaledVerticalPlaceholderConstraintConstant() -> CGFloat {
         
+        let additionalTopInset = textPaddingIncludesPlaceholder ? textPadding.top : 0.0
         let scaledHeight = placeholderScaleWhenEditing * measureTextHeight(using: placeholderLabel.font)
-        return computeTopInsetToText() - textPadding.top - scaledPlaceholderOffset - 0.5 * scaledHeight
+        return computeTopInsetToText() - textPadding.top - scaledPlaceholderOffset - 0.5 * scaledHeight + additionalTopInset
     }
 }
