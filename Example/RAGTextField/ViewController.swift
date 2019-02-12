@@ -15,20 +15,32 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textField: RAGTextField! {
         didSet {
-            let tintColor = UIColor(red: 0.0, green: 150.0 / 255.0, blue: 1.0, alpha: 1.0)
-            let inactiveColor = UIColor(white: 192.0 / 255.0, alpha: 1.0)
+            let underlineColor = UIColor(red: 0.0, green: 150.0 / 255.0, blue: 1.0, alpha: 1.0)
+            let placeholderColor = UIColor(white: 185.0 / 255.0, alpha: 1.0)
+            let textBackgroundColor = UIColor(white: 245.0 / 255.0, alpha: 1.0)
             
+            // Create the text background view
             let bgView = UnderlineView(frame: CGRect.zero)
             bgView.expandMode = .expandsInUserInterfaceDirection
-            bgView.backgroundLineColor = inactiveColor
-            bgView.foregroundLineColor = tintColor
-            bgView.lineWidth = 1.0
+            bgView.backgroundLineColor = placeholderColor
+            bgView.foregroundLineColor = underlineColor
+            bgView.lineWidth = 2.0
+            bgView.backgroundColor = textBackgroundColor
+            bgView.layer.cornerRadius = 4.0
+            if #available(iOS 11.0, *) {
+                bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
             textField.textBackgroundView = bgView
             
-            textField.placeholderColor = inactiveColor
+            textField.placeholderColor = placeholderColor
             textField.placeholderMode = .scalesWhenNotEmpty
-            textField.hintFont = UIFont.systemFont(ofSize: 12.0)
-            textField.tintColor = tintColor
+            textField.placeholderScaleWhenEditing = 0.7
+            textField.scaledPlaceholderOffset = 0.0
+            textField.hintOffset = 4.0
+            textField.textPadding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            textField.textPaddingIncludesPlaceholder = true
+            textField.hintFont = UIFont.systemFont(ofSize: 11.0)
+            textField.tintColor = underlineColor
         }
     }
     
