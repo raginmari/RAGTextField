@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Added property `textPaddingIncludesPlaceholder`. Used to apply the `textPadding` either to just the text or to both the text and the placeholder.
+
 ## 0.6.1
 
 ### Fixed
