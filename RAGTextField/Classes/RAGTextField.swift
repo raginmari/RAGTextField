@@ -336,9 +336,12 @@ open class RAGTextField: UITextField {
         case .textAndPlaceholder:
             y = 0
             h = computeTopInsetToText() + measureTextHeight() + textPadding.bottom
-        default:
+        case .textAndHint:
+            y = computeTopInsetToText() - textPadding.top
+            h = textPadding.top + measureTextHeight() + computeBottomInsetToText()
+        case .view:
             y = 0
-            h = 0
+            h = bounds.height
         }
         
         let frame = CGRect(x: 0, y: y, width: bounds.width, height: h)
@@ -544,7 +547,12 @@ open class RAGTextField: UITextField {
         let w = bounds.width - textPadding.left - textPadding.right
         let h = measureTextHeight(using: hintLabel.font)
         let x = userInterfaceDirectionAwareTextPadding.left
-        let y = bounds.height - h
+        
+        var y = bounds.height - h
+        if [.textAndHint, .view].contains(textPaddingMode) {
+            y -= textPadding.bottom
+        }
+        
         let frame = CGRect(x: x, y: y, width: w, height: h)
         
         return frame
