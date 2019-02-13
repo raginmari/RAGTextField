@@ -480,12 +480,11 @@ open class RAGTextField: UITextField {
         setupPlaceholderView()
         
         // Listen for text changes on self
-        let action = #selector(didChangeText)
+        let action = #selector(textDidChange)
         NotificationCenter.default.addObserver(self, selector: action, name: UITextField.textDidChangeNotification, object: self)
     }
     
-    @objc private func didChangeText() {
-        
+    @objc private func textDidChange() {
         updatePlaceholderTransform(animated: true)
     }
     
@@ -838,10 +837,19 @@ open class RAGTextField: UITextField {
     
     open override var intrinsicContentSize: CGSize {
         
-        let intrinsicHeight = computeTopInsetToText() + measureTextHeight() + computeBottomInsetToText()
-        let size = CGSize(width: UIView.noIntrinsicMetric, height: ceil(intrinsicHeight))
+        let height = ceil(computeTopInsetToText() + measureTextHeight() + computeBottomInsetToText())
+        let size = CGSize(width: intrinsicWidth(), height: height)
         
         return size
+    }
+    
+    private func intrinsicWidth() -> CGFloat {
+        
+        let textWidth = (text ?? "").size(using: font!).width
+        let placeholderWidth = (placeholder ?? "").size(using: placeholderLabel.font).width
+        let width = computeLeftInsetToText() + max(textWidth, placeholderWidth) + computeRightInsetToText()
+        
+        return ceil(width)
     }
     
     // MARK: - Constraints
