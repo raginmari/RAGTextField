@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             textField.scaledPlaceholderOffset = 0.0
             textField.hintOffset = 4.0
             textField.textPadding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            textField.textPaddingIncludesPlaceholder = true
+            textField.textPaddingMode = .textAndPlaceholder
             textField.hintFont = UIFont.systemFont(ofSize: 11.0)
             textField.tintColor = underlineColor
         }
