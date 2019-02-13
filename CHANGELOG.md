@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ### Added
-- Added property `textPaddingIncludesPlaceholder`. Used to apply the `textPadding` either to just the text or to both the text and the placeholder.
+- Added property `textPaddingMode`. Used to apply the `textPadding` to just the text, or in addition to that to the placeholder, the hint or both.
 
 ## 0.6.1
 
