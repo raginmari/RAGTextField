@@ -336,12 +336,12 @@ open class RAGTextField: UITextField {
         case .textAndPlaceholder:
             y = 0
             h = computeTopInsetToText() + measureTextHeight() + textPadding.bottom
+        case .textAndPlaceholderAndHint:
+            y = 0
+            h = bounds.height
         case .textAndHint:
             y = computeTopInsetToText() - textPadding.top
             h = textPadding.top + measureTextHeight() + computeBottomInsetToText()
-        case .view:
-            y = 0
-            h = bounds.height
         }
         
         let frame = CGRect(x: 0, y: y, width: bounds.width, height: h)
@@ -549,7 +549,7 @@ open class RAGTextField: UITextField {
         let x = userInterfaceDirectionAwareTextPadding.left
         
         var y = bounds.height - h
-        if [.textAndHint, .view].contains(textPaddingMode) {
+        if [.textAndHint, .textAndPlaceholderAndHint].contains(textPaddingMode) {
             y -= textPadding.bottom
         }
         
@@ -954,7 +954,7 @@ open class RAGTextField: UITextField {
     
     private func scaledVerticalPlaceholderConstraintConstant() -> CGFloat {
         
-        let additionalTopInset = [.textAndPlaceholder, .view].contains(textPaddingMode) ? textPadding.top : 0.0
+        let additionalTopInset = [.textAndPlaceholder, .textAndPlaceholderAndHint].contains(textPaddingMode) ? textPadding.top : 0.0
         let scaledHeight = placeholderScaleWhenEditing * measureTextHeight(using: placeholderLabel.font)
         return computeTopInsetToText() - textPadding.top - scaledPlaceholderOffset - 0.5 * scaledHeight + additionalTopInset
     }
