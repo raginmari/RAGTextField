@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## 0.7.0
 
 ### Added
 - Added property `textPaddingMode`. Used to apply the `textPadding` to just the text, or in addition to that to the placeholder, the hint or both.

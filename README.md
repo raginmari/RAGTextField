@@ -78,6 +78,7 @@ Add a view to the background of the text by assigning an arbitrary view to the `
 These are the different ways you can **customize the appearance** of the text background view.
 
 - Use the `textPadding` property to apply padding to the text. The padding expands the text background view. By default, the padding is `.zero`.
+- Use the `textPaddingMode` property to apply the text padding to just the text or in addition to that to the placeholder, the hint or both. Can be used to wrap the respective subviews into the text background view. The example project uses the text padding mode.
 
 #### The underline view
 
