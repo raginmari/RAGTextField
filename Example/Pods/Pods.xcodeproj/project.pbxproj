@@ -19,6 +19,7 @@
 		BF49313921FF99D600F8CEAA /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49313821FF99D500F8CEAA /* PlaceholderView.swift */; };
 		BFBFA6EC220CC1A00012EA4E /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFA6EA220CC0A70012EA4E /* UnderlineView.swift */; };
 		BFBFA70E2214B56A0012EA4E /* RAGTextPaddingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFA70D2214B56A0012EA4E /* RAGTextPaddingMode.swift */; };
+		BFBFA7112218D7C80012EA4E /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFA7102218D7C80012EA4E /* OutlineView.swift */; };
 		D0DCEE01360C8A2B2D1D4320F52026CB /* Pods-RAGTextField_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3631C805A5847EBBB7997A37DBDC43F7 /* Pods-RAGTextField_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA4F1BF5B8620EC55A782BAEF0D4BE98 /* Pods-RAGTextField_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97938F0E665C8F551DFB0C3CB3E0B20F /* Pods-RAGTextField_Tests-dummy.m */; };
 		F1C8BC705D4AD2427274352BA3DA5411 /* RAGTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 572919006CE86EA28EDFB23712D11FFB /* RAGTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +66,7 @@
 		BF49313821FF99D500F8CEAA /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		BFBFA6EA220CC0A70012EA4E /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
 		BFBFA70D2214B56A0012EA4E /* RAGTextPaddingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAGTextPaddingMode.swift; sourceTree = "<group>"; };
+		BFBFA7102218D7C80012EA4E /* OutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
 		C5C253C4AC0E3D3F00FC7DD60D1429EA /* Pods-RAGTextField_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RAGTextField_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C7021EE0239D4B7289C45FC66C2DE43F /* Pods_RAGTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAGTextField_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE90C01FE7D9A17EBC3ECD8A1A4689B /* Pods-RAGTextField_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RAGTextField_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -116,11 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				BF4AEC1621FD2423000A8C91 /* Extensions */,
+				BFBFA70F2218D7A80012EA4E /* Views */,
 				BF49313821FF99D500F8CEAA /* PlaceholderView.swift */,
 				71FBBC7F6307EC3E684F0BAC3B8FAF6D /* RAGTextField.swift */,
 				BF1B405821F4A0F5004AF20A /* RAGTextFieldPlaceholderMode.swift */,
 				BFBFA70D2214B56A0012EA4E /* RAGTextPaddingMode.swift */,
-				BFBFA6EA220CC0A70012EA4E /* UnderlineView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -203,6 +205,15 @@
 				BF1B405B21F50B32004AF20A /* String+RAGTextField.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFBFA70F2218D7A80012EA4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFBFA7102218D7C80012EA4E /* OutlineView.swift */,
+				BFBFA6EA220CC0A70012EA4E /* UnderlineView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C5FDCE86FC1B1FD5BD731E382615748B /* Support Files */ = {
@@ -383,6 +394,7 @@
 				042CA789654DCCC51252B81E04A7A05B /* RAGTextField.swift in Sources */,
 				BF49313921FF99D600F8CEAA /* PlaceholderView.swift in Sources */,
 				BF1B405A21F4A0FD004AF20A /* RAGTextFieldPlaceholderMode.swift in Sources */,
+				BFBFA7112218D7C80012EA4E /* OutlineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
