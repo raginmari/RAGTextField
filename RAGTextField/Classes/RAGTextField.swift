@@ -566,7 +566,7 @@ open class RAGTextField: UITextField {
         placeholderLabel.font = font
         
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
-        placeholderView.textAlignment = .natural
+        placeholderView.textAlignment = textAlignment
     }
     
     private func setupPlaceholderContainerView() {
