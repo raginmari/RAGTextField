@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8.0
+
+### Changed
+- The height of the background line of the `UnderlineView` is always 1 pixel wide. The property `foregroundLineWidth` (formerly "lineWidth") affects the height of the foreground line only (API breaking change).
+
+### Fixed
+- Fixed default placeholder color
+- Fixed initial placeholder text alignment
+
 ## 0.7.0
 
 ### Added

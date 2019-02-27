@@ -82,7 +82,7 @@ These are the different ways you can **customize the appearance** of the text ba
 
 #### The underline view
 
-Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the unterline view.
+Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the underline view.
 
 ## Known issues
 
