@@ -51,10 +51,10 @@ open class UnderlineView: UIView {
         case notAnimated
     }
     
-    /// The width of both lines in points.
-    @IBInspectable open var lineWidth: CGFloat = 1.0 {
+    /// The width of both the foreground line in points.
+    @IBInspectable open var foregroundLineWidth: CGFloat = 1.0 {
         didSet {
-            heightConstraint?.constant = lineWidth
+            heightConstraint?.constant = foregroundLineWidth
         }
     }
     
@@ -142,7 +142,8 @@ open class UnderlineView: UIView {
         underlineBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         // Always be as high as the underline
-        underlineBackgroundView.heightAnchor.constraint(equalTo: underlineView.heightAnchor).isActive = true
+        let onePixel = 1.0 / UIScreen.main.scale
+        underlineBackgroundView.heightAnchor.constraint(equalToConstant: onePixel).isActive = true
     }
     
     /// Sets up the underline view. Sets properties and configures constraints.
@@ -154,7 +155,7 @@ open class UnderlineView: UIView {
         // Cling to the bottom of the view
         underlineView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        heightConstraint = underlineView.heightAnchor.constraint(equalToConstant: lineWidth)
+        heightConstraint = underlineView.heightAnchor.constraint(equalToConstant: foregroundLineWidth)
         heightConstraint?.isActive = true
         
         // (De)activating the higher priority width constraint animates the underline

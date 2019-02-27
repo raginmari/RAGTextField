@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             bgView.expandMode = .expandsInUserInterfaceDirection
             bgView.backgroundLineColor = placeholderColor
             bgView.foregroundLineColor = underlineColor
-            bgView.lineWidth = 2.0
+            bgView.foregroundLineWidth = 2.0
             bgView.backgroundColor = textBackgroundColor
             bgView.layer.cornerRadius = 4.0
             if #available(iOS 11.0, *) {
