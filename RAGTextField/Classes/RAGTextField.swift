@@ -120,7 +120,7 @@ open class RAGTextField: UITextField {
     open override var text: String? {
         didSet {
             setNeedsUpdateHorizontalPlaceholderConstraints()
-            updatePlaceholderTransform(animated: true)
+            updatePlaceholderTransform(animated: false)
         }
     }
     
@@ -361,6 +361,7 @@ open class RAGTextField: UITextField {
     
     open var textPaddingMode: RAGTextPaddingMode = .text {
         didSet {
+            setNeedsLayout()
             setNeedsUpdatePlaceholderConstraints()
         }
     }
