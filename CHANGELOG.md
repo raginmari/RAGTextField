@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.8.1
+
+### Fixed
+- View performs a layout pass when the text padding mode is set
+- View no longer animates the placeholder when the text propert is set
+
 ## 0.8.0
 
 ### Changed
