@@ -26,6 +26,8 @@ Add the following line to your Podfile:
 pod "RAGTextField"
 ```
 
+Please try the pod by calling `pod try RAGTextField` in the terminal.
+
 #### Carthage
 
 Add the following line to your Cartfile:
@@ -83,6 +85,9 @@ These are the different ways you can **customize the appearance** of the text ba
 #### The underline view
 
 Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the underline view.
+
+#### The outline view
+Use the class `OutlineView` to draw an outline around the text. The outline can have rounded corners and it can be filled and inset. Assign an instance of the class to the `textBackgroundView` property of the text field. Depending on the `textPaddingMode` value, the outline optionally includes the placeholder and/or hint label.
 
 ## Known issues
 

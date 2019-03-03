@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.9.0
+
+### Changed
+- Implemented a much more helpful example project for the pod. Please "try".
+
+### Fixed
+- The horizontal text position would not be updated if the left or right views of the text field were shown or hidden
+
 ## 0.8.1
 
 ### Fixed
