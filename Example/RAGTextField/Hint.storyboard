@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Acp-v0-nGL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hint View Controller-->
+        <scene sceneID="ecI-tW-Qnj">
+            <objects>
+                <viewController id="Acp-v0-nGL" customClass="HintViewController" customModule="RAGTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0y2-XS-Lei">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVi-ty-lmZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="aAc-WU-ctX">
+                                        <rect key="frame" x="16" y="32" width="343" height="244"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports a hint label below the text:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-xq-vYC">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hint" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPD-WZ-91x" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="34" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rdH-96-pcm">
+                                                <rect key="frame" x="0.0" y="80" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="Visible"/>
+                                                    <segment title="Empty"/>
+                                                    <segment title="Gone"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onHintVisibilityDidChange:" destination="Acp-v0-nGL" eventType="valueChanged" id="6QL-BX-8cf"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Use color to indicate error or info" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QuG-xQ-gmg" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="124" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Offset the hint from the text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOi-Jj-g3g" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="170" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="RBt-AT-Icm">
+                                                <rect key="frame" x="0.0" y="216" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="0pt"/>
+                                                    <segment title="8pt"/>
+                                                    <segment title="16pt"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onHintOffsetDidChange:" destination="Acp-v0-nGL" eventType="valueChanged" id="B4p-qH-kMb"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aAc-WU-ctX" firstAttribute="top" secondItem="KVi-ty-lmZ" secondAttribute="top" constant="32" id="5t4-fU-SPy"/>
+                                    <constraint firstItem="aAc-WU-ctX" firstAttribute="leading" secondItem="KVi-ty-lmZ" secondAttribute="leading" constant="16" id="MCU-uI-bk6"/>
+                                    <constraint firstAttribute="bottom" secondItem="aAc-WU-ctX" secondAttribute="bottom" id="RWG-cC-ECk"/>
+                                    <constraint firstItem="aAc-WU-ctX" firstAttribute="width" secondItem="ACz-pw-I2k" secondAttribute="width" constant="-32" id="d5b-jk-k8o"/>
+                                    <constraint firstAttribute="trailing" secondItem="aAc-WU-ctX" secondAttribute="trailing" constant="16" id="rcf-CC-TkV"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="ACz-pw-I2k"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KVi-ty-lmZ" firstAttribute="leading" secondItem="Q5V-r0-oYR" secondAttribute="leading" id="O9n-jb-R6o"/>
+                            <constraint firstAttribute="bottom" secondItem="KVi-ty-lmZ" secondAttribute="bottom" id="V9v-pb-sKD"/>
+                            <constraint firstItem="Q5V-r0-oYR" firstAttribute="top" secondItem="KVi-ty-lmZ" secondAttribute="top" id="a8c-0G-z4X"/>
+                            <constraint firstItem="Q5V-r0-oYR" firstAttribute="trailing" secondItem="KVi-ty-lmZ" secondAttribute="trailing" id="lgD-W3-Q4k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q5V-r0-oYR"/>
+                    </view>
+                    <connections>
+                        <outlet property="coloredHintTextField" destination="QuG-xQ-gmg" id="1IX-pE-RAr"/>
+                        <outlet property="hintOffsetControl" destination="RBt-AT-Icm" id="d58-gV-Vdn"/>
+                        <outlet property="hintTextField" destination="MPD-WZ-91x" id="EON-sk-Skb"/>
+                        <outlet property="hintVisibilityControl" destination="rdH-96-pcm" id="ajI-TZ-WAT"/>
+                        <outlet property="offsetHintTextField" destination="BOi-Jj-g3g" id="t14-0m-Qfr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmo-kR-nil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="8ie-e3-0Mc" customClass="KeyboardEvader" customModule="RAGTextField_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="scrollView" destination="KVi-ty-lmZ" id="VIW-l7-CjK"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-55" y="-291"/>
+        </scene>
+    </scenes>
+</document>

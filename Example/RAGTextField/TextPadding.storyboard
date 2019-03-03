@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zve-9V-rVu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Text Padding View Controller-->
+        <scene sceneID="zSO-Dj-e9X">
+            <objects>
+                <viewController id="zve-9V-rVu" customClass="TextPaddingViewController" customModule="RAGTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chK-UQ-sA8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWI-yH-5ZE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-e7-0oI">
+                                        <rect key="frame" x="16" y="32" width="343" height="318"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports padding around the text, placeholder and hint:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-f5-pW2">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="4pt padding" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vaY-ti-S7M" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="52" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set padding and mode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-Gz-yTh" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="98" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="561-fF-85T">
+                                                <rect key="frame" x="0.0" y="144" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="4pt"/>
+                                                    <segment title="8pt"/>
+                                                    <segment title="16pt"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onPaddingChanged:" destination="zve-9V-rVu" eventType="valueChanged" id="ggF-pI-hX8"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uI-B6-Mkb">
+                                                <rect key="frame" x="0.0" y="188" width="343" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shy-6n-oSl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fje-gW-eUt">
+                                                        <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onIncludePlaceholderChanged:" destination="zve-9V-rVu" eventType="valueChanged" id="kfd-6q-IOK"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqj-m8-9v9">
+                                                <rect key="frame" x="0.0" y="235" width="343" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMa-lC-0n7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yxv-Li-q4w">
+                                                        <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onIncludeHintChanged:" destination="zve-9V-rVu" eventType="valueChanged" id="TnR-RV-E5D"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uses UIEdgeInsets, so the top, bottom, left and right values need not be equal." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntg-vr-oG4">
+                                                <rect key="frame" x="0.0" y="282" width="343" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="N5e-e7-0oI" firstAttribute="width" secondItem="abQ-Az-6IR" secondAttribute="width" constant="-32" id="Ah2-8o-ra4"/>
+                                    <constraint firstAttribute="trailing" secondItem="N5e-e7-0oI" secondAttribute="trailing" constant="16" id="e8k-7Z-FuN"/>
+                                    <constraint firstItem="N5e-e7-0oI" firstAttribute="top" secondItem="tWI-yH-5ZE" secondAttribute="top" constant="32" id="ie6-Ir-QIw"/>
+                                    <constraint firstItem="N5e-e7-0oI" firstAttribute="leading" secondItem="tWI-yH-5ZE" secondAttribute="leading" constant="16" id="vH4-6l-hCA"/>
+                                    <constraint firstAttribute="bottom" secondItem="N5e-e7-0oI" secondAttribute="bottom" id="yzK-Ho-By8"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="abQ-Az-6IR"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JBq-56-z6Y" firstAttribute="trailing" secondItem="tWI-yH-5ZE" secondAttribute="trailing" id="7Vv-w5-pYS"/>
+                            <constraint firstAttribute="bottom" secondItem="tWI-yH-5ZE" secondAttribute="bottom" id="Jja-G2-OBN"/>
+                            <constraint firstItem="JBq-56-z6Y" firstAttribute="top" secondItem="tWI-yH-5ZE" secondAttribute="top" id="o6u-La-SfU"/>
+                            <constraint firstItem="tWI-yH-5ZE" firstAttribute="leading" secondItem="JBq-56-z6Y" secondAttribute="leading" id="tG8-eP-QRA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JBq-56-z6Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="defaultTextField" destination="vaY-ti-S7M" id="QBp-of-F6c"/>
+                        <outlet property="includeHintSwitch" destination="Yxv-Li-q4w" id="lBa-x2-ILB"/>
+                        <outlet property="includePlaceholderSwitch" destination="fje-gW-eUt" id="Kcl-Oe-Kg9"/>
+                        <outlet property="paddedTextField" destination="6hc-Gz-yTh" id="r1a-JL-HVd"/>
+                        <outlet property="paddingControl" destination="561-fF-85T" id="4KU-aX-DVW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VsC-dz-pkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="DQM-Ui-alo" customClass="KeyboardEvader" customModule="RAGTextField_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="scrollView" destination="tWI-yH-5ZE" id="Sj7-qZ-9Sa"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-246" y="164"/>
+        </scene>
+    </scenes>
+</document>

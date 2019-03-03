@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zC4-eW-pum">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Left And Right Views View Controller-->
+        <scene sceneID="voy-qj-iEt">
+            <objects>
+                <viewController id="zC4-eW-pum" customClass="LeftAndRightViewsViewController" customModule="RAGTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UEG-Mx-Bnm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APM-D1-awU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rWg-c5-lig">
+                                        <rect key="frame" x="16" y="32" width="343" height="384"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports the left and right views of UITextField:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-jI-UJ2">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Left view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8q-dPn" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="34" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Right view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPh-Kc-qjT" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="80" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Toggle left and right view" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xBm-MO-BJl" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="126" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Regular UITextField" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuS-0a-YsM">
+                                                <rect key="frame" x="0.0" y="172" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U52-JH-q3A">
+                                                <rect key="frame" x="0.0" y="218" width="343" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set left view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGp-sP-9OL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-R3-om6">
+                                                        <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onLeftViewToggled:" destination="zC4-eW-pum" eventType="valueChanged" id="zgP-to-GsO"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oz7-Px-OED">
+                                                <rect key="frame" x="0.0" y="265" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="Always"/>
+                                                    <segment title="Editing"/>
+                                                    <segment title="Not editing"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onLeftViewModeChanged:" destination="zC4-eW-pum" eventType="valueChanged" id="0gZ-bH-cth"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CO8-3c-rlJ">
+                                                <rect key="frame" x="0.0" y="309" width="343" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set right view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3d-nB-t0b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jG-PP-RYu">
+                                                        <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onRightViewToggled:" destination="zC4-eW-pum" eventType="valueChanged" id="auc-bJ-h5d"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1ae-CD-bVM">
+                                                <rect key="frame" x="0.0" y="356" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="Always"/>
+                                                    <segment title="Editing"/>
+                                                    <segment title="Not editing"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onRightViewModeChanged:" destination="zC4-eW-pum" eventType="valueChanged" id="xEQ-Nj-Hnr"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rWg-c5-lig" firstAttribute="leading" secondItem="APM-D1-awU" secondAttribute="leading" constant="16" id="0oK-ng-O6S"/>
+                                    <constraint firstAttribute="trailing" secondItem="rWg-c5-lig" secondAttribute="trailing" constant="16" id="4Hx-ox-TO5"/>
+                                    <constraint firstItem="rWg-c5-lig" firstAttribute="top" secondItem="APM-D1-awU" secondAttribute="top" constant="32" id="6Nq-Hl-uAM"/>
+                                    <constraint firstAttribute="bottom" secondItem="rWg-c5-lig" secondAttribute="bottom" id="Rn2-I0-E2f"/>
+                                    <constraint firstItem="rWg-c5-lig" firstAttribute="width" secondItem="1pp-iQ-FUM" secondAttribute="width" constant="-32" id="iX4-O2-IQy"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="1pp-iQ-FUM"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLx-Xk-ep6">
+                                <rect key="frame" x="64" y="585" width="247" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeI-eN-5Sj">
+                                        <rect key="frame" x="16" y="16" width="215" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NeI-eN-5Sj" secondAttribute="bottom" constant="16" id="AwK-Vh-LvK"/>
+                                    <constraint firstItem="NeI-eN-5Sj" firstAttribute="top" secondItem="JLx-Xk-ep6" secondAttribute="top" constant="16" id="Lno-gq-JZj"/>
+                                    <constraint firstAttribute="trailing" secondItem="NeI-eN-5Sj" secondAttribute="trailing" constant="16" id="XbZ-Sb-bhi"/>
+                                    <constraint firstItem="NeI-eN-5Sj" firstAttribute="leading" secondItem="JLx-Xk-ep6" secondAttribute="leading" constant="16" id="rlz-8i-F7o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JLx-Xk-ep6" firstAttribute="leading" secondItem="63E-vF-pVy" secondAttribute="leading" constant="64" id="2eV-NR-ugq"/>
+                            <constraint firstItem="63E-vF-pVy" firstAttribute="bottom" secondItem="JLx-Xk-ep6" secondAttribute="bottom" constant="32" id="Cyn-8B-zZZ"/>
+                            <constraint firstItem="63E-vF-pVy" firstAttribute="top" secondItem="APM-D1-awU" secondAttribute="top" id="DrO-aM-YdK"/>
+                            <constraint firstAttribute="bottom" secondItem="APM-D1-awU" secondAttribute="bottom" id="F9S-mv-xQV"/>
+                            <constraint firstItem="63E-vF-pVy" firstAttribute="trailing" secondItem="APM-D1-awU" secondAttribute="trailing" id="Tqg-j8-NUz"/>
+                            <constraint firstItem="JLx-Xk-ep6" firstAttribute="centerX" secondItem="63E-vF-pVy" secondAttribute="centerX" id="kO9-6a-iUE"/>
+                            <constraint firstItem="APM-D1-awU" firstAttribute="leading" secondItem="63E-vF-pVy" secondAttribute="leading" id="qIf-ww-SFp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="63E-vF-pVy"/>
+                    </view>
+                    <connections>
+                        <outlet property="leftAndRightViewTextField" destination="xBm-MO-BJl" id="KKG-Ys-KSn"/>
+                        <outlet property="leftViewModeControl" destination="oz7-Px-OED" id="9zQ-6z-Ziv"/>
+                        <outlet property="leftViewSwitch" destination="0mt-R3-om6" id="JmD-f4-vKX"/>
+                        <outlet property="leftViewTextField" destination="ZQk-8q-dPn" id="7Qn-Do-Cl8"/>
+                        <outlet property="notificationLabel" destination="NeI-eN-5Sj" id="5hX-NS-1rW"/>
+                        <outlet property="notificationView" destination="JLx-Xk-ep6" id="iAY-Pe-Nia"/>
+                        <outlet property="rightViewModeControl" destination="1ae-CD-bVM" id="wjQ-BF-7qb"/>
+                        <outlet property="rightViewSwitch" destination="4jG-PP-RYu" id="Ufp-Qy-XYY"/>
+                        <outlet property="rightViewTextField" destination="BPh-Kc-qjT" id="lBG-Iw-QXz"/>
+                        <outlet property="uiTextField" destination="LuS-0a-YsM" id="xDI-Li-Api"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S72-Mr-Gev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Gt5-r3-01f" customClass="KeyboardEvader" customModule="RAGTextField_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="scrollView" destination="APM-D1-awU" id="06k-TX-lCy"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-292" y="160"/>
+        </scene>
+    </scenes>
+</document>

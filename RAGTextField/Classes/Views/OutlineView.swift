@@ -105,8 +105,19 @@ open class OutlineView: UIView {
     /// - Returns: The new path.
     private func makePath() -> UIBezierPath {
         
-        let rect = bounds.inset(by: outlineInsets)
-        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        let rect: CGRect
+        if outlineInsets != .zero {
+            rect = bounds.inset(by: outlineInsets)
+        } else {
+            rect = bounds
+        }
+        
+        let path: UIBezierPath
+        if cornerRadius != 0.0 {
+            path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        } else {
+            path = UIBezierPath(rect: rect)
+        }
         
         return path
     }

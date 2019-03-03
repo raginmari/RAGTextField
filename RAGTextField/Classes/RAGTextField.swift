@@ -405,6 +405,18 @@ open class RAGTextField: UITextField {
     
     // MARK: Overlay views
     
+    open override var leftView: UIView? {
+        didSet {
+            setNeedsUpdateHorizontalPlaceholderConstraints()
+        }
+    }
+    
+    open override var leftViewMode: UITextField.ViewMode {
+        didSet {
+            setNeedsUpdateHorizontalPlaceholderConstraints()
+        }
+    }
+    
     /// Whether the left view is displayed to the left or to the right of the text.
     private var leftViewPosition: HorizontalPosition {
         
@@ -419,6 +431,18 @@ open class RAGTextField: UITextField {
         
         guard leftView != nil else { return false }
         return isOverlayVisible(with: leftViewMode)
+    }
+    
+    open override var rightView: UIView? {
+        didSet {
+            setNeedsUpdateHorizontalPlaceholderConstraints()
+        }
+    }
+    
+    open override var rightViewMode: UITextField.ViewMode {
+        didSet {
+            setNeedsUpdateHorizontalPlaceholderConstraints()
+        }
     }
     
     /// Whether the left view is displayed to the left or to the right of the text.
@@ -445,7 +469,7 @@ open class RAGTextField: UITextField {
         case .whileEditing:
             return isEditing
         case .unlessEditing:
-            return !isEditing
+            return !isEditing || !hasText
         case .never:
             return false
         }
@@ -490,6 +514,9 @@ open class RAGTextField: UITextField {
     }
     
     private func commonInit() {
+        
+        borderStyle = .none
+        
         addSubview(hintLabel)
         setupHintLabel()
         

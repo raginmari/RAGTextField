@@ -1,92 +1,103 @@
-//
-//  ViewController.swift
-//  RAGTextField
-//
-//  Created by raginmari on 03/03/2017.
-//  Copyright (c) 2017 raginmari. All rights reserved.
-//
-
 import UIKit
-import RAGTextField
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var uitextField: UITextField!
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var textField: RAGTextField! {
-        didSet {
-            let underlineColor = UIColor(red: 0.0, green: 150.0 / 255.0, blue: 1.0, alpha: 1.0)
-            let placeholderColor = UIColor(white: 185.0 / 255.0, alpha: 1.0)
-            let textBackgroundColor = UIColor(white: 245.0 / 255.0, alpha: 1.0)
-            
-            // Create the text background view
-            let bgView = UnderlineView(frame: CGRect.zero)
-            bgView.expandMode = .expandsInUserInterfaceDirection
-            bgView.backgroundLineColor = placeholderColor
-            bgView.foregroundLineColor = underlineColor
-            bgView.foregroundLineWidth = 2.0
-            bgView.backgroundColor = textBackgroundColor
-            bgView.layer.cornerRadius = 4.0
-            if #available(iOS 11.0, *) {
-                bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-            }
-            textField.textBackgroundView = bgView
-            
-            textField.placeholderColor = placeholderColor
-            textField.placeholderMode = .scalesWhenNotEmpty
-            textField.placeholderScaleWhenEditing = 0.7
-            textField.scaledPlaceholderOffset = 0.0
-            textField.hintOffset = 4.0
-            textField.textPadding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            textField.textPaddingMode = .textAndPlaceholder
-            textField.hintFont = UIFont.systemFont(ofSize: 11.0)
-            textField.tintColor = underlineColor
+    private enum Topic: String {
+        
+        case placeholder
+        case hint
+        case textAlignment
+        case textPadding
+        case outline
+        case underline
+        case leftAndRightViews
+        
+        static var allTopics: [Topic] {
+            return [
+                .placeholder,
+                .hint,
+                .textAlignment,
+                .textPadding,
+                .outline,
+                .underline,
+                .leftAndRightViews
+            ]
         }
     }
     
-    @IBAction private func onTextAlignmentChanged(_ control: UISegmentedControl) {
+    override func viewDidLoad() {
         
-        textField.endEditing(true)
+        title = "Overview"
         
-        let alignments: [NSTextAlignment] = [ .left, .center, .right, .justified, .natural ]
-        textField.textAlignment = alignments[control.selectedSegmentIndex]
-        uitextField.textAlignment = alignments[control.selectedSegmentIndex]
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
+        super.viewDidLoad()
     }
-    
-    @IBAction private func onPlaceholderModeChanged(_ control: UISegmentedControl) {
-        
-        textField.endEditing(true)
-        
-        let modes: [RAGTextFieldPlaceholderMode] = [ .simple, .scalesWhenEditing, .scalesWhenNotEmpty ]
-        textField.placeholderMode = modes[control.selectedSegmentIndex]
-    }
-    
-    @IBAction private func onHintChanged(_ control: UISwitch) {
-        
-        textField.endEditing(true)
-        textField.hint = control.isOn ? "Hint or error message" : nil
-    }
-}
 
-extension ViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        textField.resignFirstResponder()
-        return true
+        return Topic.allTopics.count
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if textField === self.textField {
-            (self.textField.textBackgroundView as? UnderlineView)?.setExpanded(true, animated: true)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = title(for: Topic.allTopics[indexPath.row])
+        cell.textLabel?.textColor = .darkGray
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
+    }
+    
+    private func title(for topic: Topic) -> String {
+        
+        switch topic {
+        case .placeholder:
+            return "Animated placeholder"
+        case .hint:
+            return "Hint label"
+        case .textAlignment:
+            return "Text alignments"
+        case .textPadding:
+            return "Text padding"
+        case .outline:
+            return "Outlined style"
+        case .underline:
+            return "Underlined style"
+        case .leftAndRightViews:
+            return "Left and right views"
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if textField === self.textField {
-            (self.textField.textBackgroundView as? UnderlineView)?.setExpanded(false, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let topic = Topic.allTopics[indexPath.row]
+        
+        let storyboardName = formatStoryboardName(for: topic)
+        guard Bundle.main.path(forResource: storyboardName, ofType: "storyboardc") != nil else {
+            return
         }
+        
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        if let viewController = storyboard.instantiateInitialViewController() {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return CGFloat.leastNonzeroMagnitude
+    }
+    
+    private func formatStoryboardName(for topic: Topic) -> String {
+        
+        let value = topic.rawValue
+        let name = value.prefix(1).uppercased() + value.dropFirst()
+        
+        return name
     }
 }

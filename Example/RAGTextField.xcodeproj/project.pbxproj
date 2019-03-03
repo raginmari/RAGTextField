@@ -15,6 +15,23 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		BF09EC2F2227212D00D04024 /* Hint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF09EC2E2227212D00D04024 /* Hint.storyboard */; };
+		BF09EC312227213D00D04024 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF09EC302227213D00D04024 /* HintViewController.swift */; };
+		BF09EC33222731F900D04024 /* TextAlignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF09EC32222731F900D04024 /* TextAlignment.storyboard */; };
+		BF09EC352227320600D04024 /* TextAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF09EC342227320600D04024 /* TextAlignmentViewController.swift */; };
+		BF36005322286AC9002DD134 /* TextPadding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF36005222286AC9002DD134 /* TextPadding.storyboard */; };
+		BF36005522286AD6002DD134 /* TextPaddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36005422286AD6002DD134 /* TextPaddingViewController.swift */; };
+		BF36005722289CA3002DD134 /* Outline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF36005622289CA3002DD134 /* Outline.storyboard */; };
+		BF36005922289CAE002DD134 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36005822289CAE002DD134 /* OutlineViewController.swift */; };
+		BF36005B2229A566002DD134 /* Underline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF36005A2229A566002DD134 /* Underline.storyboard */; };
+		BF36005D2229A570002DD134 /* UnderlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36005C2229A570002DD134 /* UnderlineViewController.swift */; };
+		BF36005F222BD5AD002DD134 /* LeftAndRightViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36005E222BD5AD002DD134 /* LeftAndRightViewsViewController.swift */; };
+		BF360061222BD5B5002DD134 /* LeftAndRightViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF360060222BD5B5002DD134 /* LeftAndRightViews.storyboard */; };
+		BFA6500F2225CD1A00FF1FB0 /* Placeholder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA6500E2225CD1A00FF1FB0 /* Placeholder.storyboard */; };
+		BFA650112225CD2600FF1FB0 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA650102225CD2600FF1FB0 /* PlaceholderViewController.swift */; };
+		BFA650162225D3B200FF1FB0 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA650152225D3B200FF1FB0 /* UIColor+Hex.swift */; };
+		BFA650182225D3E600FF1FB0 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA650172225D3E600FF1FB0 /* ColorPalette.swift */; };
+		BFD68C992220A412005CA182 /* KeyboardEvader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD68C982220A412005CA182 /* KeyboardEvader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +62,23 @@
 		B3D34898E71706E17E1A9690 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B82FD5A4EA5D2C97A0EE3C58 /* Pods-RAGTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDAFF24CEB744F384BD1CA35 /* Pods_RAGTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAGTextField_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF09EC2E2227212D00D04024 /* Hint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hint.storyboard; sourceTree = "<group>"; };
+		BF09EC302227213D00D04024 /* HintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintViewController.swift; sourceTree = "<group>"; };
+		BF09EC32222731F900D04024 /* TextAlignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TextAlignment.storyboard; sourceTree = "<group>"; };
+		BF09EC342227320600D04024 /* TextAlignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlignmentViewController.swift; sourceTree = "<group>"; };
+		BF36005222286AC9002DD134 /* TextPadding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TextPadding.storyboard; sourceTree = "<group>"; };
+		BF36005422286AD6002DD134 /* TextPaddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPaddingViewController.swift; sourceTree = "<group>"; };
+		BF36005622289CA3002DD134 /* Outline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Outline.storyboard; sourceTree = "<group>"; };
+		BF36005822289CAE002DD134 /* OutlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
+		BF36005A2229A566002DD134 /* Underline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Underline.storyboard; sourceTree = "<group>"; };
+		BF36005C2229A570002DD134 /* UnderlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineViewController.swift; sourceTree = "<group>"; };
+		BF36005E222BD5AD002DD134 /* LeftAndRightViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAndRightViewsViewController.swift; sourceTree = "<group>"; };
+		BF360060222BD5B5002DD134 /* LeftAndRightViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LeftAndRightViews.storyboard; sourceTree = "<group>"; };
+		BFA6500E2225CD1A00FF1FB0 /* Placeholder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Placeholder.storyboard; sourceTree = "<group>"; };
+		BFA650102225CD2600FF1FB0 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
+		BFA650152225D3B200FF1FB0 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		BFA650172225D3E600FF1FB0 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		BFD68C982220A412005CA182 /* KeyboardEvader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEvader.swift; sourceTree = "<group>"; };
 		C40CD81EE62A049C59BA2C8B /* Pods-RAGTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FB0BEFBFFFA6FDCAE8495263 /* Pods-RAGTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAGTextField_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,11 +137,11 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				BFA650122225D37000FF1FB0 /* Main */,
+				BFA6500D2225CC9B00FF1FB0 /* Pages */,
+				BFA650142225D39100FF1FB0 /* Resources */,
+				BFA650132225D37E00FF1FB0 /* Shared */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 			);
 			name = "Example for RAGTextField";
 			path = RAGTextField;
@@ -157,6 +191,55 @@
 				FB0BEFBFFFA6FDCAE8495263 /* Pods-RAGTextField_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFA6500D2225CC9B00FF1FB0 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				BF09EC2E2227212D00D04024 /* Hint.storyboard */,
+				BF09EC302227213D00D04024 /* HintViewController.swift */,
+				BF360060222BD5B5002DD134 /* LeftAndRightViews.storyboard */,
+				BF36005E222BD5AD002DD134 /* LeftAndRightViewsViewController.swift */,
+				BF36005622289CA3002DD134 /* Outline.storyboard */,
+				BF36005822289CAE002DD134 /* OutlineViewController.swift */,
+				BFA6500E2225CD1A00FF1FB0 /* Placeholder.storyboard */,
+				BFA650102225CD2600FF1FB0 /* PlaceholderViewController.swift */,
+				BF09EC32222731F900D04024 /* TextAlignment.storyboard */,
+				BF09EC342227320600D04024 /* TextAlignmentViewController.swift */,
+				BF36005222286AC9002DD134 /* TextPadding.storyboard */,
+				BF36005422286AD6002DD134 /* TextPaddingViewController.swift */,
+				BF36005A2229A566002DD134 /* Underline.storyboard */,
+				BF36005C2229A570002DD134 /* UnderlineViewController.swift */,
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
+		BFA650122225D37000FF1FB0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		BFA650132225D37E00FF1FB0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BFA650172225D3E600FF1FB0 /* ColorPalette.swift */,
+				BFD68C982220A412005CA182 /* KeyboardEvader.swift */,
+				BFA650152225D3B200FF1FB0 /* UIColor+Hex.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		BFA650142225D39100FF1FB0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,8 +331,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF36005322286AC9002DD134 /* TextPadding.storyboard in Resources */,
+				BF36005722289CA3002DD134 /* Outline.storyboard in Resources */,
+				BFA6500F2225CD1A00FF1FB0 /* Placeholder.storyboard in Resources */,
+				BF360061222BD5B5002DD134 /* LeftAndRightViews.storyboard in Resources */,
+				BF36005B2229A566002DD134 /* Underline.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				BF09EC33222731F900D04024 /* TextAlignment.storyboard in Resources */,
+				BF09EC2F2227212D00D04024 /* Hint.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,8 +451,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA650112225CD2600FF1FB0 /* PlaceholderViewController.swift in Sources */,
+				BF36005F222BD5AD002DD134 /* LeftAndRightViewsViewController.swift in Sources */,
+				BF36005D2229A570002DD134 /* UnderlineViewController.swift in Sources */,
+				BF36005522286AD6002DD134 /* TextPaddingViewController.swift in Sources */,
+				BFA650182225D3E600FF1FB0 /* ColorPalette.swift in Sources */,
+				BF36005922289CAE002DD134 /* OutlineViewController.swift in Sources */,
+				BF09EC312227213D00D04024 /* HintViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				BF09EC352227320600D04024 /* TextAlignmentViewController.swift in Sources */,
+				BFD68C992220A412005CA182 /* KeyboardEvader.swift in Sources */,
+				BFA650162225D3B200FF1FB0 /* UIColor+Hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

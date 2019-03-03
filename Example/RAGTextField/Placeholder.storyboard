@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJv-z5-opB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Placeholder View Controller-->
+        <scene sceneID="TVD-49-Q6h">
+            <objects>
+                <viewController id="pJv-z5-opB" customClass="PlaceholderViewController" customModule="RAGTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TM8-QX-nCt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-mV-6uL">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-wJ-BAV">
+                                        <rect key="frame" x="16" y="32" width="343" height="246"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports multiple placeholder modes:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mm1-ed-vct">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Simple" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdM-uu-NHO" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="34" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When not empty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-WS-pPJ" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="80" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="When editing" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he9-F3-e04" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="126" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Offset the placeholder from the text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mhg-44-a4u" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="172" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Euw-li-k7R">
+                                                <rect key="frame" x="0.0" y="218" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="0pt"/>
+                                                    <segment title="8pt"/>
+                                                    <segment title="16pt"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="onPlaceholderOffsetChanged:" destination="pJv-z5-opB" eventType="valueChanged" id="awR-N6-MsC"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QJV-wJ-BAV" firstAttribute="top" secondItem="JQM-mV-6uL" secondAttribute="top" constant="32" id="0bI-Vt-mEp"/>
+                                    <constraint firstAttribute="trailing" secondItem="QJV-wJ-BAV" secondAttribute="trailing" constant="16" id="FLH-Q6-edw"/>
+                                    <constraint firstAttribute="bottom" secondItem="QJV-wJ-BAV" secondAttribute="bottom" id="b31-2e-IkD"/>
+                                    <constraint firstItem="QJV-wJ-BAV" firstAttribute="leading" secondItem="JQM-mV-6uL" secondAttribute="leading" constant="16" id="xTo-u7-IUH"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JQM-mV-6uL" firstAttribute="top" secondItem="nan-4W-D0L" secondAttribute="top" id="AQ9-ZN-JBS"/>
+                            <constraint firstItem="nan-4W-D0L" firstAttribute="trailing" secondItem="JQM-mV-6uL" secondAttribute="trailing" id="BQY-wi-sFA"/>
+                            <constraint firstItem="QJV-wJ-BAV" firstAttribute="width" secondItem="nan-4W-D0L" secondAttribute="width" constant="-32" id="F5J-rX-yWg"/>
+                            <constraint firstItem="JQM-mV-6uL" firstAttribute="leading" secondItem="nan-4W-D0L" secondAttribute="leading" id="R5P-o8-6vL"/>
+                            <constraint firstAttribute="bottom" secondItem="JQM-mV-6uL" secondAttribute="bottom" id="ewn-b8-eCI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nan-4W-D0L"/>
+                    </view>
+                    <connections>
+                        <outlet property="offsetTextField" destination="Mhg-44-a4u" id="vFP-EP-9xZ"/>
+                        <outlet property="placeholderOffsetControl" destination="Euw-li-k7R" id="fgP-Fd-98J"/>
+                        <outlet property="simpleTextField" destination="zdM-uu-NHO" id="96O-BK-AOM"/>
+                        <outlet property="whenEditingTextField" destination="he9-F3-e04" id="Vc3-Hr-JDI"/>
+                        <outlet property="whenNotEmptyTextField" destination="4aN-WS-pPJ" id="f4J-Z9-MAl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8TV-6b-uur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="2O6-TR-ufK" customClass="KeyboardEvader" customModule="RAGTextField_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="scrollView" destination="JQM-mV-6uL" id="Ugn-KL-jcF"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="327" y="-358"/>
+        </scene>
+    </scenes>
+</document>

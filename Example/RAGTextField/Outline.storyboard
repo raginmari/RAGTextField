@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1JK-I3-CJQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Outline View Controller-->
+        <scene sceneID="eiR-Cl-ye8">
+            <objects>
+                <viewController id="1JK-I3-CJQ" customClass="OutlineViewController" customModule="RAGTextField_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aLc-2S-d2f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cL-qs-w1V">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gIx-E7-ZXy">
+                                        <rect key="frame" x="16" y="32" width="343" height="156"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supports an outline and fill:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-Bh-s10">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Outline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8q-DG-EER" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="34" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Outline and fill" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bX2-JK-SPz" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="80" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Box" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8g-Tx-mDI" customClass="RAGTextField" customModule="RAGTextField">
+                                                <rect key="frame" x="0.0" y="126" width="343" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gIx-E7-ZXy" firstAttribute="width" secondItem="CgL-uP-8CQ" secondAttribute="width" constant="-32" id="HhS-So-QZn"/>
+                                    <constraint firstItem="gIx-E7-ZXy" firstAttribute="leading" secondItem="9cL-qs-w1V" secondAttribute="leading" constant="16" id="QAy-Q3-nkc"/>
+                                    <constraint firstAttribute="bottom" secondItem="gIx-E7-ZXy" secondAttribute="bottom" id="eXd-ZE-N39"/>
+                                    <constraint firstItem="gIx-E7-ZXy" firstAttribute="top" secondItem="9cL-qs-w1V" secondAttribute="top" constant="32" id="fw8-Rh-5nL"/>
+                                    <constraint firstAttribute="trailing" secondItem="gIx-E7-ZXy" secondAttribute="trailing" constant="16" id="ghf-3r-ocv"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="CgL-uP-8CQ"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xxx-Gf-ewP" firstAttribute="trailing" secondItem="9cL-qs-w1V" secondAttribute="trailing" id="6Hq-ea-q8l"/>
+                            <constraint firstAttribute="bottom" secondItem="9cL-qs-w1V" secondAttribute="bottom" id="NLN-8r-AWL"/>
+                            <constraint firstItem="9cL-qs-w1V" firstAttribute="leading" secondItem="xxx-Gf-ewP" secondAttribute="leading" id="WlZ-CX-zR8"/>
+                            <constraint firstItem="xxx-Gf-ewP" firstAttribute="top" secondItem="9cL-qs-w1V" secondAttribute="top" id="htn-Fm-cVE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xxx-Gf-ewP"/>
+                    </view>
+                    <connections>
+                        <outlet property="boxTextField" destination="I8g-Tx-mDI" id="JWQ-7k-fOs"/>
+                        <outlet property="outlineAndFillTextField" destination="bX2-JK-SPz" id="VNR-ga-2fm"/>
+                        <outlet property="outlineTextField" destination="x8q-DG-EER" id="1Z9-jW-nUl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OdG-8j-3LC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="jH4-QW-q12" customClass="KeyboardEvader" customModule="RAGTextField_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="scrollView" destination="9cL-qs-w1V" id="hAg-8p-XNr"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-263" y="131"/>
+        </scene>
+    </scenes>
+</document>
