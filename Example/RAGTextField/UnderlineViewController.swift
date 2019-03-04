@@ -35,8 +35,8 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineModeTextField.delegate = self
             
             let bgView = UnderlineView(frame: .zero)
-            bgView.backgroundLineColor = ColorPalette.stone
-            bgView.foregroundLineColor = ColorPalette.star
+            bgView.backgroundLineColor = ColorPalette.midnight
+            bgView.foregroundLineColor = ColorPalette.midnight
             bgView.foregroundLineWidth = 3.0
             bgView.expandDuration = 0.2
             bgView.backgroundColor = ColorPalette.sky
@@ -67,7 +67,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             
             let bgView = UnderlineView(frame: .zero)
             bgView.backgroundLineColor = ColorPalette.stone
-            bgView.foregroundLineColor = ColorPalette.midnight
+            bgView.foregroundLineColor = ColorPalette.bramble
             bgView.foregroundLineWidth = 2.0
             bgView.expandDuration = 0.2
             bgView.expandMode = .expandsInUserInterfaceDirection
