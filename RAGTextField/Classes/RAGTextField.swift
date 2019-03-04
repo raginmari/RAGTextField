@@ -120,7 +120,7 @@ open class RAGTextField: UITextField {
     open override var text: String? {
         didSet {
             setNeedsUpdateHorizontalPlaceholderConstraints()
-            updatePlaceholderTransform(animated: false)
+            updatePlaceholderTransform()
         }
     }
     
@@ -786,33 +786,41 @@ open class RAGTextField: UITextField {
     
     private func updatePlaceholderTransform(animated: Bool = false) {
         
-        var needsAnimating = false
+        var updated = false
         let duration = placeholderAnimationDuration ?? Constants.defaultPlaceholderAnimationDuration
         
-        switch (animated, shouldDisplayScaledPlaceholder(), isPlaceholderTransformedToScaledPosition) {
-        case (_, true, false):
-            updatePlaceholderConstraints(scaled: true)
+        switch (shouldDisplayScaledPlaceholder(), isPlaceholderTransformedToScaledPosition) {
+        case (true, false):
             placeholderView.scaleLabel(to: placeholderScaleWhenEditing, animated: animated, duration: duration)
             isPlaceholderTransformedToScaledPosition = true
-            needsAnimating = animated
-        case (_, false, true):
-            updatePlaceholderConstraints(scaled: false)
+            updated = true
+        case (false, true):
             placeholderView.scaleLabel(to: 1.0, animated: animated, duration: duration)
             isPlaceholderTransformedToScaledPosition = false
-            needsAnimating = animated
+            updated = true
         default:
             break
         }
         
-        if animated && needsAnimating {
-            UIView.animate(withDuration: duration) { [unowned self] in
-                self.placeholderContainerView.layoutIfNeeded()
+        if updated {
+            if animated {
+                animatePlaceholder(scaled: isPlaceholderTransformedToScaledPosition, duration: duration)
+            } else {
+                updatePlaceholderConstraints(scaled: isPlaceholderTransformedToScaledPosition)
             }
         }
         
         // Update the general visibility of the placeholder
         if shouldDisplayPlaceholder() != !placeholderView.isHidden {
             placeholderView.isHidden.toggle()
+        }
+    }
+    
+    private func animatePlaceholder(scaled: Bool, duration: TimeInterval) {
+        
+        UIView.animate(withDuration: duration) { [unowned self] in
+            self.updatePlaceholderConstraints(scaled: scaled)
+            self.placeholderContainerView.layoutIfNeeded()
         }
     }
     
