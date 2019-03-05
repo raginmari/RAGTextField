@@ -10,6 +10,13 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+<img src="https://user-images.githubusercontent.com/1574034/53834942-8fad9580-3f8c-11e9-944a-ff22aee1bc58.png" width="15%"></img>
+<img src="https://user-images.githubusercontent.com/1574034/53834949-94724980-3f8c-11e9-9695-b2b4991da67e.png" width="15%"></img> 
+<img src="https://user-images.githubusercontent.com/1574034/53834951-950ae000-3f8c-11e9-8abd-4558d3fb0a72.png" width="15%"></img>
+<img src="https://user-images.githubusercontent.com/1574034/53834952-95a37680-3f8c-11e9-8694-58248b29c56b.png" width="15%"></img> 
+<img src="https://user-images.githubusercontent.com/1574034/53834953-95a37680-3f8c-11e9-9dc3-f27474ba2e9b.png" width="15%"></img> 
+<img src="https://user-images.githubusercontent.com/1574034/53834954-95a37680-3f8c-11e9-92fd-8833bd466bc0.png" width="15%"></img> 
+
 ## Requirements
 
 Written in Swift 4. Requires iOS 9. Support of Swift 3 ended with version 0.2.1.
