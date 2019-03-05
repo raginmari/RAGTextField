@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name             = 'RAGTextField'
   s.version          = '0.9.1'
   s.summary          = 'Subclass of UITextField featuring a floating placeholder and a hint label.'
-  s.description      = 'Adds a floating placeholder to the regular UITextField. Moreover, adds an optional hint or error label to the text field. Easy to work with in both storyboards and code.'
+  s.description      = 'Subclass of UITextField that adds an animated placeholder and an optional hint label below the text. Supports an arbitrary view in the background of the text (outline and underline views are provided) as well as the left and right views, text alignments, flexible padding and offsets.'
   s.homepage         = 'https://github.com/raginmari/RAGTextField'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'raginmari' => 'reimar.twelker@web.de' }
