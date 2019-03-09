@@ -65,8 +65,8 @@ These are the different ways you can **customize the appearance** and behavior o
 - Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1.
 - Use the `scaledPlaceholderOffset` property to offset the placeholder in its floating position from the text. The default value is 0. Positive values **move the placeholder up**, away from the text.
 - The value of the `placeholderMode` property determines the **behavior of the placeholder**:
-  - `scalesWhenEditing`: the placeholder is moved to the floating position as soon as the text field becomes the first responder. Moreover, the placeholder remains in the floating position as long as there is text in the text field.
-  - `scalesWhenNotEmpty` (default): the placeholder is moved to the floating position as soon as and for as long as there is text in the text field.
+  - `scalesWhenEditing` (default): the placeholder is moved to the floating position as soon as the text field becomes the first responder. Moreover, the placeholder remains in the floating position as long as there is text in the text field.
+  - `scalesWhenNotEmpty`: the placeholder is moved to the floating position as soon as and for as long as there is text in the text field.
   - `simple`: the floating placeholder is disabled. The behavior of the placeholder resembles that of the superclass.
 - Use the `placeholderAnimationDuration` property to adjust the **duration of the animation of the placeholder** when it moves to or from the floating position. If the value is `nil`, a default value is used. Set the value to 0 to **disable** the placeholder animation.
 
@@ -82,7 +82,7 @@ These are the different ways you can **customize the appearance** of the hint:
 
 #### The text background view
 
-Add a view to the background of the text by assigning an arbitrary view to the `textBackgroundView` property. Its frame is updated by `RAGTextField` when required. The view is sized so that it matches the size of the text plus padding (see below).
+Add a view to the background of the text by assigning an arbitrary view to the `textBackgroundView` property. Its frame is updated by `RAGTextField` when required. The view is sized so that it matches the size of the text (and placeholder and/or hint) plus padding.
 
 These are the different ways you can **customize the appearance** of the text background view.
 
@@ -91,7 +91,7 @@ These are the different ways you can **customize the appearance** of the text ba
 
 #### The underline view
 
-Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The animation of the line has to be triggered manually, for example from a `UITextFieldDelegate` implementation. The example project uses the underline view.
+Use the class `UnderlineView` to draw an **animated underline** below the text. Assign an instance of the class to the `textBackgroundView` property of the text field. The appearance of the underline can either be updated automatically by the view itself (see its `textField` property) or be manually controlled from a view controller or text field delegate. The example project uses the underline view.
 
 #### The outline view
 Use the class `OutlineView` to draw an outline around the text. The outline can have rounded corners and it can be filled and inset. Assign an instance of the class to the `textBackgroundView` property of the text field. Depending on the `textPaddingMode` value, the outline optionally includes the placeholder and/or hint label.

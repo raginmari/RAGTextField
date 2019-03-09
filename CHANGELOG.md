@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.10.0
+
+After updating to this version, you may have to adjust the `placeholderMode` values of your text fields because the default placeholder mode has changed.
+
+### Added
+- Added the `textField` property to the `UnderlineView`. If not `nil`, the underline updates its appearance in accordance with the editing state of the text field.
+
+### Changed
+- The default placeholder mode has been changed from "when not empty" to "when editing".
+
 ## 0.9.1
 
 ### Fixed
