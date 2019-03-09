@@ -6,6 +6,10 @@
 [![Platform](https://img.shields.io/cocoapods/p/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+Subclass of `UITextField` that adds an animated placeholder and an optional hint label below the text.
+
+It supports an arbitrary view in the background of the text (outline and underline views are provided) as well as the left and right views, text alignments, flexible padding and offsets.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
