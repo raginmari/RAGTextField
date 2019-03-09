@@ -8,6 +8,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineTextField.delegate = self
             
             let bgView = UnderlineView(frame: .zero)
+            bgView.textField = underlineTextField
             bgView.backgroundLineColor = ColorPalette.midnight
             bgView.foregroundLineColor = ColorPalette.flame
             bgView.foregroundLineWidth = 2.0
@@ -35,6 +36,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineModeTextField.delegate = self
             
             let bgView = UnderlineView(frame: .zero)
+            bgView.textField = underlineModeTextField
             bgView.backgroundLineColor = ColorPalette.midnight
             bgView.foregroundLineColor = ColorPalette.midnight
             bgView.foregroundLineWidth = 3.0
@@ -66,6 +68,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             boxTextField.delegate = self
             
             let bgView = UnderlineView(frame: .zero)
+            bgView.textField = boxTextField
             bgView.backgroundLineColor = ColorPalette.stone
             bgView.foregroundLineColor = ColorPalette.bramble
             bgView.foregroundLineWidth = 2.0
@@ -120,17 +123,5 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        guard let textField = textField as? RAGTextField else { return }
-        (textField.textBackgroundView as? UnderlineView)?.setExpanded(true, animated: true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        guard let textField = textField as? RAGTextField else { return }
-        (textField.textBackgroundView as? UnderlineView)?.setExpanded(false, animated: false)
     }
 }

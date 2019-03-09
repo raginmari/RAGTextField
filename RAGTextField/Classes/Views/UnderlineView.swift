@@ -104,6 +104,37 @@ open class UnderlineView: UIView {
     /// If `true`, the foreground line is currently expanded.
     private var isExpanded = false
     
+    /// Whether the underline is animated when the associated text field begins editing.
+    ///
+    /// If `false`, the underline is updated but not animated. The default value is `true`.
+    ///
+    /// - Note
+    /// For this property to take effect, the `textField` property must be set.
+    open var animatesWhenEditingBegins = true
+    
+    /// Whether the underline is animated when the associated text field ends editing.
+    ///
+    /// If `false`, the underline is updated but not animated. The default value is `true`.
+    ///
+    /// - Note
+    /// For this property to take effect, the `textField` property must be set.
+    open var animatesWhenEditingEnds = true
+    
+    /// Refers to the text field whose editing state is used to update the appearance of the underline automatically.
+    ///
+    /// If `nil`, the appearance of the underline must be updated manually, for example from a view controller or text field delegate.
+    open weak var textField: UITextField? {
+        didSet {
+            if let oldTextField = oldValue {
+                stopObserving(oldTextField)
+            }
+            
+            if let newTextField = textField {
+                startObserving(newTextField)
+            }
+        }
+    }
+    
     /// The tint color of the `UIView` overwrites the current `expandedLineColor`.
     open override var tintColor: UIColor! {
         didSet {
@@ -178,6 +209,34 @@ open class UnderlineView: UIView {
         centerConstraint.isActive = true
         
         setNeedsUpdateConstraints()
+    }
+    
+    private func stopObserving(_ textField: UITextField) {
+        
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidBeginEditingNotification, object: textField)
+        NotificationCenter.default.removeObserver(self, name: UITextField.textDidEndEditingNotification, object: textField)
+    }
+    
+    private func startObserving(_ textField: UITextField) {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onDidBeginEditing(_:)),
+                                               name: UITextField.textDidBeginEditingNotification,
+                                               object: textField)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onDidEndEditing(_:)),
+                                               name: UITextField.textDidEndEditingNotification,
+                                               object: textField)
+    }
+    
+    @objc private func onDidBeginEditing(_ notification: Notification) {
+        
+        setExpanded(true, animated: animatesWhenEditingBegins)
+    }
+    
+    @objc private func onDidEndEditing(_ notification: Notification) {
+        
+        setExpanded(false, animated: animatesWhenEditingEnds)
     }
     
     open override func updateConstraints() {
