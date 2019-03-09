@@ -264,8 +264,8 @@ open class RAGTextField: UITextField {
     /// and whether the scaled placeholder is taken into consideration when the
     /// view is layed out.
     ///
-    /// The default value is `.scalesWhenNotEmpty`.
-    open var placeholderMode: RAGTextFieldPlaceholderMode = .scalesWhenNotEmpty {
+    /// The default value is `.scalesWhenEditing`.
+    open var placeholderMode: RAGTextFieldPlaceholderMode = .scalesWhenEditing {
         didSet {
             invalidateIntrinsicContentSize()
             setNeedsUpdateVerticalPlaceholderConstraints()
