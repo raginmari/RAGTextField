@@ -100,6 +100,26 @@ Use the class `UnderlineView` to draw an **animated underline** below the text. 
 #### The outline view
 Use the class `OutlineView` to draw an outline around the text. The outline can have rounded corners and it can be filled and inset. Assign an instance of the class to the `textBackgroundView` property of the text field. Depending on the `textPaddingMode` value, the outline optionally includes the placeholder and/or hint label.
 
+## Bond
+If you want to use the text field with the fantastic [Bond](https://github.com/DeclarativeHub/Bond), you can add these extensions so that you can bind to the `hint` and `placeholder` properties:
+
+```swift
+extension ReactiveExtensions where Base: RAGTextField {
+    
+    var hint: Bond<String?> {
+        return bond { textField, hint in
+            textField.hint = hint
+        }
+    }
+    
+    var placeholder: Bond<String?> {
+        return bond { textField, placeholder in
+            textField.placeholder = placeholder
+        }
+    }
+}
+```
+
 ## Known issues
 
 These are known or possible issues with `RAGTextField`:
