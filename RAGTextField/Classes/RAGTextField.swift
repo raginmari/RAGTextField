@@ -121,6 +121,7 @@ open class RAGTextField: UITextField {
         didSet {
             setNeedsUpdateHorizontalPlaceholderConstraints()
             updatePlaceholderTransform()
+            updatePlaceholderColor()
         }
     }
     
@@ -229,11 +230,17 @@ open class RAGTextField: UITextField {
     ///
     /// If `nil`, the text color of the text field is used instead.
     @IBInspectable open var placeholderColor: UIColor? {
-        set {
-            placeholderLabel.textColor = newValue ?? textColor
+        didSet {
+            updatePlaceholderColor()
         }
-        get {
-            return placeholderLabel.textColor
+    }
+    
+    /// The text color of the placeholder while it is transformed and being edited.
+    ///
+    /// If `nil` (default), the `placeholderColor` is applied to the transformed placeholder.
+    @IBInspectable open var transformedPlaceholderColor: UIColor? {
+        didSet {
+            updatePlaceholderColor()
         }
     }
     
@@ -270,6 +277,7 @@ open class RAGTextField: UITextField {
             invalidateIntrinsicContentSize()
             setNeedsUpdateVerticalPlaceholderConstraints()
             updatePlaceholderTransform()
+            updatePlaceholderColor()
         }
     }
     
@@ -533,6 +541,7 @@ open class RAGTextField: UITextField {
     
     @objc private func textDidChange() {
         updatePlaceholderTransform(animated: true)
+        updatePlaceholderColor()
     }
     
     open override func awakeFromNib() {
@@ -769,6 +778,7 @@ open class RAGTextField: UITextField {
     open override func becomeFirstResponder() -> Bool {
         defer {
             updatePlaceholderTransform(animated: true)
+            updatePlaceholderColor()
         }
         
         return super.becomeFirstResponder()
@@ -777,6 +787,7 @@ open class RAGTextField: UITextField {
     open override func resignFirstResponder() -> Bool {
         defer {
             updatePlaceholderTransform(animated: true)
+            updatePlaceholderColor()
         }
         
         return super.resignFirstResponder()
@@ -813,6 +824,20 @@ open class RAGTextField: UITextField {
         // Update the general visibility of the placeholder
         if shouldDisplayPlaceholder() != !placeholderView.isHidden {
             placeholderView.isHidden.toggle()
+        }
+    }
+    
+    private func updatePlaceholderColor() {
+        
+        let color: UIColor?
+        if isFirstResponder && isPlaceholderTransformedToScaledPosition {
+            color = transformedPlaceholderColor ?? placeholderColor ?? textColor
+        } else {
+            color = placeholderColor ?? textColor
+        }
+        
+        if color != placeholderLabel.textColor {
+            placeholderLabel.textColor = color
         }
     }
     
