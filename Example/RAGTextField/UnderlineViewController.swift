@@ -19,6 +19,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
                 bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
             
+            underlineTextField.tintColor = ColorPalette.flame
             underlineTextField.textBackgroundView = bgView
             underlineTextField.textPadding = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
             underlineTextField.textPaddingMode = .textAndPlaceholderAndHint
@@ -26,7 +27,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineTextField.placeholderMode = .scalesWhenEditing
             underlineTextField.placeholderScaleWhenEditing = 0.8
             underlineTextField.placeholderColor = ColorPalette.midnight.withAlphaComponent(0.66)
-            underlineTextField.tintColor = ColorPalette.flame
+            underlineTextField.transformedPlaceholderColor = underlineTextField.tintColor
             underlineTextField.hint = nil
         }
     }
@@ -47,6 +48,8 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
                 bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
             
+            underlineModeTextField.textColor = .white
+            underlineModeTextField.tintColor = .white
             underlineModeTextField.textBackgroundView = bgView
             underlineModeTextField.textPadding = UIEdgeInsets(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)
             underlineModeTextField.textPaddingMode = .textAndPlaceholder
@@ -54,8 +57,6 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineModeTextField.placeholderMode = .scalesWhenEditing
             underlineModeTextField.placeholderScaleWhenEditing = 0.66
             underlineModeTextField.placeholderColor = .white
-            underlineModeTextField.textColor = .white
-            underlineModeTextField.tintColor = .white
             underlineModeTextField.hintFont = UIFont.systemFont(ofSize: 11.0)
             underlineModeTextField.hintColor = ColorPalette.sky
             underlineModeTextField.hintOffset = 3.0
@@ -76,6 +77,8 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             bgView.expandMode = .expandsInUserInterfaceDirection
             bgView.backgroundColor = ColorPalette.chalk
             
+            boxTextField.textColor = ColorPalette.bramble
+            boxTextField.tintColor = ColorPalette.bramble
             boxTextField.textBackgroundView = bgView
             boxTextField.textPadding = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
             boxTextField.textPaddingMode = .textAndPlaceholderAndHint
@@ -83,8 +86,7 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             boxTextField.placeholderMode = .scalesWhenEditing
             boxTextField.placeholderScaleWhenEditing = 0.8
             boxTextField.placeholderColor = ColorPalette.midnight.withAlphaComponent(0.66)
-            boxTextField.textColor = ColorPalette.bramble
-            boxTextField.tintColor = ColorPalette.bramble
+            boxTextField.transformedPlaceholderColor = boxTextField.tintColor
             boxTextField.hintFont = UIFont.systemFont(ofSize: 11.0)
             boxTextField.hintColor = ColorPalette.midnight
             boxTextField.hintOffset = 0.0
