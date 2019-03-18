@@ -134,14 +134,9 @@ open class RAGTextField: UITextField {
     /// If `nil`, the hint label is removed from the layout.
     @IBInspectable open var hint: String? {
         set {
-            if newValue == nil {
-                hintLabel.text = ""
-                hintLabel.isHidden = true
-            } else {
-                hintLabel.text = newValue
-                hintLabel.isHidden = false
-            }
+            hintLabel.text = newValue
             
+            updateHintVisibility()
             invalidateIntrinsicContentSize()
         }
         get {
@@ -178,6 +173,15 @@ open class RAGTextField: UITextField {
     /// Can be used to put a little distance between the hint and the text. The default value is 0.
     @IBInspectable open var hintOffset: CGFloat = 0.0 {
         didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
+    
+    /// If `true`, the layout always includes the hint. Otherwise, if the `hint` is `nil`, it is removed from the layout.
+    /// The default value is `false`.
+    @IBInspectable open var layoutAlwaysIncludesHint: Bool = false {
+        didSet {
+            updateHintVisibility()
             invalidateIntrinsicContentSize()
         }
     }
@@ -577,6 +581,15 @@ open class RAGTextField: UITextField {
         hint = nil
         hintLabel.font = font
         hintLabel.textAlignment = textAlignment
+    }
+    
+    private func updateHintVisibility() {
+        
+        if layoutAlwaysIncludesHint || hint != nil {
+            hintLabel.isHidden = false
+        } else {
+            hintLabel.isHidden = true
+        }
     }
     
     private func hintFrame(forBounds bounds: CGRect) -> CGRect {
