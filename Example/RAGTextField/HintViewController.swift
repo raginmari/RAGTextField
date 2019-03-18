@@ -89,8 +89,14 @@ final class HintViewController: UIViewController, UITextFieldDelegate {
         
         _ = hintTextField.resignFirstResponder()
         
-        let value: String? = ["An info or error message", "", nil][index]
+        let value: String? = ["An info or error message", "", nil, nil][index]
         hintTextField.hint = value
+        
+        if index == 3 {
+            hintTextField.layoutAlwaysIncludesHint = true
+        } else {
+            hintTextField.layoutAlwaysIncludesHint = false
+        }
     }
     
     private func setHintOffset(at index: Int) {
