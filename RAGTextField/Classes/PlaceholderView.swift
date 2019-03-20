@@ -54,7 +54,6 @@ final class PlaceholderView: UIView {
         
         let label = UILabel()
         label.textColor = UIColor(white: 0.75, alpha: 1.0)
-        label.contentMode = .scaleToFill
         addSubview(label)
         
         return label
@@ -110,7 +109,10 @@ final class PlaceholderView: UIView {
     
     override var intrinsicContentSize: CGSize {
         
-        return label.intrinsicContentSize
+        let infinite = CGFloat.greatestFiniteMagnitude
+        let size = label.systemLayoutSizeFitting(CGSize(width: infinite, height: infinite))
+        
+        return size
     }
     
     override func layoutSubviews() {

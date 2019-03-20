@@ -96,6 +96,7 @@ open class RAGTextField: UITextField {
             
             if placeholderFont == nil {
                 placeholderLabel.font = font
+                placeholderView.invalidateIntrinsicContentSize()
             }
             
             invalidateIntrinsicContentSize()
@@ -148,11 +149,8 @@ open class RAGTextField: UITextField {
     ///
     /// If `nil`, the font of the text field is used instead.
     open var hintFont: UIFont? {
-        set {
-            hintLabel.font = newValue ?? font
-        }
-        get {
-            return hintLabel.font
+        didSet {
+            hintLabel.font = hintFont ?? font
         }
     }
     
@@ -212,6 +210,7 @@ open class RAGTextField: UITextField {
     override open var placeholder: String? {
         set {
             placeholderLabel.text = newValue ?? ""
+            placeholderView.invalidateIntrinsicContentSize()
         }
         get {
             return placeholderLabel.text
@@ -222,11 +221,9 @@ open class RAGTextField: UITextField {
     ///
     /// If `nil`, the font of the text field is used instead.
     open var placeholderFont: UIFont? {
-        set {
-            placeholderLabel.font = newValue ?? font
-        }
-        get {
-            return placeholderLabel.font
+        didSet {
+            placeholderLabel.font = placeholderFont ?? font
+            placeholderView.invalidateIntrinsicContentSize()
         }
     }
     
