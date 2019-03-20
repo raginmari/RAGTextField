@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.11.0
+
+### Added
+- Added property `transformedPlaceholderColor` that sets the placeholder color when the text field is being edited and the placeholder is in its floating position.
+- Added property `layoutAlwaysIncludesHint` that always keeps the hint label in the layout even if the `hint` is `nil`.
+
+### Fixed
+- Fixed the resizing of the placeholder when its text or font are changed.
+
 ## 0.10.0
 
 After updating to this version, you may have to adjust the `placeholderMode` values of your text fields because the default placeholder mode has changed.

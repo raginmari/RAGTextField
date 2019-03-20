@@ -66,6 +66,7 @@ These are the different ways you can **customize the appearance** and behavior o
 
 - Use the `placeholderFont` property to assign a **custom font or font size** to the placeholder. By default, the placeholder uses the font of the text field.
 - Use the `placeholderColor` property to **change the color** of the placeholder. By default, the placeholder uses the text color of the text field.
+- Use the `transformedPlaceholderColor` property to set a color that is applied to the placeholder when the text field is being edited and the placeholder is transformed to its floating position.
 - Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1.
 - Use the `scaledPlaceholderOffset` property to offset the placeholder in its floating position from the text. The default value is 0. Positive values **move the placeholder up**, away from the text.
 - The value of the `placeholderMode` property determines the **behavior of the placeholder**:
@@ -83,6 +84,7 @@ These are the different ways you can **customize the appearance** of the hint:
 - Use the `hintFont` property to assign a **custom font or font size** to the hint. By default, the hint uses the font of the text field.
 - Use the `hintColor` property to **change the color** of the hint. By default, the hint uses the text color of the text field.
 - Use the `hintOffset` property to offset the hint label from the text. The default value is 0. Positive values **move the hint down**, away from the text.
+- Use the `layoutAlwaysIncludesHint` property to always keep the hint label in the layout even if the `hint`value is `nil`. The default value of this property is `false`.
 
 #### The text background view
 
