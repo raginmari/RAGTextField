@@ -77,7 +77,7 @@ These are the different ways you can **customize the appearance** and behavior o
 
 #### The hint label
 
-The hint label is disabled by default and while the value of the `hint` property is `nil`. If a non-nil value is assigned to the `hint` property (including the empty string), the layout of the label is updated and space for the hint label is reserved. The text alignment of the hint matches the text alignment of the text field.
+The hint label is disabled by default and while the value of the `hint` property is `nil`. If a non-nil value is assigned to the `hint` property (including the empty string), the layout of the label is updated and space for the hint label is reserved. The text alignment of the hint matches the text alignment of the text field. The hint supports multiple lines of text.
 
 These are the different ways you can **customize the appearance** of the hint:
 
