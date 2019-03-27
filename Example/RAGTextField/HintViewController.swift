@@ -16,8 +16,9 @@ final class HintViewController: UIViewController, UITextFieldDelegate {
         didSet {
             setUp(coloredHintTextField)
             coloredHintTextField.hintColor = ColorPalette.flame
-            coloredHintTextField.hintFont = UIFont.systemFont(ofSize: 12.0)
-            coloredHintTextField.hint = "An error has occurred"
+            coloredHintTextField.hintFont = UIFont.systemFont(ofSize: 10.0)
+            coloredHintTextField.hintOffset = 2.0
+            coloredHintTextField.hint = "A password should contain at least 10 characters including lowercase and uppercase letters, digits and symbols. Hints should support multiple lines of text."
         }
     }
     
