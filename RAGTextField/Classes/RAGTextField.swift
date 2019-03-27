@@ -563,11 +563,10 @@ open class RAGTextField: UITextField {
     /// - Returns: The height of the given string
     private func measureTextHeight(text: String = Constants.textSizeMeasurementString, using font: UIFont? = nil) -> CGFloat {
         
-        let font = font ?? self.font!
+        guard let font = font ?? self.font else { return 0.0 }
         let boundingSize = text.size(using: font)
-        let result = ceil(boundingSize.height)
         
-        return result
+        return boundingSize.height
     }
     
     // MARK: - Hint
@@ -578,6 +577,8 @@ open class RAGTextField: UITextField {
         hint = nil
         hintLabel.font = font
         hintLabel.textAlignment = textAlignment
+        hintLabel.lineBreakMode = .byWordWrapping
+        hintLabel.numberOfLines = 0
     }
     
     private func updateHintVisibility() {
@@ -592,7 +593,7 @@ open class RAGTextField: UITextField {
     private func hintFrame(forBounds bounds: CGRect) -> CGRect {
         
         let w = bounds.width - textPadding.left - textPadding.right
-        let h = measureTextHeight(using: hintLabel.font)
+        let h = measureHintSize(availableWidth: w).height
         let x = userInterfaceDirectionAwareTextPadding.left
         
         var y = bounds.height - h
@@ -603,6 +604,16 @@ open class RAGTextField: UITextField {
         let frame = CGRect(x: x, y: y, width: w, height: h)
         
         return frame
+    }
+    
+    private func measureHintSize(availableWidth: CGFloat? = nil) -> CGSize {
+        
+        guard let font = hintLabel.font else { return .zero }
+        
+        let availableWidth = availableWidth ?? bounds.width - textPadding.left - textPadding.right
+        let size = (hint ?? "").size(using: font, availableWidth: availableWidth)
+        
+        return size
     }
     
     // MARK: - Placeholder
@@ -744,7 +755,7 @@ open class RAGTextField: UITextField {
     
     private func computeBottomInsetToText() -> CGFloat {
         
-        let inset = textPadding.bottom + (hintLabel.isHidden ? 0.0 : measureTextHeight(using: hintLabel.font) + hintOffset)
+        let inset = textPadding.bottom + (hintLabel.isHidden ? 0.0 : measureHintSize().height + hintOffset)
         
         return ceil(inset)
     }

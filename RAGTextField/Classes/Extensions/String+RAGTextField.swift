@@ -24,13 +24,14 @@ import Foundation
 
 extension String {
     
-    func size(using font: UIFont) -> CGSize {
+    func size(using font: UIFont, availableWidth: CGFloat = .greatestFiniteMagnitude) -> CGSize {
         
-        let infinite = CGFloat.greatestFiniteMagnitude
-        let infiniteSize = CGSize(width: infinite, height: infinite)
-        let boundingRect = self.boundingRect(with: infiniteSize, options: [], attributes: [ .font: font ], context: nil)
-        let size = boundingRect.size
+        let size = CGSize(width: availableWidth, height: .greatestFiniteMagnitude)
+        let options: NSStringDrawingOptions = [ .usesLineFragmentOrigin, .usesFontLeading ]
+        let boundingRect = self.boundingRect(with: size, options: options, attributes: [ .font: font ], context: nil)
+        let ceilSize = CGSize(width: ceil(boundingRect.width), height: ceil(boundingRect.height))
         
-        return size
+        return ceilSize
     }
 }
+
