@@ -209,7 +209,7 @@ open class RAGTextField: UITextField {
     /// The text value of the placeholder.
     override open var placeholder: String? {
         set {
-            placeholderLabel.text = newValue ?? ""
+            placeholderLabel.text = newValue
             placeholderView.invalidateIntrinsicContentSize()
         }
         get {
@@ -549,8 +549,12 @@ open class RAGTextField: UITextField {
         super.awakeFromNib()
         
         // Copy the placeholder from the super class and set it nil
-        if super.placeholder != nil {
-            placeholder = super.placeholder
+        if let superPlaceholder = super.placeholder {
+            // Use the super placeholder only if the placeholder label has no text yet
+            if placeholderLabel.text == nil {
+                placeholder = superPlaceholder
+            }
+            
             super.placeholder = nil
         }
     }
@@ -620,7 +624,6 @@ open class RAGTextField: UITextField {
     
     private func setupPlaceholderView() {
         
-        placeholderLabel.text = ""
         placeholderLabel.font = font
         
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
