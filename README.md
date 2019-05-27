@@ -23,7 +23,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-Written in Swift 4. Requires iOS 9. Support of Swift 3 ended with version 0.2.1.
+Written in Swift 5. Requires iOS 9. 
+
+Swift support:
+| Swift version | Library version |
+|---------------|-----------------|
+| 3             | <= 0.2.1        |
+| 4             | <= 0.12.1       |
+| 5             | from 0.13.0     |
 
 ## Installation
 
