@@ -82,6 +82,9 @@ final class PlaceholderView: UIView {
             view.layer.anchorPoint = CGPoint(x: 1.0, y: 0.5)
         case (.center, _):
             view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        @unknown default:
+            // Use left-to-right value
+            view.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         }
         
         view.frame = bounds

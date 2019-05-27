@@ -481,6 +481,8 @@ open class RAGTextField: UITextField {
             return !isEditing || !hasText
         case .never:
             return false
+        @unknown default:
+            return false
         }
     }
     
@@ -506,6 +508,8 @@ open class RAGTextField: UITextField {
         case .unlessEditing:
             return !isEditing && hasText
         case .never:
+            return false
+        @unknown default:
             return false
         }
     }
@@ -974,6 +978,9 @@ open class RAGTextField: UITextField {
             constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         case (.center, _):
             constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)
+        @unknown default:
+            // Use left-to-right constraint
+            constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
         }
         
         constraint.constant = normalHorizontalPlaceholderConstraintConstant(for: textAlignment)
@@ -998,6 +1005,9 @@ open class RAGTextField: UITextField {
             return computeRightInsetToText()
         case (.center, _):
             return 0.0
+        @unknown default:
+            // Use left-to-right value
+            return computeLeftInsetToText()
         }
     }
     
@@ -1017,6 +1027,9 @@ open class RAGTextField: UITextField {
             constraint = placeholderContainerView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         case (.center, _):
             constraint = placeholderView.centerXAnchor.constraint(equalTo: placeholderContainerView.centerXAnchor)
+        @unknown default:
+            // Use left-to-right constraint
+            constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
         }
         
         constraint.constant = scaledHorizontalPlaceholderConstraintConstant(for: textAlignment)

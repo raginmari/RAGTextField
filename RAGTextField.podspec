@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
   s.author           = { 'raginmari' => 'reimar.twelker@web.de' }
   s.source           = { :git => 'https://github.com/raginmari/RAGTextField.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
   s.source_files = 'RAGTextField/Classes/**/*'
 end

@@ -86,6 +86,8 @@ final class TextAlignmentViewController: UIViewController, UITextFieldDelegate {
             return "Natural alignment"
         case .justified:
             return "Justified alignment"
+        @unknown default:
+            return "Unknown alignment"
         }
     }
     
