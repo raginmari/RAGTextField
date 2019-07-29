@@ -235,7 +235,16 @@ open class RAGTextField: UITextField {
             updatePlaceholderColor()
         }
     }
-    
+
+    /// The background color of the placeholder.
+    ///
+    /// If `nil`, the background color of the text field is used instead.
+    @IBInspectable open var placeholderBackgroundColor: UIColor? {
+        didSet {
+            placeholderLabel.backgroundColor = placeholderBackgroundColor
+        }
+    }
+
     /// The text color of the placeholder while it is transformed and being edited.
     ///
     /// If `nil` (default), the `placeholderColor` is applied to the transformed placeholder.

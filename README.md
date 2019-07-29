@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 <img src="https://user-images.githubusercontent.com/1574034/53834942-8fad9580-3f8c-11e9-944a-ff22aee1bc58.png" width="15%"></img>
 <img src="https://user-images.githubusercontent.com/1574034/53834949-94724980-3f8c-11e9-9695-b2b4991da67e.png" width="15%"></img> 
 <img src="https://user-images.githubusercontent.com/1574034/53834951-950ae000-3f8c-11e9-8abd-4558d3fb0a72.png" width="15%"></img>
-<img src="https://user-images.githubusercontent.com/1574034/53834952-95a37680-3f8c-11e9-8694-58248b29c56b.png" width="15%"></img> 
+<img src="https://user-images.githubusercontent.com/1376242/62060049-b9f63d00-b224-11e9-8d31-8ba551459ea6.png" width="15%"></img> 
 <img src="https://user-images.githubusercontent.com/1574034/53834953-95a37680-3f8c-11e9-9dc3-f27474ba2e9b.png" width="15%"></img> 
 <img src="https://user-images.githubusercontent.com/1574034/53834954-95a37680-3f8c-11e9-92fd-8833bd466bc0.png" width="15%"></img> 
 
@@ -74,6 +74,7 @@ These are the different ways you can **customize the appearance** and behavior o
 
 - Use the `placeholderFont` property to assign a **custom font or font size** to the placeholder. By default, the placeholder uses the font of the text field.
 - Use the `placeholderColor` property to **change the color** of the placeholder. By default, the placeholder uses the text color of the text field.
+- Use the `placeholderBackgroundColor` property to **change the background color** of the placeholder. By default, the placeholder bacground color is clear.
 - Use the `transformedPlaceholderColor` property to set a color that is applied to the placeholder when the text field is being edited and the placeholder is transformed to its floating position.
 - Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1.
 - Use the `scaledPlaceholderOffset` property to offset the placeholder in its floating position from the text. The default value is 0. Positive values **move the placeholder up**, away from the text.

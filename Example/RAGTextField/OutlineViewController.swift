@@ -23,6 +23,28 @@ final class OutlineViewController: UIViewController, UITextFieldDelegate {
             outlineTextField.placeholderColor = ColorPalette.savanna
         }
     }
+
+    @IBOutlet private weak var outlinePlaceholderBackgroundColorTextField: RAGTextField! {
+        didSet {
+            outlinePlaceholderBackgroundColorTextField.delegate = self
+
+            let bgView = OutlineView(frame: .zero)
+            bgView.lineWidth = 1
+            bgView.lineColor = ColorPalette.savanna
+            bgView.fillColor = nil
+            bgView.cornerRadius = 6.0
+            outlinePlaceholderBackgroundColorTextField.textColor = ColorPalette.stone
+            outlinePlaceholderBackgroundColorTextField.tintColor = ColorPalette.stone
+            outlinePlaceholderBackgroundColorTextField.textBackgroundView = bgView
+            outlinePlaceholderBackgroundColorTextField.textPadding = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+            outlinePlaceholderBackgroundColorTextField.textPaddingMode = .text
+            outlinePlaceholderBackgroundColorTextField.scaledPlaceholderOffset = -6.5
+            outlinePlaceholderBackgroundColorTextField.placeholderMode = .scalesWhenEditing
+            outlinePlaceholderBackgroundColorTextField.placeholderScaleWhenEditing = 0.8
+            outlinePlaceholderBackgroundColorTextField.placeholderColor = ColorPalette.savanna
+            outlinePlaceholderBackgroundColorTextField.placeholderBackgroundColor = UIColor.white
+        }
+    }
     
     @IBOutlet private weak var outlineAndFillTextField: RAGTextField! {
         didSet {
