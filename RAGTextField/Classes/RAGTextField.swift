@@ -658,7 +658,7 @@ open class RAGTextField: UITextField {
             result = (text != nil) && !text!.isEmpty || isFirstResponder
         case .scalesWhenNotEmpty:
             result = (text != nil) && !text!.isEmpty
-        case .alwaysScales:
+        case .scalesAlways:
             result = true
         default:
             result = false
@@ -675,7 +675,7 @@ open class RAGTextField: UITextField {
             result = true
         case .scalesWhenNotEmpty:
             result = true
-        case .alwaysScales:
+        case .scalesAlways:
             result = true
         case .simple:
             result = (text == nil) || text!.isEmpty
