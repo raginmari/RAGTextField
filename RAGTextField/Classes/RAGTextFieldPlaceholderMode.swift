@@ -31,6 +31,8 @@ public enum RAGTextFieldPlaceholderMode {
     /// The placeholder scales when it is not empty and when the text field is being edited
     case scalesWhenEditing
     
+    // always show the placeholder
+    case scalesAlways
     /// The placeholder scales when it is not empty
     case scalesWhenNotEmpty
     
@@ -42,6 +44,8 @@ public enum RAGTextFieldPlaceholderMode {
             return true
         case .simple:
             return false
+        case .scalesAlways:
+            return true
         }
     }
 }
