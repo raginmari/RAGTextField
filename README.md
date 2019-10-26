@@ -1,6 +1,6 @@
 # RAGTextField
 
-[![CI Status](http://img.shields.io/travis/raginmari/RAGTextField.svg?style=flat)](https://travis-ci.org/raginmari/RAGTextField)
+[![CI Status](https://build.appcenter.ms/v0.1/apps/ca98a10c-2613-4600-a16a-5ddc9a9ff1c3/branches/master/badge)
 [![Version](https://img.shields.io/cocoapods/v/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
 [![License](https://img.shields.io/cocoapods/l/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
 [![Platform](https://img.shields.io/cocoapods/p/RAGTextField.svg?style=flat)](http://cocoapods.org/pods/RAGTextField)
