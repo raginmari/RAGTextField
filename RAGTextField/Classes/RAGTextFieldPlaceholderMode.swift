@@ -30,20 +30,21 @@ public enum RAGTextFieldPlaceholderMode {
     
     /// The placeholder scales when it is not empty and when the text field is being edited
     case scalesWhenEditing
-    
-    // always show the placeholder
-    case scalesAlways
+        
     /// The placeholder scales when it is not empty
     case scalesWhenNotEmpty
     
+    /// The placeholder is locked in the transformed position above the text field
+    case scalesAlways
+
     var scalesPlaceholder: Bool {
         switch self {
+        case .simple:
+            return false
         case .scalesWhenEditing:
             return true
         case .scalesWhenNotEmpty:
             return true
-        case .simple:
-            return false
         case .scalesAlways:
             return true
         }
