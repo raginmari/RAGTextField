@@ -718,6 +718,12 @@ open class RAGTextField: UITextField {
     
     // MARK: - UITextField
     
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        
+        // The superclass placeholder should not be drawn
+        return .zero
+    }
+    
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
         
         return textAndEditingRect(forBounds: bounds)
