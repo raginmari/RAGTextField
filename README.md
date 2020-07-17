@@ -35,7 +35,7 @@ Swift support:
 
 ## Installation
 
-`RAGTextField` is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
+`RAGTextField` is available through [Swift Package Manager](https://swift.org/package-manager) (SPM), [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
 
 #### Cocoapods
 
