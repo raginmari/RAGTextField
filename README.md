@@ -78,8 +78,9 @@ These are the different ways you can **customize the appearance** and behavior o
 - Use the `placeholderScaleWhenEditing` property to specify the **scale applied to the placeholder** in its floating position above the text. The default value is 1.
 - Use the `scaledPlaceholderOffset` property to offset the placeholder in its floating position from the text. The default value is 0. Positive values **move the placeholder up**, away from the text.
 - The value of the `placeholderMode` property determines the **behavior of the placeholder**:
-  - `scalesWhenEditing` (default): the placeholder is moved to the floating position as soon as the text field becomes the first responder. Moreover, the placeholder remains in the floating position as long as there is text in the text field.
-  - `scalesWhenNotEmpty`: the placeholder is moved to the floating position as soon as and for as long as there is text in the text field.
+  - `scalesWhenEditing` (default): the placeholder is transformed as soon as the text field becomes the first responder. Moreover, the placeholder remains transformed as long as there is text in the text field.
+  - `scalesWhenNotEmpty`: the placeholder is transformed as soon as and for as long as there is text in the text field.
+  - `scalesAlways`: the placeholder is always displayed in the transformed position.
   - `simple`: the floating placeholder is disabled. The behavior of the placeholder resembles that of the superclass.
 - Use the `placeholderAnimationDuration` property to adjust the **duration of the animation of the placeholder** when it moves to or from the floating position. If the value is `nil`, a default value is used. Set the value to 0 to **disable** the placeholder animation.
 
