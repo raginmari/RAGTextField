@@ -7,33 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19736E0AED56F09F9C389509E1ECB94B /* Pods-RAGTextField_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2256CB39D7930D7505A14B5B84C1A3 /* Pods-RAGTextField_Example-dummy.m */; };
-		263CE62D74E507248893FF239B3BC299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		344020416C335180EB72D70D3906DCE9 /* RAGTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDBAE63E150BB1C4A5CA8BEA88F9DFA /* RAGTextField-dummy.m */; };
-		4E560D3DCE0A88B834BA785DC1B96753 /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6DA83D2834502DF05F2C5AE39A1965 /* OutlineView.swift */; };
-		569B142CA2B063B83324299EE6839FD0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		58DF38B686EBA97BBFC3451AEC47A28A /* Pods-RAGTextField_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E09D358F8D70B23B81EF3E1A5882FE7 /* Pods-RAGTextField_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62745A54DDFF637CBC60B0E200442E6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		8D5990A510C3E9D73E15ABF5B2435CE7 /* Pods-RAGTextField_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2B01CC0FA40B8CAA5B991FAF5B20CF /* Pods-RAGTextField_Tests-dummy.m */; };
-		A91C197BA9A3372956135F308D752AF3 /* RAGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D4153C296CF07CB11243F805E90B3F /* RAGTextField.swift */; };
-		AC4A1A3147965685ADA34579BB403154 /* RAGTextFieldPlaceholderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223CE2699A6E5220191DA18D78AFB17 /* RAGTextFieldPlaceholderMode.swift */; };
-		C45D7619BB74F5511FC67C55C1553350 /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700234D61F3A88DB1D5D2568E6E4B6D9 /* UnderlineView.swift */; };
-		C8432AAC3913AEF702BF33C1CAD5EF10 /* String+RAGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0985A2C23C1966C494A3C10BBC9E184F /* String+RAGTextField.swift */; };
-		CE07204C7FEDB0E779BAF5CCE75285B3 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897084BAC0264835543A6F1117AD3EA0 /* PlaceholderView.swift */; };
-		DE8978D86444E9A8C9C075E7AA0235AC /* RAGTextPaddingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0BAF1B568B6A85E8420D145D657AC /* RAGTextPaddingMode.swift */; };
-		EAC04ABA821B5B09239FCD6D8EFAAB06 /* Pods-RAGTextField_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE45F0522B62030418852F436CC93F8E /* Pods-RAGTextField_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE0267D0680D48EED60F9DCAE816286B /* RAGTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D68A0AA29E6F025A9B274EF414DB9C09 /* RAGTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		317402179532FD70372F81F33A76B1F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		3DCA924CBE839ADDBE0E03558664041A /* RAGTextFieldPlaceholderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821589EBE5F69C713A72C37F4526C3A5 /* RAGTextFieldPlaceholderMode.swift */; };
+		541C9A61C34D193993027553C9C67AF2 /* RAGTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A780FC30A1CEE913B2216D5FEFEAADA3 /* RAGTextField-dummy.m */; };
+		5BE73F00A94D73DD04A81BD94BFC6B71 /* Pods-RAGTextField_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE45F0522B62030418852F436CC93F8E /* Pods-RAGTextField_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75B646548C03B75A3BA06ACCE91F82A6 /* Pods-RAGTextField_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E09D358F8D70B23B81EF3E1A5882FE7 /* Pods-RAGTextField_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76D4DE42A0DCCE25CF12DAE7A1D1FBB8 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1558FA5B34EC165EF28913B6FC218 /* PlaceholderView.swift */; };
+		7D6C40FC9B19F443C5A55A4711B97BEC /* String+RAGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1186885D24F52C44251066BB25627D /* String+RAGTextField.swift */; };
+		7E2EE86EA6D0A703D6DC2FA0A334FCD6 /* RAGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4B2685958320B7F88136D3351D7C7E /* RAGTextField.swift */; };
+		A724F0368F731824F79C9CE57E48A8DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		BE514FE73CE7C3FEA6710741AC9FFF09 /* RAGTextPaddingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2D6D177ECF0DBBB8B4297E6645827 /* RAGTextPaddingMode.swift */; };
+		BFAB4166BC038E2E595ADAD91CCAE890 /* Pods-RAGTextField_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2256CB39D7930D7505A14B5B84C1A3 /* Pods-RAGTextField_Example-dummy.m */; };
+		C34A7F107FBBA2C4AB766619E1486341 /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588AC6C4942E39C407E00309D16FAF14 /* OutlineView.swift */; };
+		D7F8BF6CEC10EA55DF2E1428C8C22680 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E6DAB96CDBBA4257DBA6191B5923C3EC /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5828BEA273605BB085D50D15C259A5 /* UnderlineView.swift */; };
+		EFB7A95B3CEA80B7DED48E27BB72AE1A /* RAGTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9CE42D365EE1D82733021D8E376E0BC /* RAGTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F98F00E3E07E6D185514DF0A68F30D6B /* Pods-RAGTextField_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2B01CC0FA40B8CAA5B991FAF5B20CF /* Pods-RAGTextField_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7E27BD1704483D491C24065E4A84B257 /* PBXContainerItemProxy */ = {
+		65DE6A3245B3C7ADFD5C68FDC4D5D548 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 45AB74AB6B90120D1BD96C863E33B1A0;
 			remoteInfo = RAGTextField;
 		};
-		C044154E574BA8DF7711E0FB1F7FFD24 /* PBXContainerItemProxy */ = {
+		CD33574F039732AE8CAFE367C88761F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -44,99 +44,74 @@
 
 /* Begin PBXFileReference section */
 		0602797347CBA0E62170631BAA429591 /* Pods-RAGTextField_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RAGTextField_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0985A2C23C1966C494A3C10BBC9E184F /* String+RAGTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+RAGTextField.swift"; sourceTree = "<group>"; };
-		2CA2E188D17B6D0EEC5F87B471783006 /* RAGTextField.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RAGTextField.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3223CE2699A6E5220191DA18D78AFB17 /* RAGTextFieldPlaceholderMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextFieldPlaceholderMode.swift; path = Sources/RAGTextField/Classes/RAGTextFieldPlaceholderMode.swift; sourceTree = "<group>"; };
-		39A0BAF1B568B6A85E8420D145D657AC /* RAGTextPaddingMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextPaddingMode.swift; path = Sources/RAGTextField/Classes/RAGTextPaddingMode.swift; sourceTree = "<group>"; };
+		11C38C34C5678F6EB28C86345F319B27 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3CFD5143DC44B7A2683291105F5FEC2E /* Pods-RAGTextField_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RAGTextField_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3E09D358F8D70B23B81EF3E1A5882FE7 /* Pods-RAGTextField_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RAGTextField_Tests-umbrella.h"; sourceTree = "<group>"; };
-		3E75F4E6582B931D1743CB42A342723C /* RAGTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RAGTextField-Info.plist"; sourceTree = "<group>"; };
 		41F90A9DD434411F1A8E42E11B8E58FA /* Pods-RAGTextField_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RAGTextField_Example-Info.plist"; sourceTree = "<group>"; };
-		456217CA6D40FC7B18A621B98144C56F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4A5828BEA273605BB085D50D15C259A5 /* UnderlineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
+		4F1186885D24F52C44251066BB25627D /* String+RAGTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+RAGTextField.swift"; sourceTree = "<group>"; };
+		588AC6C4942E39C407E00309D16FAF14 /* OutlineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
 		6319689026F9902F3A26D9C4D7680C77 /* Pods-RAGTextField_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RAGTextField_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6A6F656587D5668DB5146B60FBD57622 /* RAGTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RAGTextField-Info.plist"; sourceTree = "<group>"; };
 		6BC325929A5FF41B04B38BB66B33A895 /* Pods-RAGTextField_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RAGTextField_Example.modulemap"; sourceTree = "<group>"; };
-		700234D61F3A88DB1D5D2568E6E4B6D9 /* UnderlineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
 		72E4FD7CC338F904F56A1BD6EE007A46 /* RAGTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RAGTextField.framework; path = RAGTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		773C3427F50633DD3C1A365A23D07B74 /* Pods-RAGTextField_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RAGTextField_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		79DDA946D05CC8C0EE5B6C646A924A70 /* Pods-RAGTextField_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RAGTextField_Example-frameworks.sh"; sourceTree = "<group>"; };
+		7BC74EBD1ECF29C020E0A5D8934F6893 /* RAGTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAGTextField.debug.xcconfig; sourceTree = "<group>"; };
+		7CA6A26D716FE545B4E7D92FA51D4167 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		809EDE9610DB662D6FDD57D30DDEB084 /* Pods-RAGTextField_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RAGTextField_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		897084BAC0264835543A6F1117AD3EA0 /* PlaceholderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlaceholderView.swift; path = Sources/RAGTextField/Classes/PlaceholderView.swift; sourceTree = "<group>"; };
+		821589EBE5F69C713A72C37F4526C3A5 /* RAGTextFieldPlaceholderMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextFieldPlaceholderMode.swift; path = Sources/RAGTextField/Classes/RAGTextFieldPlaceholderMode.swift; sourceTree = "<group>"; };
 		8BDF683FC9021C26F84DD70217CB91E1 /* Pods-RAGTextField_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RAGTextField_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8D6D68830638631A7FC169A5A6C2652F /* RAGTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAGTextField.release.xcconfig; sourceTree = "<group>"; };
 		9A862F0A0FC0DF64D266416B2BE8798F /* Pods-RAGTextField_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RAGTextField_Tests-Info.plist"; sourceTree = "<group>"; };
+		9D4B2685958320B7F88136D3351D7C7E /* RAGTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextField.swift; path = Sources/RAGTextField/Classes/RAGTextField.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A5B8BE98C177A2E37735600D95BFD814 /* Pods-RAGTextField_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RAGTextField_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		B0D6B6F584B44BC53A8FB3632DCE4B08 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A602362402766C75EA38726D22D6F818 /* RAGTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RAGTextField.modulemap; sourceTree = "<group>"; };
+		A780FC30A1CEE913B2216D5FEFEAADA3 /* RAGTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAGTextField-dummy.m"; sourceTree = "<group>"; };
 		B126394AD51208CB8FA07F3A9E27A17B /* Pods-RAGTextField_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RAGTextField_Tests.modulemap"; sourceTree = "<group>"; };
+		B9CE42D365EE1D82733021D8E376E0BC /* RAGTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAGTextField-umbrella.h"; sourceTree = "<group>"; };
 		BB706B51F3F0398148B47C0611E2CA5B /* Pods-RAGTextField_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RAGTextField_Example.release.xcconfig"; sourceTree = "<group>"; };
-		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CB6DA83D2834502DF05F2C5AE39A1965 /* OutlineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
+		BC7BA71035C5927AF69BA49B1DD8E91D /* RAGTextField.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RAGTextField.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C2C2D6D177ECF0DBBB8B4297E6645827 /* RAGTextPaddingMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextPaddingMode.swift; path = Sources/RAGTextField/Classes/RAGTextPaddingMode.swift; sourceTree = "<group>"; };
 		CB8E36308747E608AF80B051B6DE8580 /* Pods_RAGTextField_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RAGTextField_Example.framework; path = "Pods-RAGTextField_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC3EF85790AE6ED30ACEC76F2B5194AA /* RAGTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAGTextField-prefix.pch"; sourceTree = "<group>"; };
-		CFDBAE63E150BB1C4A5CA8BEA88F9DFA /* RAGTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RAGTextField-dummy.m"; sourceTree = "<group>"; };
-		D68A0AA29E6F025A9B274EF414DB9C09 /* RAGTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAGTextField-umbrella.h"; sourceTree = "<group>"; };
+		D2D1558FA5B34EC165EF28913B6FC218 /* PlaceholderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlaceholderView.swift; path = Sources/RAGTextField/Classes/PlaceholderView.swift; sourceTree = "<group>"; };
 		DB2B01CC0FA40B8CAA5B991FAF5B20CF /* Pods-RAGTextField_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RAGTextField_Tests-dummy.m"; sourceTree = "<group>"; };
 		DE45F0522B62030418852F436CC93F8E /* Pods-RAGTextField_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RAGTextField_Example-umbrella.h"; sourceTree = "<group>"; };
-		E099A26C344E171AE6DF2D0694AC9B0E /* RAGTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RAGTextField.modulemap; sourceTree = "<group>"; };
+		E61634045EE739B6B1453E94ED84E713 /* RAGTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RAGTextField-prefix.pch"; sourceTree = "<group>"; };
 		E6F1FDCB940E68714AB097C1725C2C68 /* Pods_RAGTextField_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RAGTextField_Tests.framework; path = "Pods-RAGTextField_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2256CB39D7930D7505A14B5B84C1A3 /* Pods-RAGTextField_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RAGTextField_Example-dummy.m"; sourceTree = "<group>"; };
-		F43231DEE999FE31395DF971AC8B3B23 /* RAGTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RAGTextField.xcconfig; sourceTree = "<group>"; };
-		F7D4153C296CF07CB11243F805E90B3F /* RAGTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RAGTextField.swift; path = Sources/RAGTextField/Classes/RAGTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0F5322686A6E72979CBB3B4D8A0C47A8 /* Frameworks */ = {
+		5E54618DC6BFE22CEAC4D9A867133AC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62745A54DDFF637CBC60B0E200442E6E /* Foundation.framework in Frameworks */,
+				D7F8BF6CEC10EA55DF2E1428C8C22680 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5375B343FEC23C83C78722C6B634E5D /* Frameworks */ = {
+		653F3BAD7438FA5201D11988162C8935 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569B142CA2B063B83324299EE6839FD0 /* Foundation.framework in Frameworks */,
+				317402179532FD70372F81F33A76B1F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F535BDD950F542FCDDCFB1AF79E0C5AE /* Frameworks */ = {
+		6D1B1962DE883D3C184A96ECDE10CDD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				263CE62D74E507248893FF239B3BC299 /* Foundation.framework in Frameworks */,
+				A724F0368F731824F79C9CE57E48A8DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06BC0028FEB973E9D19260C5BFF6CC46 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CB6DA83D2834502DF05F2C5AE39A1965 /* OutlineView.swift */,
-				700234D61F3A88DB1D5D2568E6E4B6D9 /* UnderlineView.swift */,
-			);
-			name = Views;
-			path = Sources/RAGTextField/Classes/Views;
-			sourceTree = "<group>";
-		};
-		19913BA4F4385036BFD3BA6A0BE20C41 /* RAGTextField */ = {
-			isa = PBXGroup;
-			children = (
-				897084BAC0264835543A6F1117AD3EA0 /* PlaceholderView.swift */,
-				F7D4153C296CF07CB11243F805E90B3F /* RAGTextField.swift */,
-				3223CE2699A6E5220191DA18D78AFB17 /* RAGTextFieldPlaceholderMode.swift */,
-				39A0BAF1B568B6A85E8420D145D657AC /* RAGTextPaddingMode.swift */,
-				8E74B5FCFCA4CE08EB3B93B64161FB79 /* Extensions */,
-				DEC98FC7BEB698E5DEB367A537DD0258 /* Pod */,
-				328C60D0B6648EE1237F555AF0A50740 /* Support Files */,
-				06BC0028FEB973E9D19260C5BFF6CC46 /* Views */,
-			);
-			name = RAGTextField;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		2FEB6166E273774D16B6CFFAAF725275 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,15 +122,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		328C60D0B6648EE1237F555AF0A50740 /* Support Files */ = {
+		34D9EED718E801578A196F5EB40415B7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E099A26C344E171AE6DF2D0694AC9B0E /* RAGTextField.modulemap */,
-				F43231DEE999FE31395DF971AC8B3B23 /* RAGTextField.xcconfig */,
-				CFDBAE63E150BB1C4A5CA8BEA88F9DFA /* RAGTextField-dummy.m */,
-				3E75F4E6582B931D1743CB42A342723C /* RAGTextField-Info.plist */,
-				CC3EF85790AE6ED30ACEC76F2B5194AA /* RAGTextField-prefix.pch */,
-				D68A0AA29E6F025A9B274EF414DB9C09 /* RAGTextField-umbrella.h */,
+				A602362402766C75EA38726D22D6F818 /* RAGTextField.modulemap */,
+				A780FC30A1CEE913B2216D5FEFEAADA3 /* RAGTextField-dummy.m */,
+				6A6F656587D5668DB5146B60FBD57622 /* RAGTextField-Info.plist */,
+				E61634045EE739B6B1453E94ED84E713 /* RAGTextField-prefix.pch */,
+				B9CE42D365EE1D82733021D8E376E0BC /* RAGTextField-umbrella.h */,
+				7BC74EBD1ECF29C020E0A5D8934F6893 /* RAGTextField.debug.xcconfig */,
+				8D6D68830638631A7FC169A5A6C2652F /* RAGTextField.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/RAGTextField";
@@ -164,7 +140,7 @@
 		3C7613C016BBBDEF01CE13CBAB507923 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				19913BA4F4385036BFD3BA6A0BE20C41 /* RAGTextField */,
+				7F8964CBCF94B4F3840D41BEC1E4EA91 /* RAGTextField */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -186,6 +162,15 @@
 			path = "Target Support Files/Pods-RAGTextField_Example";
 			sourceTree = "<group>";
 		};
+		6E42D6DBDBB6D310DBCAD5EE6EBB7471 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F1186885D24F52C44251066BB25627D /* String+RAGTextField.swift */,
+			);
+			name = Extensions;
+			path = Sources/RAGTextField/Classes/Extensions;
+			sourceTree = "<group>";
+		};
 		6FFD3B7CE4C881821F11FB9687DF1818 /* Pods-RAGTextField_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,21 +187,48 @@
 			path = "Target Support Files/Pods-RAGTextField_Tests";
 			sourceTree = "<group>";
 		};
-		8E74B5FCFCA4CE08EB3B93B64161FB79 /* Extensions */ = {
+		7F8964CBCF94B4F3840D41BEC1E4EA91 /* RAGTextField */ = {
 			isa = PBXGroup;
 			children = (
-				0985A2C23C1966C494A3C10BBC9E184F /* String+RAGTextField.swift */,
+				D2D1558FA5B34EC165EF28913B6FC218 /* PlaceholderView.swift */,
+				9D4B2685958320B7F88136D3351D7C7E /* RAGTextField.swift */,
+				821589EBE5F69C713A72C37F4526C3A5 /* RAGTextFieldPlaceholderMode.swift */,
+				C2C2D6D177ECF0DBBB8B4297E6645827 /* RAGTextPaddingMode.swift */,
+				6E42D6DBDBB6D310DBCAD5EE6EBB7471 /* Extensions */,
+				BDEEE50F36F9B2CFF1BE6393B98677F5 /* Pod */,
+				34D9EED718E801578A196F5EB40415B7 /* Support Files */,
+				CAD4B3FD047B9071A8954C01C7FCC99B /* Views */,
 			);
-			name = Extensions;
-			path = Sources/RAGTextField/Classes/Extensions;
+			name = RAGTextField;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+		BDEEE50F36F9B2CFF1BE6393B98677F5 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+				7CA6A26D716FE545B4E7D92FA51D4167 /* LICENSE */,
+				BC7BA71035C5927AF69BA49B1DD8E91D /* RAGTextField.podspec */,
+				11C38C34C5678F6EB28C86345F319B27 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		CAD4B3FD047B9071A8954C01C7FCC99B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				588AC6C4942E39C407E00309D16FAF14 /* OutlineView.swift */,
+				4A5828BEA273605BB085D50D15C259A5 /* UnderlineView.swift */,
+			);
+			name = Views;
+			path = Sources/RAGTextField/Classes/Views;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -233,7 +245,7 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,40 +259,30 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		DEC98FC7BEB698E5DEB367A537DD0258 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				456217CA6D40FC7B18A621B98144C56F /* LICENSE */,
-				2CA2E188D17B6D0EEC5F87B471783006 /* RAGTextField.podspec */,
-				B0D6B6F584B44BC53A8FB3632DCE4B08 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1D07CB08A45D15EA3795324D7C9E650E /* Headers */ = {
+		5AC173CB56CCD92356596958345BD8A0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE0267D0680D48EED60F9DCAE816286B /* RAGTextField-umbrella.h in Headers */,
+				75B646548C03B75A3BA06ACCE91F82A6 /* Pods-RAGTextField_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5045398760E1FD85C5C931950CD37197 /* Headers */ = {
+		6A39DB66914198DB644034F18B427F2F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58DF38B686EBA97BBFC3451AEC47A28A /* Pods-RAGTextField_Tests-umbrella.h in Headers */,
+				5BE73F00A94D73DD04A81BD94BFC6B71 /* Pods-RAGTextField_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5A110BB9F7636692C58B716326B569F /* Headers */ = {
+		E064665E64E17EACB242E1A71EAF409B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAC04ABA821B5B09239FCD6D8EFAAB06 /* Pods-RAGTextField_Example-umbrella.h in Headers */,
+				EFB7A95B3CEA80B7DED48E27BB72AE1A /* RAGTextField-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +291,12 @@
 /* Begin PBXNativeTarget section */
 		45AB74AB6B90120D1BD96C863E33B1A0 /* RAGTextField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7852C283CDEBFC6F547D51671BD3889 /* Build configuration list for PBXNativeTarget "RAGTextField" */;
+			buildConfigurationList = 3C04F464FF3D989EA46AFE7ADA6F16F1 /* Build configuration list for PBXNativeTarget "RAGTextField" */;
 			buildPhases = (
-				1D07CB08A45D15EA3795324D7C9E650E /* Headers */,
-				6688B3F1CD293E51A2F9A0655C79B862 /* Sources */,
-				F535BDD950F542FCDDCFB1AF79E0C5AE /* Frameworks */,
-				95955F7EF7AA84CEBE23501375142173 /* Resources */,
+				E064665E64E17EACB242E1A71EAF409B /* Headers */,
+				67B1AA49A7CB886F55DCF655B8C65311 /* Sources */,
+				653F3BAD7438FA5201D11988162C8935 /* Frameworks */,
+				3F3634D1F524AA9CDCB772FEC78B33FD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -307,17 +309,17 @@
 		};
 		45C96CA11517376163F52ADF7CD8F6FC /* Pods-RAGTextField_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E248877BA755EA86A5B9D0244394BF09 /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Example" */;
+			buildConfigurationList = F58508376574493850A5AFF8F4DC94FA /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Example" */;
 			buildPhases = (
-				B5A110BB9F7636692C58B716326B569F /* Headers */,
-				775C626F06DE57532A4F2612D2E97D60 /* Sources */,
-				C5375B343FEC23C83C78722C6B634E5D /* Frameworks */,
-				4A05020CFA9188B80B784C7B55427CC0 /* Resources */,
+				6A39DB66914198DB644034F18B427F2F /* Headers */,
+				AA00C481D96C26ACAB400AC68C02CC8A /* Sources */,
+				6D1B1962DE883D3C184A96ECDE10CDD5 /* Frameworks */,
+				ED4F5092C9D1B2DF654DA860B4E010C9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ED1C0120823D677F27BAA48FBB4D7214 /* PBXTargetDependency */,
+				4F68ABAB9743D2902143146FF0FCF543 /* PBXTargetDependency */,
 			);
 			name = "Pods-RAGTextField_Example";
 			productName = "Pods-RAGTextField_Example";
@@ -326,17 +328,17 @@
 		};
 		D6CC857F648105927C9D3C490C2941FC /* Pods-RAGTextField_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A4CE108CF4A9B2AA0069EE61D4DA2CC /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Tests" */;
+			buildConfigurationList = 31B9D63B06ACCE18EF4F118AEC902BA7 /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Tests" */;
 			buildPhases = (
-				5045398760E1FD85C5C931950CD37197 /* Headers */,
-				792E0E0B44979D0C680B818E02EFF320 /* Sources */,
-				0F5322686A6E72979CBB3B4D8A0C47A8 /* Frameworks */,
-				419EECE218ED34CDFE83090D1E949A32 /* Resources */,
+				5AC173CB56CCD92356596958345BD8A0 /* Headers */,
+				31FBEF42A69B16F0FFA5363C563A894F /* Sources */,
+				5E54618DC6BFE22CEAC4D9A867133AC3 /* Frameworks */,
+				59B05BEF562B5BED1A221A02CB043E28 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1DA92A6783D149CA622569D422D25E52 /* PBXTargetDependency */,
+				9101E210CF8366433A960A50B5AC6FD9 /* PBXTargetDependency */,
 			);
 			name = "Pods-RAGTextField_Tests";
 			productName = "Pods-RAGTextField_Tests";
@@ -349,15 +351,16 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 2FEB6166E273774D16B6CFFAAF725275 /* Products */;
@@ -372,21 +375,21 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		419EECE218ED34CDFE83090D1E949A32 /* Resources */ = {
+		3F3634D1F524AA9CDCB772FEC78B33FD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4A05020CFA9188B80B784C7B55427CC0 /* Resources */ = {
+		59B05BEF562B5BED1A221A02CB043E28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95955F7EF7AA84CEBE23501375142173 /* Resources */ = {
+		ED4F5092C9D1B2DF654DA860B4E010C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,56 +399,181 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6688B3F1CD293E51A2F9A0655C79B862 /* Sources */ = {
+		31FBEF42A69B16F0FFA5363C563A894F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E560D3DCE0A88B834BA785DC1B96753 /* OutlineView.swift in Sources */,
-				CE07204C7FEDB0E779BAF5CCE75285B3 /* PlaceholderView.swift in Sources */,
-				344020416C335180EB72D70D3906DCE9 /* RAGTextField-dummy.m in Sources */,
-				A91C197BA9A3372956135F308D752AF3 /* RAGTextField.swift in Sources */,
-				AC4A1A3147965685ADA34579BB403154 /* RAGTextFieldPlaceholderMode.swift in Sources */,
-				DE8978D86444E9A8C9C075E7AA0235AC /* RAGTextPaddingMode.swift in Sources */,
-				C8432AAC3913AEF702BF33C1CAD5EF10 /* String+RAGTextField.swift in Sources */,
-				C45D7619BB74F5511FC67C55C1553350 /* UnderlineView.swift in Sources */,
+				F98F00E3E07E6D185514DF0A68F30D6B /* Pods-RAGTextField_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		775C626F06DE57532A4F2612D2E97D60 /* Sources */ = {
+		67B1AA49A7CB886F55DCF655B8C65311 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19736E0AED56F09F9C389509E1ECB94B /* Pods-RAGTextField_Example-dummy.m in Sources */,
+				C34A7F107FBBA2C4AB766619E1486341 /* OutlineView.swift in Sources */,
+				76D4DE42A0DCCE25CF12DAE7A1D1FBB8 /* PlaceholderView.swift in Sources */,
+				541C9A61C34D193993027553C9C67AF2 /* RAGTextField-dummy.m in Sources */,
+				7E2EE86EA6D0A703D6DC2FA0A334FCD6 /* RAGTextField.swift in Sources */,
+				3DCA924CBE839ADDBE0E03558664041A /* RAGTextFieldPlaceholderMode.swift in Sources */,
+				BE514FE73CE7C3FEA6710741AC9FFF09 /* RAGTextPaddingMode.swift in Sources */,
+				7D6C40FC9B19F443C5A55A4711B97BEC /* String+RAGTextField.swift in Sources */,
+				E6DAB96CDBBA4257DBA6191B5923C3EC /* UnderlineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		792E0E0B44979D0C680B818E02EFF320 /* Sources */ = {
+		AA00C481D96C26ACAB400AC68C02CC8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D5990A510C3E9D73E15ABF5B2435CE7 /* Pods-RAGTextField_Tests-dummy.m in Sources */,
+				BFAB4166BC038E2E595ADAD91CCAE890 /* Pods-RAGTextField_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1DA92A6783D149CA622569D422D25E52 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-RAGTextField_Example";
-			target = 45C96CA11517376163F52ADF7CD8F6FC /* Pods-RAGTextField_Example */;
-			targetProxy = C044154E574BA8DF7711E0FB1F7FFD24 /* PBXContainerItemProxy */;
-		};
-		ED1C0120823D677F27BAA48FBB4D7214 /* PBXTargetDependency */ = {
+		4F68ABAB9743D2902143146FF0FCF543 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RAGTextField;
 			target = 45AB74AB6B90120D1BD96C863E33B1A0 /* RAGTextField */;
-			targetProxy = 7E27BD1704483D491C24065E4A84B257 /* PBXContainerItemProxy */;
+			targetProxy = 65DE6A3245B3C7ADFD5C68FDC4D5D548 /* PBXContainerItemProxy */;
+		};
+		9101E210CF8366433A960A50B5AC6FD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-RAGTextField_Example";
+			target = 45C96CA11517376163F52ADF7CD8F6FC /* Pods-RAGTextField_Example */;
+			targetProxy = CD33574F039732AE8CAFE367C88761F6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07488D4657FB0A78086563621D425F8A /* Debug */ = {
+		538745E4ECE955C22782D529C6EF4B74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773C3427F50633DD3C1A365A23D07B74 /* Pods-RAGTextField_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5ACDC8B4A04196B71D25E9972FE7BFD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D6D68830638631A7FC169A5A6C2652F /* RAGTextField.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RAGTextField/RAGTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RAGTextField/RAGTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RAGTextField/RAGTextField.modulemap";
+				PRODUCT_MODULE_NAME = RAGTextField;
+				PRODUCT_NAME = RAGTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		916E0404255105F480DC4950B7625F7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -504,78 +632,12 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		32A1C412DC116F5A3CD6E9F1C07016D6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F43231DEE999FE31395DF971AC8B3B23 /* RAGTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RAGTextField/RAGTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RAGTextField/RAGTextField-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RAGTextField/RAGTextField.modulemap";
-				PRODUCT_MODULE_NAME = RAGTextField;
-				PRODUCT_NAME = RAGTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		830A56F40779B638A9F6BA2214B8CEEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB706B51F3F0398148B47C0611E2CA5B /* Pods-RAGTextField_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		93FC78386975FB1F2CB9698181878EAE /* Debug */ = {
+		C2AB7DC9210196E68D770F1C5EF47534 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0602797347CBA0E62170631BAA429591 /* Pods-RAGTextField_Example.debug.xcconfig */;
 			buildSettings = {
@@ -608,40 +670,7 @@
 			};
 			name = Debug;
 		};
-		98100455060699F4CAE5F4996B769E05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 773C3427F50633DD3C1A365A23D07B74 /* Pods-RAGTextField_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RAGTextField_Tests/Pods-RAGTextField_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9BDF07D01715F02C4BEB2C3A612E6055 /* Release */ = {
+		C6F65DF11411B85E537F6344D55AEE6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8BDF683FC9021C26F84DD70217CB91E1 /* Pods-RAGTextField_Tests.release.xcconfig */;
 			buildSettings = {
@@ -675,69 +704,9 @@
 			};
 			name = Release;
 		};
-		A1962E6FF39BBAC201A2E5DDF99557DF /* Release */ = {
+		EA031A3A6522B4BE12DF14BEA88FC2AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		C87422A3C3058956E1ADE292AB9C8B7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F43231DEE999FE31395DF971AC8B3B23 /* RAGTextField.xcconfig */;
+			baseConfigurationReference = 7BC74EBD1ECF29C020E0A5D8934F6893 /* RAGTextField.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -766,14 +735,57 @@
 			};
 			name = Debug;
 		};
+		FE39273332F9CAF90C31280FD40E38C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB706B51F3F0398148B47C0611E2CA5B /* Pods-RAGTextField_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RAGTextField_Example/Pods-RAGTextField_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A4CE108CF4A9B2AA0069EE61D4DA2CC /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Tests" */ = {
+		31B9D63B06ACCE18EF4F118AEC902BA7 /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				98100455060699F4CAE5F4996B769E05 /* Debug */,
-				9BDF07D01715F02C4BEB2C3A612E6055 /* Release */,
+				538745E4ECE955C22782D529C6EF4B74 /* Debug */,
+				C6F65DF11411B85E537F6344D55AEE6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C04F464FF3D989EA46AFE7ADA6F16F1 /* Build configuration list for PBXNativeTarget "RAGTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA031A3A6522B4BE12DF14BEA88FC2AB /* Debug */,
+				5ACDC8B4A04196B71D25E9972FE7BFD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -781,26 +793,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07488D4657FB0A78086563621D425F8A /* Debug */,
-				A1962E6FF39BBAC201A2E5DDF99557DF /* Release */,
+				916E0404255105F480DC4950B7625F7A /* Debug */,
+				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E248877BA755EA86A5B9D0244394BF09 /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Example" */ = {
+		F58508376574493850A5AFF8F4DC94FA /* Build configuration list for PBXNativeTarget "Pods-RAGTextField_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				93FC78386975FB1F2CB9698181878EAE /* Debug */,
-				830A56F40779B638A9F6BA2214B8CEEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E7852C283CDEBFC6F547D51671BD3889 /* Build configuration list for PBXNativeTarget "RAGTextField" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C87422A3C3058956E1ADE292AB9C8B7B /* Debug */,
-				32A1C412DC116F5A3CD6E9F1C07016D6 /* Release */,
+				C2AB7DC9210196E68D770F1C5EF47534 /* Debug */,
+				FE39273332F9CAF90C31280FD40E38C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
