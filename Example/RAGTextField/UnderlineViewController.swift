@@ -47,7 +47,23 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
                 bgView.layer.cornerRadius = 8.0
                 bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
-            
+
+            let icon = UIImage(named: "info")
+            let iconHeight: CGFloat = 12
+            let space = " "
+
+            let attachment = NSTextAttachment()
+            let attachmentBounds = attachment.bounds
+            attachment.bounds = CGRect(
+                x: attachmentBounds.origin.x,
+                y: attachmentBounds.origin.y - 2,
+                width: iconHeight,
+                height: iconHeight)
+
+            attachment.image = icon
+            let attachmentString = NSAttributedString(attachment: attachment)
+
+
             underlineModeTextField.textColor = .white
             underlineModeTextField.tintColor = .white
             underlineModeTextField.textBackgroundView = bgView
@@ -60,7 +76,13 @@ final class UnderlineViewController: UIViewController, UITextFieldDelegate {
             underlineModeTextField.hintFont = UIFont.systemFont(ofSize: 11.0)
             underlineModeTextField.hintColor = ColorPalette.sky
             underlineModeTextField.hintOffset = 3.0
-            underlineModeTextField.hint = "Natural mode supported as well"
+
+            let hintAttributedString = NSMutableAttributedString()
+            hintAttributedString.append(attachmentString)
+            hintAttributedString.append(NSAttributedString(string: space))
+            hintAttributedString.append(NSAttributedString(string: "Natural mode supported as well with hint icon"))
+
+            underlineModeTextField.attributedHint = hintAttributedString
         }
     }
     

@@ -144,6 +144,21 @@ open class RAGTextField: UITextField {
             return hintLabel.text
         }
     }
+
+    /// The attributed text value of the hint.
+    ///
+    /// If `nil`, the hint label is removed from the layout.
+    @IBInspectable open var attributedHint: NSAttributedString? {
+        set {
+            hintLabel.attributedText = newValue
+
+            updateHintVisibility()
+            invalidateIntrinsicContentSize()
+        }
+        get {
+            return hintLabel.attributedText
+        }
+    }
     
     /// The font used for the hint.
     ///
